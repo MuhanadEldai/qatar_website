@@ -3,15 +3,17 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-    <meta name="description" content="شركة سياحة رائدة في السعودية - رحلات داخلية وخارجية - حجوزات طيران وفنادق" />
-    <meta name="author" content="" />
-    <title>الرحلة الذهبية - شركة سياحة وسفر</title>
+    <meta name="description" content="رحلات حمد - شركة سياحة وسفر رائدة في قطر، رحلات داخلية وخارجية، جولات سياحية، حجوزات فنادق وطيران" />
+    <meta name="author" content="رحلات حمد" />
+    <title>رحلات حمد - شركة سياحة وسفر في قطر</title>
     <!-- Favicon-->
     <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
     <!-- Font Awesome icons (free version)-->
     <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
     <!-- Google fonts-->
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
     <!-- Core theme CSS (includes Bootstrap)-->
     <link href="css/styles.css" rel="stylesheet" />
     <style>
@@ -21,7 +23,7 @@
             text-align: right;
         }
         .booking-btn {
-            background: linear-gradient(45deg, #2a9d8f, #1d7873);
+            background: linear-gradient(45deg, #8B0000, #A52A2A);
             color: white;
             border: none;
             padding: 12px 30px;
@@ -30,9 +32,9 @@
             transition: all 0.3s;
         }
         .booking-btn:hover {
-            background: linear-gradient(45deg, #1d7873, #2a9d8f);
+            background: linear-gradient(45deg, #A52A2A, #8B0000);
             transform: translateY(-3px);
-            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            box-shadow: 0 5px 15px rgba(139, 0, 0, 0.3);
         }
         .whatsapp-btn {
             background: #25D366;
@@ -56,20 +58,21 @@
             overflow: hidden;
             transition: all 0.3s;
             margin-bottom: 30px;
+            border-top: 5px solid #8B0000;
         }
         .package-card:hover {
             transform: translateY(-10px);
-            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+            box-shadow: 0 15px 30px rgba(139, 0, 0, 0.1);
         }
         .package-header {
-            background: #2a9d8f;
+            background: #8B0000;
             color: white;
             padding: 15px;
             text-align: center;
         }
         .package-price {
             font-size: 24px;
-            color: #e76f51;
+            color: #8B0000;
             font-weight: bold;
             margin: 15px 0;
         }
@@ -79,22 +82,45 @@
             border: 2px solid #e0e0e0;
         }
         .form-control:focus {
-            border-color: #2a9d8f;
-            box-shadow: 0 0 0 0.25rem rgba(42, 157, 143, 0.25);
+            border-color: #8B0000;
+            box-shadow: 0 0 0 0.25rem rgba(139, 0, 0, 0.25);
         }
-        .section-arabic {
-            text-align: center;
-            padding: 60px 0;
+        .nav-brand {
+            color: #8B0000;
+            font-weight: bold;
+            font-size: 24px;
+        }
+        .qatar-flag {
+            color: #8B0000;
+            margin-right: 5px;
+        }
+        .owner-card {
+            background: linear-gradient(135deg, #8B0000, #A52A2A);
+            color: white;
+            border-radius: 15px;
+            padding: 30px;
+            margin-top: 30px;
+        }
+        .btn-primary {
+            background-color: #8B0000;
+            border-color: #8B0000;
+        }
+        .btn-primary:hover {
+            background-color: #A52A2A;
+            border-color: #A52A2A;
+        }
+        .text-primary {
+            color: #8B0000 !important;
         }
     </style>
 </head>
 <body id="page-top">
     <!-- Navigation-->
-    <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav" style="background: #1d3557;">
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav" style="background: #500000;">
         <div class="container">
-            <a class="navbar-brand" href="#page-top">
-                <i class="fas fa-plane-departure me-2"></i>
-                الرحلة الذهبية
+            <a class="navbar-brand nav-brand" href="#page-top">
+                <i class="fas fa-plane me-2"></i>
+                رحلات حمد 🇶🇦
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
                 القائمة
@@ -104,21 +130,21 @@
                 <ul class="navbar-nav text-uppercase ms-auto py-4 py-lg-0">
                     <li class="nav-item"><a class="nav-link" href="#home">الرئيسية</a></li>
                     <li class="nav-item"><a class="nav-link" href="#services">خدماتنا</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#qatar-tours">جولات قطر</a></li>
                     <li class="nav-item"><a class="nav-link" href="#packages">الرحلات</a></li>
                     <li class="nav-item"><a class="nav-link" href="#booking">الحجز</a></li>
                     <li class="nav-item"><a class="nav-link" href="#about">عن الشركة</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#contact">اتصل بنا</a></li>
                 </ul>
             </div>
         </div>
     </nav>
 
     <!-- Masthead-->
-    <header class="masthead" id="home" style="background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1488646953014-85cb44e25828?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80');">
+    <header class="masthead" id="home" style="background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1518684079-3c830dcef090?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80');">
         <div class="container">
-            <div class="masthead-subheading">أهلاً بكم في</div>
-            <div class="masthead-heading text-uppercase">الرحلة الذهبية للسياحة والسفر</div>
-            <p class="lead mb-4">نصنع لك ذكريات لا تنسى في أجمل الوجهات العالمية</p>
+            <div class="masthead-subheading">مرحباً بكم في</div>
+            <div class="masthead-heading text-uppercase">رحلات حمد للسياحة والسفر</div>
+            <p class="lead mb-4">الوكيل السياحي المعتمد في دولة قطر 🇶🇦<br>نقدم لكم أفضل الرحلات والجولات السياحية</p>
             <a class="btn btn-primary btn-xl text-uppercase booking-btn" href="#booking">
                 احجز رحلتك الآن
                 <i class="fas fa-arrow-left ms-2"></i>
@@ -130,102 +156,154 @@
     <section class="page-section" id="services">
         <div class="container">
             <div class="text-center">
-                <h2 class="section-heading text-uppercase">خدماتنا المميزة</h2>
-                <h3 class="section-subheading text-muted">كل ما تحتاجه لرحلة سعيدة معنا</h3>
+                <h2 class="section-heading text-uppercase">خدمات رحلات حمد</h2>
+                <h3 class="section-subheading text-muted">نقدم لكم مجموعة متكاملة من الخدمات السياحية</h3>
             </div>
             <div class="row text-center">
-                <div class="col-md-4">
-                    <span class="fa-stack fa-4x">
-                        <i class="fas fa-circle fa-stack-2x text-primary"></i>
-                        <i class="fas fa-plane fa-stack-1x fa-inverse"></i>
-                    </span>
-                    <h4 class="my-3">حجوزات الطيران</h4>
-                    <p class="text-muted">أفضل أسعار تذاكر الطيران الدولية والمحلية مع شركات الطيران الموثوقة.</p>
+                <div class="col-md-3 mb-4">
+                    <div class="service-card p-4 rounded shadow-sm h-100">
+                        <i class="fas fa-plane fa-3x text-primary mb-3"></i>
+                        <h4 class="my-3">تذاكر الطيران</h4>
+                        <p class="text-muted">حجوزات طيران محلية ودولية بأفضل الأسعار مع شركات طيران عالمية.</p>
+                    </div>
                 </div>
-                <div class="col-md-4">
-                    <span class="fa-stack fa-4x">
-                        <i class="fas fa-circle fa-stack-2x text-primary"></i>
-                        <i class="fas fa-hotel fa-stack-1x fa-inverse"></i>
-                    </span>
-                    <h4 class="my-3">حجوزات الفنادق</h4>
-                    <p class="text-muted">فنادق فاخرة ومناسبة لمختلف الميزانيات في جميع الوجهات السياحية.</p>
+                <div class="col-md-3 mb-4">
+                    <div class="service-card p-4 rounded shadow-sm h-100">
+                        <i class="fas fa-hotel fa-3x text-primary mb-3"></i>
+                        <h4 class="my-3">حجوزات الفنادق</h4>
+                        <p class="text-muted">فنادق ومنتجعات فاخرة في جميع أنحاء العالم بأسعار مميزة.</p>
+                    </div>
                 </div>
-                <div class="col-md-4">
-                    <span class="fa-stack fa-4x">
-                        <i class="fas fa-circle fa-stack-2x text-primary"></i>
-                        <i class="fas fa-passport fa-stack-1x fa-inverse"></i>
-                    </span>
-                    <h4 class="my-3">تأشيرات السفر</h4>
-                    <p class="text-muted">مساعدتك في استخراج التأشيرات وتجهيز الأوراق المطلوبة للسفر.</p>
+                <div class="col-md-3 mb-4">
+                    <div class="service-card p-4 rounded shadow-sm h-100">
+                        <i class="fas fa-passport fa-3x text-primary mb-3"></i>
+                        <h4 class="my-3">التأشيرات والفيزا</h4>
+                        <p class="text-muted">مساعدة في استخراج جميع أنواع التأشيرات وتجهيز الأوراق المطلوبة.</p>
+                    </div>
+                </div>
+                <div class="col-md-3 mb-4">
+                    <div class="service-card p-4 rounded shadow-sm h-100">
+                        <i class="fas fa-bus fa-3x text-primary mb-3"></i>
+                        <h4 class="my-3">جولات سياحية</h4>
+                        <p class="text-muted">تنظيم رحلات وجولات سياحية في قطر ودول الخليج والعالم.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Qatar Tours -->
+    <section class="page-section bg-light" id="qatar-tours">
+        <div class="container">
+            <div class="text-center">
+                <h2 class="section-heading text-uppercase">🇶🇦 جولات سياحية في قطر</h2>
+                <h3 class="section-subheading text-muted">اكتشف جمال قطر مع رحلات حمد</h3>
+            </div>
+            <div class="row">
+                <div class="col-md-4 mb-4">
+                    <div class="card h-100 border-0 shadow-sm">
+                        <img src="https://images.unsplash.com/photo-1517102886469-d6a71c6ab77f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80" 
+                             class="card-img-top" alt="الدوحة">
+                        <div class="card-body">
+                            <h5 class="card-title">جولة الدوحة</h5>
+                            <p class="card-text">جولة شاملة في العاصمة الدوحة تشمل كورنيش الدوحة، سوق واقف، متحف الفن الإسلامي.</p>
+                            <p><strong>المدة:</strong> 6 ساعات</p>
+                            <p><strong>السعر:</strong> 200 ريال قطري</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="card h-100 border-0 shadow-sm">
+                        <img src="https://images.unsplash.com/photo-1544551763-46a013bb70d5?ixlib=rb-4.0.3&auto=format&fit=crop&w-1350&q=80" 
+                             class="card-img-top" alt="الصحراء">
+                        <div class="card-body">
+                            <h5 class="card-title">رحلة الصحراء</h5>
+                            <p class="card-text">مغامرة في صحراء قطر مع ركوب الجمال، التزلج على الرمال، والتخييم الليلي.</p>
+                            <p><strong>المدة:</strong> يوم كامل</p>
+                            <p><strong>السعر:</strong> 350 ريال قطري</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="card h-100 border-0 shadow-sm">
+                        <img src="https://images.unsplash.com/photo-1597074866923-dc0589150358?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80" 
+                             class="card-img-top" alt="الخور">
+                        <div class="card-body">
+                            <h5 class="card-title">زيارة الخور</h5>
+                            <p class="card-text">زيارة مدينة الخور التاريخية مع مشاهدة الفنادق الفاخرة والمنتجعات العالمية.</p>
+                            <p><strong>المدة:</strong> 8 ساعات</p>
+                            <p><strong>السعر:</strong> 250 ريال قطري</p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Packages-->
-    <section class="page-section bg-light" id="packages">
+    <section class="page-section" id="packages">
         <div class="container">
             <div class="text-center">
-                <h2 class="section-heading text-uppercase">باقات الرحلات المميزة</h2>
-                <h3 class="section-subheading text-muted">اختر رحلتك المفضلة واستمتع بعروضنا الخاصة</h3>
+                <h2 class="section-heading text-uppercase">باقات الرحلات الدولية</h2>
+                <h3 class="section-subheading text-muted">اختر رحلتك المفضلة من باقاتنا المميزة</h3>
             </div>
             <div class="row">
-                <!-- Package 1 -->
-                <div class="col-lg-4 col-md-6">
+                <!-- Package 1 - تركيا -->
+                <div class="col-lg-4 col-md-6 mb-4">
                     <div class="package-card">
                         <div class="package-header">
-                            <h4 class="mb-0">دبي - الإمارات</h4>
+                            <h4 class="mb-0"><i class="fas fa-flag me-2"></i> تركيا - إسطنبول</h4>
                         </div>
                         <div class="p-4">
-                            <img src="https://images.unsplash.com/photo-1512453979798-5ea266f8880c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80" 
-                                 class="img-fluid rounded" alt="دبي">
-                            <div class="package-price">2,499 ريال</div>
-                            <p><i class="fas fa-calendar-alt text-primary me-2"></i> 5 أيام / 4 ليالي</p>
-                            <p><i class="fas fa-hotel text-primary me-2"></i> فندق 5 نجوم</p>
-                            <p><i class="fas fa-utensils text-primary me-2"></i> إفطار وجبتين يومياً</p>
+                            <img src="https://images.unsplash.com/photo-1524231757912-21f4fe3a7200?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80" 
+                                 class="img-fluid rounded" alt="تركيا" style="height: 200px; width: 100%; object-fit: cover;">
+                            <div class="package-price">2,800 ريال قطري</div>
+                            <p><i class="fas fa-calendar-alt text-primary me-2"></i> 7 أيام / 6 ليالي</p>
+                            <p><i class="fas fa-hotel text-primary me-2"></i> فندق 5 نجوم في تقسيم</p>
+                            <p><i class="fas fa-utensils text-primary me-2"></i> إفطار يومي</p>
                             <p><i class="fas fa-bus text-primary me-2"></i> جولات سياحية شاملة</p>
-                            <button class="btn btn-primary w-100 mt-3" onclick="selectPackage('دبي - 5 أيام', '2499')">
-                                اختر هذه الرحلة
+                            <button class="btn btn-primary w-100 mt-3" onclick="selectPackage('تركيا - إسطنبول 7 أيام', '2800')">
+                                احجز الآن
                             </button>
                         </div>
                     </div>
                 </div>
-                <!-- Package 2 -->
-                <div class="col-lg-4 col-md-6">
+                <!-- Package 2 - ماليزيا -->
+                <div class="col-lg-4 col-md-6 mb-4">
                     <div class="package-card">
                         <div class="package-header">
-                            <h4 class="mb-0">العلا - السعودية</h4>
+                            <h4 class="mb-0"><i class="fas fa-flag me-2"></i> ماليزيا - كوالالمبور</h4>
                         </div>
                         <div class="p-4">
-                            <img src="https://images.unsplash.com/photo-1544551763-46a013bb70d5?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80" 
-                                 class="img-fluid rounded" alt="العلا">
-                            <div class="package-price">1,899 ريال</div>
-                            <p><i class="fas fa-calendar-alt text-primary me-2"></i> 3 أيام / 2 ليالي</p>
+                            <img src="https://images.unsplash.com/photo-1523482580672-f109ba8cb9be?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80" 
+                                 class="img-fluid rounded" alt="ماليزيا" style="height: 200px; width: 100%; object-fit: cover;">
+                            <div class="package-price">3,200 ريال قطري</div>
+                            <p><i class="fas fa-calendar-alt text-primary me-2"></i> 8 أيام / 7 ليالي</p>
                             <p><i class="fas fa-hotel text-primary me-2"></i> منتجع فاخر</p>
                             <p><i class="fas fa-utensils text-primary me-2"></i> جميع الوجبات</p>
-                            <p><i class="fas fa-hiking text-primary me-2"></i> رحلات سفاري وتاريخية</p>
-                            <button class="btn btn-primary w-100 mt-3" onclick="selectPackage('العلا - 3 أيام', '1899')">
-                                اختر هذه الرحلة
+                            <p><i class="fas fa-ship text-primary me-2"></i> رحلة لجزيرة لنكاوي</p>
+                            <button class="btn btn-primary w-100 mt-3" onclick="selectPackage('ماليزيا - كوالالمبور 8 أيام', '3200')">
+                                احجز الآن
                             </button>
                         </div>
                     </div>
                 </div>
-                <!-- Package 3 -->
-                <div class="col-lg-4 col-md-6">
+                <!-- Package 3 - جورجيا -->
+                <div class="col-lg-4 col-md-6 mb-4">
                     <div class="package-card">
                         <div class="package-header">
-                            <h4 class="mb-0">ماليزيا</h4>
+                            <h4 class="mb-0"><i class="fas fa-flag me-2"></i> جورجيا - تبليسي</h4>
                         </div>
                         <div class="p-4">
-                            <img src="https://images.unsplash.com/photo-1526495124232-a04e1849168c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80" 
-                                 class="img-fluid rounded" alt="ماليزيا">
-                            <div class="package-price">3,999 ريال</div>
-                            <p><i class="fas fa-calendar-alt text-primary me-2"></i> 7 أيام / 6 ليالي</p>
-                            <p><i class="fas fa-hotel text-primary me-2"></i> منتجعات 5 نجوم</p>
-                            <p><i class="fas fa-utensils text-primary me-2"></i> بوفيه مفتوح</p>
-                            <p><i class="fas fa-ship text-primary me-2"></i> جزر وجولات بحرية</p>
-                            <button class="btn btn-primary w-100 mt-3" onclick="selectPackage('ماليزيا - 7 أيام', '3999')">
-                                اختر هذه الرحلة
+                            <img src="https://images.unsplash.com/photo-1569336415961-10d8b1c423a8?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80" 
+                                 class="img-fluid rounded" alt="جورجيا" style="height: 200px; width: 100%; object-fit: cover;">
+                            <div class="package-price">2,500 ريال قطري</div>
+                            <p><i class="fas fa-calendar-alt text-primary me-2"></i> 6 أيام / 5 ليالي</p>
+                            <p><i class="fas fa-hotel text-primary me-2"></i> فندق 4 نجوم</p>
+                            <p><i class="fas fa-utensils text-primary me-2"></i> إفطار وعشاء</p>
+                            <p><i class="fas fa-skiing text-primary me-2"></i> زيارة منتجعات التزلج</p>
+                            <button class="btn btn-primary w-100 mt-3" onclick="selectPackage('جورجيا - تبليسي 6 أيام', '2500')">
+                                احجز الآن
                             </button>
                         </div>
                     </div>
@@ -235,34 +313,75 @@
     </section>
 
     <!-- Booking Form -->
-    <section class="page-section" id="booking">
+    <section class="page-section bg-light" id="booking">
         <div class="container">
             <div class="text-center">
                 <h2 class="section-heading text-uppercase">نموذج حجز الرحلة</h2>
-                <h3 class="section-subheading text-muted">املأ البيانات وسنتصل بك لتأكيد الحجز</h3>
+                <h3 class="section-subheading text-muted">املأ البيانات وسنتصل بك خلال 24 ساعة</h3>
             </div>
             
             <div class="row">
                 <div class="col-lg-8 mx-auto">
-                    <div class="card shadow">
+                    <div class="card shadow border-0">
                         <div class="card-body p-5">
                             <form id="bookingForm">
                                 <div class="row">
                                     <div class="col-md-6 mb-3">
                                         <label class="form-label">الاسم الثلاثي *</label>
-                                        <input type="text" class="form-control" id="fullName" required>
+                                        <input type="text" class="form-control" id="fullName" required placeholder="أدخل اسمك الكامل">
                                     </div>
                                     <div class="col-md-6 mb-3">
-                                        <label class="form-label">رقم الجوال *</label>
-                                        <input type="tel" class="form-control" id="phone" required placeholder="05xxxxxxxx">
+                                        <label class="form-label">رقم الجوال القطري *</label>
+                                        <input type="tel" class="form-control" id="phone" required placeholder="+974 55xxxxxx">
                                     </div>
                                 </div>
                                 
                                 <div class="row">
                                     <div class="col-md-6 mb-3">
                                         <label class="form-label">البريد الإلكتروني</label>
-                                        <input type="email" class="form-control" id="email">
+                                        <input type="email" class="form-control" id="email" placeholder="name@example.com">
                                     </div>
+                                    <div class="col-md-6 mb-3">
+                                        <label class="form-label">الجنسية</label>
+                                        <select class="form-control" id="nationality">
+                                            <option value="">اختر الجنسية</option>
+                                            <option value="قطري">قطري</option>
+                                            <option value="مقيم في قطر">مقيم في قطر</option>
+                                            <option value="خليجي">خليجي</option>
+                                            <option value="عربي">عربي</option>
+                                            <option value="أجنبي">أجنبي</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                
+                                <div class="row">
+                                    <div class="col-md-6 mb-3">
+                                        <label class="form-label">نوع الرحلة *</label>
+                                        <select class="form-control" id="tripType" required>
+                                            <option value="">اختر نوع الرحلة</option>
+                                            <option value="جولة في قطر">جولة في قطر</option>
+                                            <option value="رحلة دولية">رحلة دولية</option>
+                                            <option value="تذاكر طيران فقط">تذاكر طيران فقط</option>
+                                            <option value="فندق فقط">فندق فقط</option>
+                                            <option value="باقة سياحية كاملة">باقة سياحية كاملة</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-md-6 mb-3">
+                                        <label class="form-label">الرحلة المحددة *</label>
+                                        <select class="form-control" id="selectedPackage" required>
+                                            <option value="">اختر رحلة</option>
+                                            <option value="جولة الدوحة - 200 ريال">جولة الدوحة - 200 ريال قطري</option>
+                                            <option value="رحلة الصحراء - 350 ريال">رحلة الصحراء - 350 ريال قطري</option>
+                                            <option value="زيارة الخور - 250 ريال">زيارة الخور - 250 ريال قطري</option>
+                                            <option value="تركيا - إسطنبول 7 أيام - 2800 ريال">تركيا - إسطنبول 7 أيام - 2,800 ريال</option>
+                                            <option value="ماليزيا - كوالالمبور 8 أيام - 3200 ريال">ماليزيا - كوالالمبور 8 أيام - 3,200 ريال</option>
+                                            <option value="جورجيا - تبليسي 6 أيام - 2500 ريال">جورجيا - تبليسي 6 أيام - 2,500 ريال</option>
+                                            <option value="أخرى">أخرى (حدد في الملاحظات)</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                
+                                <div class="row">
                                     <div class="col-md-6 mb-3">
                                         <label class="form-label">عدد الأشخاص *</label>
                                         <select class="form-control" id="persons" required>
@@ -271,21 +390,8 @@
                                             <option value="2">2 أشخاص</option>
                                             <option value="3">3 أشخاص</option>
                                             <option value="4">4 أشخاص</option>
-                                            <option value="5+">5+ أشخاص</option>
-                                        </select>
-                                    </div>
-                                </div>
-                                
-                                <div class="row">
-                                    <div class="col-md-6 mb-3">
-                                        <label class="form-label">الرحلة المختارة *</label>
-                                        <select class="form-control" id="selectedPackage" required>
-                                            <option value="">اختر رحلة</option>
-                                            <option value="دبي - 5 أيام - 2499 ريال">دبي - 5 أيام - 2,499 ريال</option>
-                                            <option value="العلا - 3 أيام - 1899 ريال">العلا - 3 أيام - 1,899 ريال</option>
-                                            <option value="ماليزيا - 7 أيام - 3999 ريال">ماليزيا - 7 أيام - 3,999 ريال</option>
-                                            <option value="تركيا - 6 أيام - 3499 ريال">تركيا - 6 أيام - 3,499 ريال</option>
-                                            <option value="مصر - 4 أيام - 2299 ريال">مصر - 4 أيام - 2,299 ريال</option>
+                                            <option value="5">5 أشخاص</option>
+                                            <option value="6+">6+ أشخاص</option>
                                         </select>
                                     </div>
                                     <div class="col-md-6 mb-3">
@@ -296,15 +402,15 @@
                                 
                                 <div class="mb-3">
                                     <label class="form-label">ملاحظات إضافية</label>
-                                    <textarea class="form-control" id="notes" rows="3" placeholder="أي طلبات خاصة أو احتياجات إضافية..."></textarea>
+                                    <textarea class="form-control" id="notes" rows="3" placeholder="أي طلبات خاصة، احتياجات، أسئلة..."></textarea>
                                 </div>
                                 
                                 <div class="text-center mt-4">
-                                    <button type="button" class="btn btn-primary btn-xl" onclick="sendBookingToWhatsApp()">
+                                    <button type="button" class="btn btn-primary btn-xl px-5" onclick="sendBookingToWhatsApp()">
                                         <i class="fab fa-whatsapp me-2"></i>
                                         إرسال الحجز عبر واتساب
                                     </button>
-                                    <p class="text-muted mt-3">سيتم التواصل معك خلال 24 ساعة لتأكيد الحجز</p>
+                                    <p class="text-muted mt-3">سيتصل بك <strong>حمد</strong> أو أحد مندوبينا خلال 24 ساعة</p>
                                 </div>
                             </form>
                         </div>
@@ -315,120 +421,148 @@
             <!-- Quick Contact -->
             <div class="text-center mt-5">
                 <h4 class="mb-3">للحجز السريع والاستفسارات</h4>
-                <a href="https://wa.me/966551234567" class="whatsapp-btn" target="_blank">
+                <a href="https://wa.me/974555123456" class="whatsapp-btn" target="_blank">
                     <i class="fab fa-whatsapp fa-2x"></i>
-                    <span style="font-size: 18px;">تواصل معنا على واتساب</span>
+                    <span style="font-size: 18px;">تواصل مع حمد على واتساب</span>
                 </a>
                 <div class="mt-3">
-                    <p><i class="fas fa-phone text-primary me-2"></i> 011 123 4567</p>
-                    <p><i class="fas fa-envelope text-primary me-2"></i> info@goldentrip.com</p>
+                    <p><i class="fas fa-phone text-primary me-2"></i> +974 4455 6677</p>
+                    <p><i class="fas fa-envelope text-primary me-2"></i> info@hamadtrips.com</p>
+                    <p><i class="fas fa-map-marker-alt text-primary me-2"></i> الدوحة - قطر - شارع اللقطة</p>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- About-->
-    <section class="page-section bg-light" id="about">
+    <section class="page-section" id="about">
         <div class="container">
             <div class="text-center">
-                <h2 class="section-heading text-uppercase">عن شركتنا</h2>
-                <h3 class="section-subheading text-muted">رحلة من التميز والثقة منذ 2010</h3>
+                <h2 class="section-heading text-uppercase">عن رحلات حمد</h2>
+                <h3 class="section-subheading text-muted">رحلة من النجاح والتميز في عالم السياحة</h3>
             </div>
-            <div class="row">
-                <div class="col-lg-8 mx-auto text-center">
-                    <p class="lead">نحن شركة سعودية رائدة في مجال السياحة والسفر، نقدم خدمات شاملة لعملائنا الكرام منذ أكثر من 10 سنوات. نسعى دائماً لتقديم أفضل الخدمات بأعلى معايير الجودة والاحترافية.</p>
-                    
-                    <div class="row mt-5">
-                        <div class="col-md-3">
-                            <div class="counter">
-                                <h2 class="text-primary">2,500+</h2>
-                                <p>عميل سعيد</p>
-                            </div>
+            
+            <div class="row align-items-center">
+                <div class="col-lg-6">
+                    <div class="owner-card">
+                        <div class="text-center">
+                            <i class="fas fa-user-tie fa-4x mb-3"></i>
+                            <h3>حمد</h3>
+                            <h5 class="mb-3">مالك ومدير الشركة</h5>
+                            <p>مرحباً بكم، أنا حمد، مؤسس شركة "رحلات حمد" للسياحة والسفر في قطر. لدي خبرة تزيد عن 15 عاماً في مجال السياحة، وأسعى دائماً لتقديم أفضل الخدمات لعملائنا الكرام.</p>
+                            <p>شعارنا: "رحلتك، مسؤوليتنا"</p>
                         </div>
-                        <div class="col-md-3">
-                            <div class="counter">
-                                <h2 class="text-primary">50+</h2>
-                                <p>وجهة سياحية</p>
+                    </div>
+                </div>
+                
+                <div class="col-lg-6 mt-4 mt-lg-0">
+                    <div class="p-4">
+                        <h4 class="mb-4">لماذا تختار رحلات حمد؟</h4>
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <div class="d-flex align-items-start">
+                                    <i class="fas fa-check-circle text-primary fa-lg me-3 mt-1"></i>
+                                    <div>
+                                        <h6>ترخيص قطري رسمي</h6>
+                                        <p class="text-muted small">مرخصة من الهيئة العامة للسياحة في قطر</p>
+                                    </div>
+                                </div>
                             </div>
-                        </div>
-                        <div class="col-md-3">
-                            <div class="counter">
-                                <h2 class="text-primary">12</h2>
-                                <p>سنة خبرة</p>
+                            <div class="col-md-6 mb-3">
+                                <div class="d-flex align-items-start">
+                                    <i class="fas fa-check-circle text-primary fa-lg me-3 mt-1"></i>
+                                    <div>
+                                        <h6>أسعار تنافسية</h6>
+                                        <p class="text-muted small">أفضل العروض وأقل الأسعار في السوق</p>
+                                    </div>
+                                </div>
                             </div>
-                        </div>
-                        <div class="col-md-3">
-                            <div class="counter">
-                                <h2 class="text-primary">24/7</h2>
-                                <p>دعم فني</p>
+                            <div class="col-md-6 mb-3">
+                                <div class="d-flex align-items-start">
+                                    <i class="fas fa-check-circle text-primary fa-lg me-3 mt-1"></i>
+                                    <div>
+                                        <h6>دعم 24/7</h6>
+                                        <p class="text-muted small">دعم فني على مدار الساعة طوال أيام الأسبوع</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <div class="d-flex align-items-start">
+                                    <i class="fas fa-check-circle text-primary fa-lg me-3 mt-1"></i>
+                                    <div>
+                                        <h6>خدمة شخصية</h6>
+                                        <p class="text-muted small">متابعة شخصية من حمد نفسه للرحلات المميزة</p>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
-
-    <!-- Contact-->
-    <section class="page-section" id="contact">
-        <div class="container">
-            <div class="text-center">
-                <h2 class="section-heading text-uppercase">اتصل بنا</h2>
-                <h3 class="section-subheading text-muted">نحن هنا لخدمتكم على مدار الساعة</h3>
-            </div>
-            <div class="row">
-                <div class="col-md-4 mb-4">
-                    <div class="card text-center h-100">
-                        <div class="card-body">
-                            <i class="fas fa-map-marker-alt fa-3x text-primary mb-3"></i>
-                            <h4>الموقع</h4>
-                            <p>الرياض - حي النخيل<br>شارع الملك فهد</p>
-                        </div>
-                    </div>
+            
+            <!-- Stats -->
+            <div class="row mt-5">
+                <div class="col-md-3 text-center">
+                    <h2 class="text-primary">15+</h2>
+                    <p>سنة خبرة</p>
                 </div>
-                <div class="col-md-4 mb-4">
-                    <div class="card text-center h-100">
-                        <div class="card-body">
-                            <i class="fas fa-phone fa-3x text-primary mb-3"></i>
-                            <h4>الهاتف</h4>
-                            <p>011 123 4567<br>055 123 4567</p>
-                        </div>
-                    </div>
+                <div class="col-md-3 text-center">
+                    <h2 class="text-primary">5,000+</h2>
+                    <p>عميل سعيد</p>
                 </div>
-                <div class="col-md-4 mb-4">
-                    <div class="card text-center h-100">
-                        <div class="card-body">
-                            <i class="fas fa-clock fa-3x text-primary mb-3"></i>
-                            <h4>ساعات العمل</h4>
-                            <p>الأحد - الخميس<br>9 صباحاً - 9 مساءً</p>
-                        </div>
-                    </div>
+                <div class="col-md-3 text-center">
+                    <h2 class="text-primary">50+</h2>
+                    <p>وجهة سياحية</p>
+                </div>
+                <div class="col-md-3 text-center">
+                    <h2 class="text-primary">24/7</h2>
+                    <p>خدمة عملاء</p>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Footer-->
-    <footer class="footer py-4" style="background: #1d3557; color: white;">
+    <footer class="footer py-4" style="background: #500000; color: white;">
         <div class="container">
             <div class="row align-items-center">
                 <div class="col-lg-4 text-lg-start">
                     <div class="mb-3">
-                        <i class="fas fa-plane-departure fa-2x me-2"></i>
-                        <span style="font-size: 24px; font-weight: bold;">الرحلة الذهبية</span>
+                        <i class="fas fa-plane fa-2x me-2"></i>
+                        <span style="font-size: 24px; font-weight: bold;">رحلات حمد 🇶🇦</span>
                     </div>
-                    <p>شركة سياحة وسفريات مرخصة من الهيئة السعودية للسياحة</p>
+                    <p>الوكيل السياحي المعتمد في دولة قطر</p>
+                    <p class="small">ترخيص رقم: QAT-TOUR-2024-789</p>
                 </div>
-                <div class="col-lg-4 my-3 my-lg-0">
-                    <a class="btn btn-light btn-social mx-2" href="#!" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
-                    <a class="btn btn-light btn-social mx-2" href="#!" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
-                    <a class="btn btn-light btn-social mx-2" href="#!" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-                    <a class="btn btn-light btn-social mx-2" href="#!" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                <div class="col-lg-4 my-3 my-lg-0 text-center">
+                    <h6 class="mb-3">تابعنا على</h6>
+                    <a class="btn btn-light btn-social mx-2" href="#!" aria-label="Twitter">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                    <a class="btn btn-light btn-social mx-2" href="#!" aria-label="Instagram">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a class="btn btn-light btn-social mx-2" href="#!" aria-label="TikTok">
+                        <i class="fab fa-tiktok"></i>
+                    </a>
+                    <a class="btn btn-light btn-social mx-2" href="#!" aria-label="YouTube">
+                        <i class="fab fa-youtube"></i>
+                    </a>
                 </div>
                 <div class="col-lg-4 text-lg-end">
-                    <p class="mb-1">© 2024 الرحلة الذهبية. جميع الحقوق محفوظة.</p>
-                    <p>رقم الترخيص: 123456789</p>
+                    <h6 class="mb-2">معلومات التواصل</h6>
+                    <p class="mb-1"><i class="fas fa-phone me-2"></i> +974 4455 6677</p>
+                    <p class="mb-1"><i class="fab fa-whatsapp me-2"></i> +249995333234</p>
+                    <p class="mb-1"><i class="fas fa-envelope me-2"></i> info@hamadtrips.com</p>
+                    <p class="mb-0"><i class="fas fa-map-marker-alt me-2"></i> الدوحة - قطر</p>
                 </div>
+            </div>
+            <hr class="my-4" style="border-color: rgba(255,255,255,0.2);">
+            <div class="text-center">
+                <p class="mb-0">© 2024 رحلات حمد. جميع الحقوق محفوظة. | 
+                    <a href="#" class="text-white text-decoration-none">سياسة الخصوصية</a> | 
+                    <a href="#" class="text-white text-decoration-none">الشروط والأحكام</a>
+                </p>
             </div>
         </div>
     </footer>
@@ -442,7 +576,8 @@
     <script>
         // دالة لاختيار الرحلة من البطاقات
         function selectPackage(packageName, price) {
-            document.getElementById('selectedPackage').value = packageName + ' - ' + price + ' ريال';
+            document.getElementById('selectedPackage').value = packageName + ' - ' + price + ' ريال قطري';
+            document.getElementById('tripType').value = 'باقة سياحية كاملة';
             document.getElementById('booking').scrollIntoView({behavior: 'smooth'});
         }
 
@@ -452,62 +587,74 @@
             const fullName = document.getElementById('fullName').value;
             const phone = document.getElementById('phone').value;
             const email = document.getElementById('email').value || 'لم يحدد';
-            const persons = document.getElementById('persons').value;
+            const nationality = document.getElementById('nationality').value || 'لم يحدد';
+            const tripType = document.getElementById('tripType').value;
             const selectedPackage = document.getElementById('selectedPackage').value;
+            const persons = document.getElementById('persons').value;
             const travelDate = document.getElementById('travelDate').value;
             const notes = document.getElementById('notes').value || 'لا توجد ملاحظات';
 
             // التحقق من الحقول الإلزامية
-            if (!fullName || !phone || !persons || !selectedPackage || !travelDate) {
+            if (!fullName || !phone || !tripType || !selectedPackage || !persons || !travelDate) {
                 alert('الرجاء ملء جميع الحقول الإلزامية (*)');
                 return;
             }
 
             // إنشاء رسالة منظمة
-            const message = `🌟 *طلب حجز جديد - الرحلة الذهبية* 🌟
+            const message = `🇶🇦 *طلب حجز جديد - رحلات حمد* 🇶🇦
 
-👤 *المعلومات الشخصية:*
+👤 *معلومات العميل:*
 • الاسم: ${fullName}
 • الجوال: ${phone}
 • الإيميل: ${email}
+• الجنسية: ${nationality}
 
 ✈️ *تفاصيل الحجز:*
-• الرحلة: ${selectedPackage}
+• نوع الرحلة: ${tripType}
+• الرحلة المختارة: ${selectedPackage}
 • عدد الأشخاص: ${persons}
 • تاريخ السفر: ${travelDate}
 
 📝 *ملاحظات العميل:*
 ${notes}
 
-🆔 *رقم الطلب:* ${Date.now()}
-⏰ *وقت الطلب:* ${new Date().toLocaleString('ar-SA')}
+🆔 *رقم الطلب:* HMD-${Date.now().toString().slice(-6)}
+⏰ *وقت الطلب:* ${new Date().toLocaleString('ar-QA')}
+📍 *الموقع:* الدوحة، قطر
 
-شكراً لاختياركم الرحلة الذهبية، سيتصل بك مندوبنا خلال 24 ساعة لتأكيد الحجز.`;
+شكراً لاختياركم *رحلات حمد*، سيتصل بك *حمد* أو أحد مندوبينا خلال 24 ساعة لتأكيد الحجز.`;
 
             // تشفير الرسالة
             const encodedMessage = encodeURIComponent(message);
             
-            // إنشاء رابط واتساب (غير رقمك الحقيقي هنا)
-            const whatsappNumber = "966551234567"; // ⚠️ غيره لرقم شركتك
+            // إنشاء رابط واتساب - غير الرقم لرقم حمد الحقيقي
+            const whatsappNumber = "974555123456"; // ⚠️ غيره لرقم حمد الحقيقي
             const whatsappURL = `https://wa.me/${whatsappNumber}?text=${encodedMessage}`;
             
             // فتح الواتساب
             window.open(whatsappURL, '_blank');
             
             // إظهار رسالة تأكيد
-            alert('شكراً لحجزك! سيتم فتح واتساب لإرسال تفاصيل حجزك.\n\nرقم الطلب: ' + Date.now());
-            
-            // إعادة تعيين النموذج (اختياري)
-            // document.getElementById('bookingForm').reset();
+            alert(`شكراً لحجزك مع رحلات حمد! 
+سيتم فتح واتساب لإرسال تفاصيل حجزك.
+
+رقم الطلب: HMD-${Date.now().toString().slice(-6)}
+سيتصل بك حمد قريباً.`);
         }
 
         // تعيين الحد الأدنى لتاريخ اليوم
-        document.getElementById('travelDate').min = new Date().toISOString().split('T')[0];
+        const today = new Date();
+        document.getElementById('travelDate').min = today.toISOString().split('T')[0];
         
-        // تعيين الحد الأقصى للسنة القادمة
+        // تعيين الحد الأقصى لسنة من الآن
         const nextYear = new Date();
         nextYear.setFullYear(nextYear.getFullYear() + 1);
         document.getElementById('travelDate').max = nextYear.toISOString().split('T')[0];
+        
+        // تعيين تاريخ افتراضي بعد أسبوع
+        const nextWeek = new Date();
+        nextWeek.setDate(nextWeek.getDate() + 7);
+        document.getElementById('travelDate').value = nextWeek.toISOString().split('T')[0];
     </script>
 </body>
 </html>
