@@ -1,1149 +1,217 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-    <meta name="description" content="Golden Sky For Tourism Services - Premium desert tours, camel rides, falcon experiences in Qatar" />
-    <meta name="author" content="Golden Sky Tourism" />
-    <title>Golden Sky For Tourism Services | Qatar Desert Adventures</title>
-    <!-- Favicon-->
-    <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
-    <!-- Font Awesome icons (free version)-->
-    <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
-    <!-- Google fonts-->
-    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css" />
-    <link href="https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700" rel="stylesheet" type="text/css" />
-    <!-- Bootstrap Icons -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
-    <!-- Core theme CSS (includes Bootstrap)-->
-    <link href="css/styles.css" rel="stylesheet" />
-    <style>
-        /* Custom Styles */
-        body {
-            font-family: 'Montserrat', sans-serif;
-        }
-        
-        /* Hero Slider */
-        .hero-slider {
-            position: relative;
-            height: 100vh;
-            overflow: hidden;
-        }
-        
-        .slide {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-size: cover;
-            background-position: center;
-            opacity: 0;
-            transition: opacity 1s ease-in-out;
-        }
-        
-        .slide.active {
-            opacity: 1;
-        }
-        
-        .slide-overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.7));
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-        
-        .slide-content {
-            color: white;
-            text-align: center;
-            padding: 20px;
-            max-width: 800px;
-        }
-        
-        .slide-content h1 {
-            font-size: 3.5rem;
-            margin-bottom: 20px;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
-        }
-        
-        .slide-content p {
-            font-size: 1.2rem;
-            margin-bottom: 30px;
-        }
-        
-        /* Slider Dots */
-        .slider-dots {
-            position: absolute;
-            bottom: 50px;
-            left: 50%;
-            transform: translateX(-50%);
-            display: flex;
-            gap: 15px;
-            z-index: 100;
-        }
-        
-        .dot {
-            width: 12px;
-            height: 12px;
-            border-radius: 50%;
-            background: rgba(255,255,255,0.5);
-            cursor: pointer;
-            transition: all 0.3s;
-        }
-        
-        .dot.active {
-            background: #FFD700;
-            transform: scale(1.3);
-        }
-        
-        /* Booking Form Styles */
-        .booking-card {
-            background: white;
-            border-radius: 20px;
-            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
-            overflow: hidden;
-        }
-        
-        .form-section {
-            padding: 40px;
-        }
-        
-        .counter-btn {
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            background: #f8f9fa;
-            border: 2px solid #dee2e6;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: bold;
-            cursor: pointer;
-            transition: all 0.3s;
-        }
-        
-        .counter-btn:hover {
-            background: #FFD700;
-            border-color: #FFD700;
-        }
-        
-        .counter-input {
-            width: 60px;
-            text-align: center;
-            border: 2px solid #dee2e6;
-            border-radius: 10px;
-            padding: 8px;
-            font-weight: bold;
-        }
-        
-        .tour-card {
-            border: 1px solid #e9ecef;
-            border-radius: 15px;
-            overflow: hidden;
-            transition: all 0.3s;
-            height: 100%;
-        }
-        
-        .tour-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
-        }
-        
-        .tour-image {
-            height: 200px;
-            width: 100%;
-            object-fit: cover;
-        }
-        
-        .tour-badge {
-            position: absolute;
-            top: 15px;
-            right: 15px;
-            background: #FFD700;
-            color: #333;
-            padding: 5px 15px;
-            border-radius: 20px;
-            font-weight: bold;
-            font-size: 0.9rem;
-        }
-        
-        .btn-gold {
-            background: linear-gradient(45deg, #FFD700, #FFC107);
-            color: #333;
-            border: none;
-            font-weight: bold;
-            padding: 12px 30px;
-            border-radius: 30px;
-            transition: all 0.3s;
-        }
-        
-        .btn-gold:hover {
-            background: linear-gradient(45deg, #FFC107, #FFD700);
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(255, 193, 7, 0.3);
-        }
-        
-        .bg-gold {
-            background-color: #FFD700 !important;
-        }
-        
-        .text-gold {
-            color: #FFD700 !important;
-        }
-        
-        .border-gold {
-            border-color: #FFD700 !important;
-        }
-        
-        .booking-btn {
-            background: linear-gradient(45deg, #FFD700, #FFC107);
-            color: #333;
-            border: none;
-            padding: 15px 40px;
-            border-radius: 30px;
-            font-weight: bold;
-            font-size: 1.1rem;
-            transition: all 0.3s;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
-        }
-        
-        .booking-btn:hover {
-            background: linear-gradient(45deg, #FFC107, #FFD700);
-            transform: translateY(-3px);
-            box-shadow: 0 10px 20px rgba(255, 193, 7, 0.3);
-        }
-        
-        .whatsapp-btn {
-            background: #25D366;
-            color: white;
-            padding: 15px 30px;
-            border-radius: 30px;
-            text-decoration: none;
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-            font-weight: bold;
-            transition: all 0.3s;
-        }
-        
-        .whatsapp-btn:hover {
-            background: #128C7E;
-            color: white;
-            transform: scale(1.05);
-        }
-        
-        .time-slot {
-            border: 2px solid #dee2e6;
-            border-radius: 10px;
-            padding: 15px;
-            text-align: center;
-            cursor: pointer;
-            transition: all 0.3s;
-        }
-        
-        .time-slot:hover {
-            border-color: #FFD700;
-            background: rgba(255, 215, 0, 0.1);
-        }
-        
-        .time-slot.active {
-            border-color: #FFD700;
-            background: rgba(255, 215, 0, 0.1);
-        }
-        
-        .location-select {
-            border: 2px solid #dee2e6;
-            border-radius: 10px;
-            padding: 12px;
-            width: 100%;
-            transition: all 0.3s;
-        }
-        
-        .location-select:focus {
-            border-color: #FFD700;
-            box-shadow: 0 0 0 0.25rem rgba(255, 215, 0, 0.25);
-        }
-        
-        .form-control:focus {
-            border-color: #FFD700;
-            box-shadow: 0 0 0 0.25rem rgba(255, 215, 0, 0.25);
-        }
-        
-        .inclusion-badge {
-            display: inline-block;
-            background: rgba(255, 215, 0, 0.1);
-            color: #333;
-            padding: 5px 12px;
-            border-radius: 20px;
-            font-size: 0.85rem;
-            margin: 3px;
-            border: 1px solid rgba(255, 215, 0, 0.3);
-        }
-    </style>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Golden Sky Tourism | Qatar Desert Adventures</title>
+
+<!-- Fonts & Icons -->
+<link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Roboto+Slab:300,400,700" rel="stylesheet">
+<script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
+
+<!-- Bootstrap -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<style>
+body { font-family: 'Montserrat', sans-serif; }
+
+.hero {
+    height: 100vh;
+    background: linear-gradient(rgba(0,0,0,.6),rgba(0,0,0,.8)),
+    url('https://images.unsplash.com/photo-1518684079-3c830dcef090?auto=format&fit=crop&w=1350&q=80') center/cover;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    color:#fff;
+}
+
+.btn-gold {
+    background: linear-gradient(45deg,#FFD700,#FFC107);
+    border:none;
+    color:#333;
+    font-weight:bold;
+    border-radius:30px;
+    padding:14px 34px;
+}
+
+.booking-card {
+    background:#fff;
+    border-radius:20px;
+    box-shadow:0 15px 30px rgba(0,0,0,.1);
+    animation:fadeUp .8s ease;
+}
+
+@keyframes fadeUp {
+    from {opacity:0; transform:translateY(30px)}
+    to {opacity:1; transform:translateY(0)}
+}
+
+.time-slot {
+    border:2px solid #ddd;
+    border-radius:12px;
+    padding:15px;
+    text-align:center;
+    cursor:pointer;
+}
+.time-slot.active {
+    border-color:#FFD700;
+    background:rgba(255,215,0,.1);
+}
+
+.footer {
+    background:#111;
+    color:#fff;
+}
+</style>
 </head>
-<body id="page-top">
-    <!-- Navigation-->
-    <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav" style="background: rgba(0, 0, 0, 0.9);">
-        <div class="container">
-            <a class="navbar-brand" href="#page-top">
-                <i class="fas fa-sun me-2 text-gold"></i>
-                <span class="fw-bold">Golden Sky</span> Tourism
-            </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-                <i class="fas fa-bars"></i>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarResponsive">
-                <ul class="navbar-nav text-uppercase ms-auto py-4 py-lg-0">
-                    <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#tours">Tours</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#booking">Booking</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#packages">Packages</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
-                </ul>
-            </div>
-        </div>
-    </nav>
 
-    <!-- Hero Slider -->
-    <header class="hero-slider" id="home">
-        <!-- Slide 1 -->
-        <div class="slide active" style="background-image: url('https://images.unsplash.com/photo-1518684079-3c830dcef090?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80');">
-            <div class="slide-overlay">
-                <div class="slide-content">
-                    <h1>Desert Safari Adventures</h1>
-                    <p>Experience the magic of Qatar's desert with our guided tours. Dune bashing, camel rides, and authentic Bedouin experiences await you.</p>
-                    <a href="#booking" class="booking-btn">Book Your Adventure</a>
-                </div>
-            </div>
-        </div>
-        
-        <!-- Slide 2 -->
-        <div class="slide" style="background-image: url('https://images.unsplash.com/photo-1501555088652-021faa106b9b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80');">
-            <div class="slide-overlay">
-                <div class="slide-content">
-                    <h1>Camel Riding Experience</h1>
-                    <p>Traditional camel rides through golden sand dunes. Perfect for families and adventure seekers.</p>
-                    <a href="#booking" class="booking-btn">Book Camel Ride</a>
-                </div>
-            </div>
-        </div>
-        
-        <!-- Slide 3 -->
-        <div class="slide" style="background-image: url('https://images.unsplash.com/photo-1550358864-518f202c02ba?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80');">
-            <div class="slide-overlay">
-                <div class="slide-content">
-                    <h1>Falconry Shows</h1>
-                    <p>Witness the ancient art of falconry. Interactive shows with Qatar's majestic national bird.</p>
-                    <a href="#booking" class="booking-btn">Book Falcon Show</a>
-                </div>
-            </div>
-        </div>
-        
-        <!-- Slide 4 -->
-        <div class="slide" style="background-image: url('https://images.unsplash.com/photo-1544551763-46a013bb70d5?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80');">
-            <div class="slide-overlay">
-                <div class="slide-content">
-                    <h1>Sunset Desert Tours</h1>
-                    <p>Breathtaking sunset views over the desert with traditional Qatari hospitality.</p>
-                    <a href="#booking" class="booking-btn">Book Sunset Tour</a>
-                </div>
-            </div>
-        </div>
-        
-        <!-- Dots Navigation -->
-        <div class="slider-dots">
-            <div class="dot active" data-slide="0"></div>
-            <div class="dot" data-slide="1"></div>
-            <div class="dot" data-slide="2"></div>
-            <div class="dot" data-slide="3"></div>
-        </div>
-    </header>
+<body>
 
-    <!-- Tours Section -->
-    <section class="page-section" id="tours">
-        <div class="container">
-            <div class="text-center mb-5">
-                <h2 class="section-heading text-uppercase">Our Popular Tours</h2>
-                <h3 class="section-subheading text-muted">Choose from our most requested desert experiences</h3>
-            </div>
-            
-            <div class="row g-4">
-                <!-- Tour 1 -->
-                <div class="col-lg-4 col-md-6">
-                    <div class="tour-card">
-                        <div class="position-relative">
-                            <img src="https://images.unsplash.com/photo-1544551763-46a013bb70d5?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80" 
-                                 class="tour-image" alt="Half Day Desert Tour">
-                            <div class="tour-badge">Most Popular</div>
-                        </div>
-                        <div class="p-4">
-                            <h4 class="mb-3">Half Day Desert Tour</h4>
-                            <div class="d-flex align-items-center mb-3">
-                                <i class="fas fa-clock text-gold me-2"></i>
-                                <span class="fw-bold">Duration: 4 hours</span>
-                            </div>
-                            <p class="text-muted mb-3">Experience the desert in just 4 hours. Perfect for those with limited time.</p>
-                            <div class="mb-3">
-                                <span class="inclusion-badge">Dune Bashing</span>
-                                <span class="inclusion-badge">Camel Ride (15 mins)</span>
-                                <span class="inclusion-badge">Sandboarding</span>
-                                <span class="inclusion-badge">Bedouin Camp Visit</span>
-                                <span class="inclusion-badge">Arabic Tea & Dates</span>
-                            </div>
-                            <button class="btn btn-gold w-100" onclick="selectTour('Half Day Desert Tour')">
-                                Select This Tour
-                            </button>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Tour 2 -->
-                <div class="col-lg-4 col-md-6">
-                    <div class="tour-card">
-                        <div class="position-relative">
-                            <img src="https://images.unsplash.com/photo-1517102886469-d6a71c6ab77f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80" 
-                                 class="tour-image" alt="Full Day City Tour">
-                            <div class="tour-badge">Family Friendly</div>
-                        </div>
-                        <div class="p-4">
-                            <h4 class="mb-3">Full Day City Tour</h4>
-                            <div class="d-flex align-items-center mb-3">
-                                <i class="fas fa-clock text-gold me-2"></i>
-                                <span class="fw-bold">Duration: 6 hours</span>
-                            </div>
-                            <p class="text-muted mb-3">Comprehensive Doha city exploration with traditional dinner included.</p>
-                            <div class="mb-3">
-                                <span class="inclusion-badge">Museum of Islamic Art</span>
-                                <span class="inclusion-badge">Souq Waqif</span>
-                                <span class="inclusion-badge">The Pearl Qatar</span>
-                                <span class="inclusion-badge">Katara Cultural Village</span>
-                                <span class="inclusion-badge">Traditional Dinner</span>
-                            </div>
-                            <button class="btn btn-gold w-100" onclick="selectTour('Full Day City Tour')">
-                                Select This Tour
-                            </button>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Tour 3 -->
-                <div class="col-lg-4 col-md-6">
-                    <div class="tour-card">
-                        <div class="position-relative">
-                            <img src="https://images.unsplash.com/photo-1597074866923-dc0589150358?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80" 
-                                 class="tour-image" alt="North West Qatar Tour">
-                            <div class="tour-badge">Adventure</div>
-                        </div>
-                        <div class="p-4">
-                            <h4 class="mb-3">North West Qatar Tour</h4>
-                            <div class="d-flex align-items-center mb-3">
-                                <i class="fas fa-clock text-gold me-2"></i>
-                                <span class="fw-bold">Duration: 6 hours</span>
-                            </div>
-                            <p class="text-muted mb-3">Discover the hidden gems of North West Qatar's desert landscapes.</p>
-                            <div class="mb-3">
-                                <span class="inclusion-badge">Zekreet Fort</span>
-                                <span class="inclusion-badge">Film City</span>
-                                <span class="inclusion-badge">East-West Art Installation</span>
-                                <span class="inclusion-badge">Desert Safari</span>
-                                <span class="inclusion-badge">Refreshments</span>
-                            </div>
-                            <button class="btn btn-gold w-100" onclick="selectTour('North West Qatar Tour')">
-                                Select This Tour
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+<!-- HERO -->
+<section class="hero">
+    <div>
+        <h1 class="display-4 fw-bold">Golden Sky Desert Adventures</h1>
+        <p class="lead mb-4">Premium desert safari, camel rides & authentic Qatari experiences</p>
+        <a href="#booking" class="btn btn-gold">Book Your Tour</a>
+    </div>
+</section>
 
-    <!-- Booking Form -->
-    <section class="page-section bg-light" id="booking">
-        <div class="container">
-            <div class="text-center mb-5">
-                <h2 class="section-heading text-uppercase">Book Your Desert Adventure</h2>
-                <h3 class="section-subheading text-muted">Fill in the details and we'll take care of the rest</h3>
-            </div>
-            
-            <div class="booking-card">
-                <div class="row g-0">
-                    <div class="col-lg-8">
-                        <div class="form-section">
-                            <form id="bookingForm">
-                                <!-- Tour Selection -->
-                                <div class="mb-4">
-                                    <label class="form-label fw-bold">Select Tour *</label>
-                                    <select class="form-control py-3" id="tourSelect" required>
-                                        <option value="">Choose a tour</option>
-                                        <option value="Half Day Desert Tour (4 hours)">Half Day Desert Tour (4 hours)</option>
-                                        <option value="Full Day City Tour (6 hours with dinner)">Full Day City Tour (6 hours with dinner)</option>
-                                        <option value="North West Qatar Tour (6 hours)">North West Qatar Tour (6 hours)</option>
-                                        <option value="Sunset Desert Safari (4 hours)">Sunset Desert Safari (4 hours)</option>
-                                        <option value="Overnight Desert Camp (Dinner, Sleep, Breakfast)">Overnight Desert Camp (Dinner, Sleep, Breakfast)</option>
-                                        <option value="Private Falconry Experience (3 hours)">Private Falconry Experience (3 hours)</option>
-                                        <option value="Custom Private Tour">Custom Private Tour (Contact for details)</option>
-                                    </select>
-                                </div>
-                                
-                                <!-- Personal Information -->
-                                <div class="row g-3 mb-4">
-                                    <div class="col-md-6">
-                                        <label class="form-label fw-bold">Full Name *</label>
-                                        <input type="text" class="form-control py-3" id="fullName" required placeholder="Enter your full name">
-                                    </div>
-                                    <div class="col-md-6">
-                                        <label class="form-label fw-bold">Phone Number *</label>
-                                        <input type="tel" class="form-control py-3" id="phone" required placeholder="+974 55xxxxxx">
-                                    </div>
-                                </div>
-                                
-                                <!-- Date and Pickup -->
-                                <div class="row g-3 mb-4">
-                                    <div class="col-md-6">
-                                        <label class="form-label fw-bold">Tour Date *</label>
-                                        <input type="date" class="form-control py-3" id="tourDate" required>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <label class="form-label fw-bold">Pickup Location *</label>
-                                        <select class="form-control py-3" id="pickupLocation" required>
-                                            <option value="">Select pickup location</option>
-                                            <option value="Doha City Center">Doha City Center</option>
-                                            <option value="The Pearl Qatar">The Pearl Qatar</option>
-                                            <option value="West Bay">West Bay</option>
-                                            <option value="Souq Waqif">Souq Waqif</option>
-                                            <option value="Doha Airport">Doha Airport</option>
-                                            <option value="Hotel (Please specify in notes)">Hotel (Please specify in notes)</option>
-                                        </select>
-                                    </div>
-                                </div>
-                                
-                                <!-- Time Slot Selection -->
-                                <div class="mb-4">
-                                    <label class="form-label fw-bold">Preferred Time Slot *</label>
-                                    <div class="row g-3">
-                                        <div class="col-md-4">
-                                            <div class="time-slot" data-time="sunrise">
-                                                <div class="fw-bold">Sunrise</div>
-                                                <div class="text-muted">4:00 AM - 8:00 AM</div>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-4">
-                                            <div class="time-slot active" data-time="morning">
-                                                <div class="fw-bold">Morning</div>
-                                                <div class="text-muted">8:00 AM - 12:00 PM</div>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-4">
-                                            <div class="time-slot" data-time="sunset">
-                                                <div class="fw-bold">Sunset</div>
-                                                <div class="text-muted">1:30 PM - 5:30 PM</div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <input type="hidden" id="selectedTime" value="morning">
-                                </div>
-                                
-                                <!-- People Counter -->
-                                <div class="mb-4">
-                                    <label class="form-label fw-bold">Number of People *</label>
-                                    <div class="row g-4">
-                                        <div class="col-md-6">
-                                            <div class="d-flex align-items-center justify-content-between bg-light p-3 rounded">
-                                                <span class="fw-bold">Adults</span>
-                                                <div class="d-flex align-items-center gap-3">
-                                                    <button type="button" class="counter-btn" onclick="adjustCount('adults', -1)">-</button>
-                                                    <input type="number" class="counter-input" id="adultsCount" value="2" min="1" readonly>
-                                                    <button type="button" class="counter-btn" onclick="adjustCount('adults', 1)">+</button>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <div class="d-flex align-items-center justify-content-between bg-light p-3 rounded">
-                                                <span class="fw-bold">Children (3-12)</span>
-                                                <div class="d-flex align-items-center gap-3">
-                                                    <button type="button" class="counter-btn" onclick="adjustCount('children', -1)">-</button>
-                                                    <input type="number" class="counter-input" id="childrenCount" value="0" min="0" readonly>
-                                                    <button type="button" class="counter-btn" onclick="adjustCount('children', 1)">+</button>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                
-                                <!-- Special Requests -->
-                                <div class="mb-4">
-                                    <label class="form-label fw-bold">Special Requests</label>
-                                    <textarea class="form-control" id="specialRequests" rows="3" placeholder="Any special requirements, dietary restrictions, or questions..."></textarea>
-                                </div>
-                                
-                                <!-- Submit Button -->
-                                <div class="text-center mt-5">
-                                    <button type="button" class="booking-btn" onclick="processBooking()">
-                                        <i class="fas fa-calendar-check me-2"></i>
-                                        Book Now
-                                    </button>
-                                </div>
-                            </form>
-                        </div>
-                    </div>
-                    
-                    <!-- Booking Summary -->
-                    <div class="col-lg-4 bg-dark text-white p-5">
-                        <h3 class="mb-4">Booking Summary</h3>
-                        <div class="mb-4">
-                            <div class="d-flex justify-content-between mb-2">
-                                <span>Tour:</span>
-                                <span id="summaryTour">Not selected</span>
-                            </div>
-                            <div class="d-flex justify-content-between mb-2">
-                                <span>Date:</span>
-                                <span id="summaryDate">--/--/----</span>
-                            </div>
-                            <div class="d-flex justify-content-between mb-2">
-                                <span>Time:</span>
-                                <span id="summaryTime">Morning (8AM-12PM)</span>
-                            </div>
-                            <div class="d-flex justify-content-between mb-2">
-                                <span>Adults:</span>
-                                <span id="summaryAdults">2</span>
-                            </div>
-                            <div class="d-flex justify-content-between mb-2">
-                                <span>Children:</span>
-                                <span id="summaryChildren">0</span>
-                            </div>
-                            <div class="d-flex justify-content-between mb-2">
-                                <span>Pickup:</span>
-                                <span id="summaryPickup">Not selected</span>
-                            </div>
-                        </div>
-                        
-                        <hr class="my-4" style="border-color: rgba(255,255,255,0.2);">
-                        
-                        <div class="mb-4">
-                            <div class="d-flex justify-content-between align-items-center">
-                                <h5 class="mb-0">Price:</h5>
-                                <h4 class="text-gold mb-0">Contact for Quote</h4>
-                            </div>
-                            <p class="small text-muted mt-2">* We'll contact you with pricing based on group size</p>
-                        </div>
-                        
-                        <div class="mt-5">
-                            <h5 class="mb-3">Need Help?</h5>
-                            <a href="https://wa.me/974555123456" class="whatsapp-btn w-100 justify-content-center" target="_blank">
-                                <i class="fab fa-whatsapp fa-lg"></i>
-                                WhatsApp for Pricing
-                            </a>
-                            <div class="mt-3">
-                                <p><i class="fas fa-phone text-gold me-2"></i> +974 4455 6677</p>
-                                <p><i class="fas fa-envelope text-gold me-2"></i> info@goldensky.com</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+<!-- BOOKING -->
+<section class="py-5 bg-light" id="booking">
+<div class="container">
+<div class="text-center mb-5">
+<h2 class="fw-bold">Book Your Adventure</h2>
+<p class="text-muted">We will confirm pricing and availability</p>
+</div>
 
-    <!-- Packages Section -->
-    <section class="page-section" id="packages">
-        <div class="container">
-            <div class="text-center mb-5">
-                <h2 class="section-heading text-uppercase">Desert Tour Packages</h2>
-                <h3 class="section-subheading text-muted">Experience Qatar's desert in different ways</h3>
-            </div>
-            
-            <div class="row g-4">
-                <!-- Half Day Desert Card -->
-                <div class="col-lg-4 col-md-6">
-                    <div class="tour-card">
-                        <div class="position-relative">
-                            <img src="https://images.unsplash.com/photo-1511994717241-8e4e484dfa8c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80" 
-                                 class="tour-image" alt="Half Day Desert Safari">
-                            <div class="tour-badge">4 Hours</div>
-                        </div>
-                        <div class="p-4">
-                            <h4 class="mb-3">Half Day Desert Safari</h4>
-                            <div class="d-flex align-items-center mb-3">
-                                <i class="fas fa-clock text-gold me-2"></i>
-                                <span class="fw-bold">Duration: 4 hours</span>
-                            </div>
-                            <p class="text-muted mb-3">Perfect for those with limited time. Experience dune bashing, camel rides, and traditional Qatari hospitality.</p>
-                            <div class="mb-3">
-                                <span class="inclusion-badge">Dune Bashing</span>
-                                <span class="inclusion-badge">Camel Ride</span>
-                                <span class="inclusion-badge">Sandboarding</span>
-                                <span class="inclusion-badge">Arabic Tea & Dates</span>
-                                <span class="inclusion-badge">Bedouin Camp Visit</span>
-                                <span class="inclusion-badge">Photos Opportunities</span>
-                            </div>
-                            <div class="d-flex justify-content-between align-items-center mt-4">
-                                <div>
-                                    <i class="fas fa-info-circle text-gold me-2"></i>
-                                    <span>Contact for pricing</span>
-                                </div>
-                                <button class="btn btn-gold" onclick="selectTour('Half Day Desert Safari')">
-                                    Book Now
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Full Day Desert Card -->
-                <div class="col-lg-4 col-md-6">
-                    <div class="tour-card">
-                        <div class="position-relative">
-                            <img src="https://images.unsplash.com/photo-1501555088652-021faa106b9b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80" 
-                                 class="tour-image" alt="Full Day Desert Adventure">
-                            <div class="tour-badge">6 Hours</div>
-                        </div>
-                        <div class="p-4">
-                            <h4 class="mb-3">Full Day Desert Adventure</h4>
-                            <div class="d-flex align-items-center mb-3">
-                                <i class="fas fa-clock text-gold me-2"></i>
-                                <span class="fw-bold">Duration: 6 hours</span>
-                            </div>
-                            <p class="text-muted mb-3">Comprehensive desert experience including extended activities and traditional dinner.</p>
-                            <div class="mb-3">
-                                <span class="inclusion-badge">All Half Day Features</span>
-                                <span class="inclusion-badge">Inland Sea Visit</span>
-                                <span class="inclusion-badge">Traditional Dinner</span>
-                                <span class="inclusion-badge">Extended Camel Ride</span>
-                                <span class="inclusion-badge">Falconry Show</span>
-                                <span class="inclusion-badge">Sunset Viewing</span>
-                            </div>
-                            <div class="d-flex justify-content-between align-items-center mt-4">
-                                <div>
-                                    <i class="fas fa-utensils text-gold me-2"></i>
-                                    <span>Includes Dinner</span>
-                                </div>
-                                <button class="btn btn-gold" onclick="selectTour('Full Day Desert Adventure')">
-                                    Book Now
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Overnight Card -->
-                <div class="col-lg-4 col-md-6">
-                    <div class="tour-card">
-                        <div class="position-relative">
-                            <img src="https://images.unsplash.com/photo-1504280390367-361c6d9f38f4?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80" 
-                                 class="tour-image" alt="Overnight Desert Camp">
-                            <div class="tour-badge">Overnight</div>
-                        </div>
-                        <div class="p-4">
-                            <h4 class="mb-3">Overnight Desert Camp</h4>
-                            <div class="d-flex align-items-center mb-3">
-                                <i class="fas fa-clock text-gold me-2"></i>
-                                <span class="fw-bold">Duration: Overnight</span>
-                            </div>
-                            <p class="text-muted mb-3">Experience the magic of the desert night with traditional camping, stargazing, and full hospitality.</p>
-                            <div class="mb-3">
-                                <span class="inclusion-badge">All Full Day Features</span>
-                                <span class="inclusion-badge">Traditional Dinner</span>
-                                <span class="inclusion-badge">Overnight Camp Stay</span>
-                                <span class="inclusion-badge">Breakfast Included</span>
-                                <span class="inclusion-badge">Stargazing Session</span>
-                                <span class="inclusion-badge">Sunrise Experience</span>
-                            </div>
-                            <div class="d-flex justify-content-between align-items-center mt-4">
-                                <div>
-                                    <i class="fas fa-bed text-gold me-2"></i>
-                                    <span>Dinner + Sleep + Breakfast</span>
-                                </div>
-                                <button class="btn btn-gold" onclick="selectTour('Overnight Desert Camp')">
-                                    Book Now
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+<div class="booking-card p-4 p-lg-5">
+<form id="bookingForm">
 
-    <!-- About Section -->
-    <section class="page-section bg-light" id="about">
-        <div class="container">
-            <div class="text-center mb-5">
-                <h2 class="section-heading text-uppercase">About Golden Sky Tourism</h2>
-                <h3 class="section-subheading text-muted">Creating unforgettable desert experiences since 2010</h3>
-            </div>
-            
-            <div class="row align-items-center">
-                <div class="col-lg-6">
-                    <div class="p-4">
-                        <h4 class="mb-4">Why Choose Golden Sky?</h4>
-                        <div class="row">
-                            <div class="col-md-6 mb-3">
-                                <div class="d-flex align-items-start">
-                                    <i class="fas fa-shield-alt text-gold fa-lg me-3 mt-1"></i>
-                                    <div>
-                                        <h6>Licensed & Insured</h6>
-                                        <p class="text-muted small">Fully licensed by Qatar Tourism Authority with comprehensive insurance.</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-6 mb-3">
-                                <div class="d-flex align-items-start">
-                                    <i class="fas fa-car text-gold fa-lg me-3 mt-1"></i>
-                                    <div>
-                                        <h6>Modern Fleet</h6>
-                                        <p class="text-muted small">Air-conditioned 4x4 vehicles maintained to the highest standards.</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-6 mb-3">
-                                <div class="d-flex align-items-start">
-                                    <i class="fas fa-user-tie text-gold fa-lg me-3 mt-1"></i>
-                                    <div>
-                                        <h6>Expert Guides</h6>
-                                        <p class="text-muted small">Professional guides with extensive knowledge of Qatar's desert.</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-6 mb-3">
-                                <div class="d-flex align-items-start">
-                                    <i class="fas fa-heart text-gold fa-lg me-3 mt-1"></i>
-                                    <div>
-                                        <h6>Safety First</h6>
-                                        <p class="text-muted small">Safety equipment and protocols for all activities.</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="col-lg-6">
-                    <div class="p-4">
-                        <div class="card border-gold">
-                            <div class="card-body p-4">
-                                <h4 class="card-title mb-4">Our Mission</h4>
-                                <p class="card-text">At Golden Sky For Tourism Services, we're dedicated to providing authentic desert experiences that showcase the beauty and culture of Qatar. Our team of experienced professionals ensures every tour is safe, memorable, and truly special.</p>
-                                <p class="card-text">We believe in sustainable tourism practices that respect the environment and support local communities.</p>
-                                <div class="row mt-4">
-                                    <div class="col-4 text-center">
-                                        <h3 class="text-gold">5,000+</h3>
-                                        <p class="small mb-0">Happy Customers</p>
-                                    </div>
-                                    <div class="col-4 text-center">
-                                        <h3 class="text-gold">1,500+</h3>
-                                        <p class="small mb-0">Tours Completed</p>
-                                    </div>
-                                    <div class="col-4 text-center">
-                                        <h3 class="text-gold">14</h3>
-                                        <p class="small mb-0">Years Experience</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+<div class="mb-3">
+<label class="fw-bold">Tour *</label>
+<select class="form-control" id="tourSelect" required>
+<option value="">Select Tour</option>
+<option>Half Day Desert Safari</option>
+<option>Full Day Desert Safari</option>
+<option>Overnight Desert Camp</option>
+<option>Private Falcon Experience</option>
+</select>
+</div>
 
-    <!-- Contact Section -->
-    <section class="page-section" id="contact">
-        <div class="container">
-            <div class="text-center mb-5">
-                <h2 class="section-heading text-uppercase">Contact Us</h2>
-                <h3 class="section-subheading text-muted">Get in touch for any questions or special requests</h3>
-            </div>
-            
-            <div class="row">
-                <div class="col-md-4 mb-4">
-                    <div class="card text-center h-100 border-0 shadow-sm">
-                        <div class="card-body p-4">
-                            <i class="fas fa-map-marker-alt fa-3x text-gold mb-3"></i>
-                            <h4>Location</h4>
-                            <p>West Bay, Doha<br>Qatar</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4 mb-4">
-                    <div class="card text-center h-100 border-0 shadow-sm">
-                        <div class="card-body p-4">
-                            <i class="fas fa-phone fa-3x text-gold mb-3"></i>
-                            <h4>Phone</h4>
-                            <p>+974 4455 6677<br>+974 5555 1234 (WhatsApp)</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4 mb-4">
-                    <div class="card text-center h-100 border-0 shadow-sm">
-                        <div class="card-body p-4">
-                            <i class="fas fa-clock fa-3x text-gold mb-3"></i>
-                            <h4>Working Hours</h4>
-                            <p>Sunday - Thursday<br>8:00 AM - 10:00 PM</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="text-center mt-5">
-                <a href="https://wa.me/974555123456" class="whatsapp-btn me-3" target="_blank">
-                    <i class="fab fa-whatsapp fa-lg"></i>
-                    WhatsApp for Pricing
-                </a>
-                <a href="mailto:info@goldensky.com" class="btn btn-outline-gold px-4 py-3">
-                    <i class="fas fa-envelope me-2"></i>
-                    Email for Quote
-                </a>
-            </div>
-        </div>
-    </section>
+<div class="row g-3">
+<div class="col-md-6">
+<label class="fw-bold">Full Name *</label>
+<input class="form-control" id="fullName" required>
+</div>
+<div class="col-md-6">
+<label class="fw-bold">Phone *</label>
+<input class="form-control" id="phone" required>
+</div>
+<div class="col-md-6">
+<label class="fw-bold">Email *</label>
+<input type="email" class="form-control" id="email" required>
+</div>
+<div class="col-md-6">
+<label class="fw-bold">Tour Date *</label>
+<input type="date" class="form-control" id="tourDate" required>
+</div>
+</div>
 
-    <!-- Footer-->
-    <footer class="footer py-5 bg-dark text-white">
-        <div class="container">
-            <div class="row align-items-center">
-                <div class="col-lg-4 text-lg-start">
-                    <div class="mb-3">
-                        <i class="fas fa-sun fa-2x text-gold me-2"></i>
-                        <span style="font-size: 24px; font-weight: bold;">Golden Sky</span>
-                        <span class="text-gold">Tourism</span>
-                    </div>
-                    <p>Golden Sky For Tourism Services<br>Licensed by Qatar Tourism Authority</p>
-                    <p class="small">License No: QTA-2024-789</p>
-                </div>
-                <div class="col-lg-4 my-4 my-lg-0 text-center">
-                    <h6 class="mb-3">Follow Us</h6>
-                    <a class="btn btn-light btn-social mx-2" href="#!" aria-label="Instagram">
-                        <i class="fab fa-instagram"></i>
-                    </a>
-                    <a class="btn btn-light btn-social mx-2" href="#!" aria-label="Facebook">
-                        <i class="fab fa-facebook-f"></i>
-                    </a>
-                    <a class="btn btn-light btn-social mx-2" href="#!" aria-label="TripAdvisor">
-                        <i class="fab fa-tripadvisor"></i>
-                    </a>
-                    <a class="btn btn-light btn-social mx-2" href="#!" aria-label="YouTube">
-                        <i class="fab fa-youtube"></i>
-                    </a>
-                </div>
-                <div class="col-lg-4 text-lg-end">
-                    <h6 class="mb-3">Contact Info</h6>
-                    <p class="mb-1"><i class="fas fa-phone text-gold me-2"></i> +974 4455 6677</p>
-                    <p class="mb-1"><i class="fab fa-whatsapp text-gold me-2"></i> +974 5555 1234</p>
-                    <p class="mb-1"><i class="fas fa-envelope text-gold me-2"></i> info@goldensky.com</p>
-                    <p class="mb-0"><i class="fas fa-map-marker-alt text-gold me-2"></i> Doha, Qatar</p>
-                </div>
-            </div>
-            <hr class="my-4" style="border-color: rgba(255,255,255,0.2);">
-            <div class="text-center">
-                <p class="mb-0">© 2024 Golden Sky For Tourism Services. All rights reserved. | 
-                    <a href="#" class="text-white text-decoration-none">Privacy Policy</a> | 
-                    <a href="#" class="text-white text-decoration-none">Terms & Conditions</a>
-                </p>
-            </div>
-        </div>
-    </footer>
+<div class="my-4">
+<label class="fw-bold">Preferred Time *</label>
+<div class="row g-3">
+<div class="col-md-4"><div class="time-slot active" data-time="Morning">Morning</div></div>
+<div class="col-md-4"><div class="time-slot" data-time="Sunset">Sunset</div></div>
+<div class="col-md-4"><div class="time-slot" data-time="Overnight">Overnight</div></div>
+</div>
+<input type="hidden" id="selectedTime" value="Morning">
+</div>
 
-    <!-- Bootstrap core JS-->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
-    <!-- Core theme JS-->
-    <script src="js/scripts.js"></script>
+<div class="row g-3">
+<div class="col-md-6">
+<label class="fw-bold">Adults</label>
+<input type="number" class="form-control" id="adultsCount" value="2">
+</div>
+<div class="col-md-6">
+<label class="fw-bold">Children</label>
+<input type="number" class="form-control" id="childrenCount" value="0">
+</div>
+</div>
 
-    <!-- Custom JavaScript -->
-    <script>
-        // Slider Functionality
-        let currentSlide = 0;
-        const slides = document.querySelectorAll('.slide');
-        const dots = document.querySelectorAll('.dot');
-        
-        function showSlide(n) {
-            slides.forEach(slide => slide.classList.remove('active'));
-            dots.forEach(dot => dot.classList.remove('active'));
-            
-            currentSlide = (n + slides.length) % slides.length;
-            
-            slides[currentSlide].classList.add('active');
-            dots[currentSlide].classList.add('active');
-        }
-        
-        function nextSlide() {
-            showSlide(currentSlide + 1);
-        }
-        
-        // Auto slide every 5 seconds
-        setInterval(nextSlide, 5000);
-        
-        // Dot click events
-        dots.forEach((dot, index) => {
-            dot.addEventListener('click', () => {
-                showSlide(index);
-            });
-        });
-        
-        // Time Slot Selection
-        document.querySelectorAll('.time-slot').forEach(slot => {
-            slot.addEventListener('click', function() {
-                document.querySelectorAll('.time-slot').forEach(s => s.classList.remove('active'));
-                this.classList.add('active');
-                document.getElementById('selectedTime').value = this.getAttribute('data-time');
-                updateSummary();
-            });
-        });
-        
-        // Counter Functions
-        function adjustCount(type, change) {
-            const input = document.getElementById(`${type}Count`);
-            let value = parseInt(input.value) + change;
-            
-            if (type === 'adults') {
-                value = Math.max(1, value);
-            } else {
-                value = Math.max(0, value);
-            }
-            
-            input.value = value;
-            updateSummary();
-        }
-        
-        // Update Booking Summary
-        function updateSummary() {
-            const tourSelect = document.getElementById('tourSelect');
-            const tourDate = document.getElementById('tourDate');
-            const selectedTime = document.getElementById('selectedTime');
-            const adultsCount = document.getElementById('adultsCount');
-            const childrenCount = document.getElementById('childrenCount');
-            const pickupLocation = document.getElementById('pickupLocation');
-            
-            // Update tour
-            document.getElementById('summaryTour').textContent = 
-                tourSelect.value || 'Not selected';
-            
-            // Update date
-            document.getElementById('summaryDate').textContent = 
-                tourDate.value ? new Date(tourDate.value).toLocaleDateString() : '--/--/----';
-            
-            // Update time
-            const timeText = {
-                'sunrise': 'Sunrise (4AM-8AM)',
-                'morning': 'Morning (8AM-12PM)',
-                'sunset': 'Sunset (1:30PM-5:30PM)'
-            };
-            document.getElementById('summaryTime').textContent = 
-                timeText[selectedTime.value] || 'Not selected';
-            
-            // Update counts
-            document.getElementById('summaryAdults').textContent = adultsCount.value;
-            document.getElementById('summaryChildren').textContent = childrenCount.value;
-            
-            // Update pickup
-            document.getElementById('summaryPickup').textContent = 
-                pickupLocation.value || 'Not selected';
-        }
-        
-        // Initialize summary update on form changes
-        document.querySelectorAll('#bookingForm select, #bookingForm input').forEach(element => {
-            element.addEventListener('change', updateSummary);
-            element.addEventListener('input', updateSummary);
-        });
-        
-        // Select Tour from cards
-        function selectTour(tourName) {
-            document.getElementById('tourSelect').value = tourName;
-            document.getElementById('booking').scrollIntoView({behavior: 'smooth'});
-            updateSummary();
-        }
-        
-        // Process Booking
-        function processBooking() {
-            const fullName = document.getElementById('fullName').value;
-            const phone = document.getElementById('phone').value;
-            const tourSelect = document.getElementById('tourSelect').value;
-            const tourDate = document.getElementById('tourDate').value;
-            const pickupLocation = document.getElementById('pickupLocation').value;
-            const selectedTime = document.getElementById('selectedTime').value;
-            const adultsCount = document.getElementById('adultsCount').value;
-            const childrenCount = document.getElementById('childrenCount').value;
-            const specialRequests = document.getElementById('specialRequests').value;
-            
-            // Validation
-            if (!fullName || !phone || !tourSelect || !tourDate || !pickupLocation) {
-                alert('Please fill in all required fields (*)');
-                return;
-            }
-            
-            // Time text mapping
-            const timeText = {
-                'sunrise': 'Sunrise (4:00 AM - 8:00 AM)',
-                'morning': 'Morning (8:00 AM - 12:00 PM)',
-                'sunset': 'Sunset (1:30 PM - 5:30 PM)'
-            };
-            
-            // Create WhatsApp message
-            const message = `🌟 *New Booking Request - Golden Sky Tourism* 🌟
+<div class="my-4">
+<label class="fw-bold">Special Requests</label>
+<textarea class="form-control" id="specialRequests"></textarea>
+</div>
 
-👤 *Customer Information:*
-• Name: ${fullName}
-• Phone: ${phone}
+<div class="text-center mt-4">
+<button type="button" onclick="processBooking()" class="btn btn-gold">
+<i class="fas fa-calendar-check me-2"></i> Submit Booking
+</button>
+</div>
 
-🗓️ *Tour Details:*
-• Tour: ${tourSelect}
-• Date: ${new Date(tourDate).toLocaleDateString()}
-• Time: ${timeText[selectedTime]}
-• Pickup: ${pickupLocation}
+</form>
+</div>
+</div>
+</section>
 
-👥 *Group Information:*
-• Adults: ${adultsCount}
-• Children: ${childrenCount}
+<!-- FOOTER -->
+<footer class="footer py-4 text-center">
+<p>© 2024 Golden Sky Tourism – Doha, Qatar</p>
+<p>📞 +974 5555 1234 | ✉ info@goldensky.com</p>
+</footer>
 
-📝 *Special Requests:*
-${specialRequests || 'No special requests'}
+<script>
+document.querySelectorAll('.time-slot').forEach(slot=>{
+slot.onclick=()=>{
+document.querySelectorAll('.time-slot').forEach(s=>s.classList.remove('active'));
+slot.classList.add('active');
+document.getElementById('selectedTime').value=slot.dataset.time;
+}
+});
 
-🆔 *Booking ID:* GS-${Date.now().toString().slice(-6)}
-⏰ *Request Time:* ${new Date().toLocaleString()}
+function processBooking(){
+const bookingId = "GS-"+Date.now().toString().slice(-6);
 
-Thank you for choosing Golden Sky Tourism! We will contact you within 2 hours with pricing and to confirm your booking.`;
+const msg = `
+Golden Sky Booking Request
 
-            // Encode message
-            const encodedMessage = encodeURIComponent(message);
-            
-            // WhatsApp number (change to your actual number)
-            const whatsappNumber = "974555123456";
-            const whatsappURL = `https://wa.me/${whatsappNumber}?text=${encodedMessage}`;
-            
-            // Open WhatsApp
-            window.open(whatsappURL, '_blank');
-            
-            // Show confirmation
-            alert(`Thank you for your booking request!\n\nBooking ID: GS-${Date.now().toString().slice(-6)}\nWe will contact you shortly with pricing and to confirm your tour.`);
-            
-            // Reset form (optional)
-            // document.getElementById('bookingForm').reset();
-        }
-        
-        // Set date restrictions
-        const today = new Date();
-        document.getElementById('tourDate').min = today.toISOString().split('T')[0];
-        
-        const maxDate = new Date();
-        maxDate.setMonth(maxDate.getMonth() + 3);
-        document.getElementById('tourDate').max = maxDate.toISOString().split('T')[0];
-        
-        // Set default date to tomorrow
-        const tomorrow = new Date();
-        tomorrow.setDate(tomorrow.getDate() + 1);
-        document.getElementById('tourDate').value = tomorrow.toISOString().split('T')[0];
-        
-        // Initialize summary
-        updateSummary();
-    </script>
+Name: ${fullName.value}
+Phone: ${phone.value}
+Email: ${email.value}
+
+Tour: ${tourSelect.value}
+Date: ${tourDate.value}
+Time: ${selectedTime.value}
+
+Adults: ${adultsCount.value}
+Children: ${childrenCount.value}
+
+Notes:
+${specialRequests.value}
+
+Booking ID: ${bookingId}
+`;
+
+const encoded = encodeURIComponent(msg);
+
+const whatsapp = "https://wa.me/9745551234?text="+encoded;
+const sms = "sms:9745551234?body="+encoded;
+const emailLink = "mailto:info@goldensky.com?subject=Booking "+bookingId+"&body="+encoded;
+
+let opened = window.open(whatsapp,'_blank');
+
+setTimeout(()=>{
+if(!opened || opened.closed){
+window.location.href = sms;
+setTimeout(()=>window.location.href=emailLink,1500);
+}
+},1000);
+
+alert("Booking sent! ID: "+bookingId);
+}
+</script>
+
 </body>
 </html>
