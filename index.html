@@ -276,6 +276,17 @@
             border-color: #FFD700;
             box-shadow: 0 0 0 0.25rem rgba(255, 215, 0, 0.25);
         }
+        
+        .inclusion-badge {
+            display: inline-block;
+            background: rgba(255, 215, 0, 0.1);
+            color: #333;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            margin: 3px;
+            border: 1px solid rgba(255, 215, 0, 0.3);
+        }
     </style>
 </head>
 <body id="page-top">
@@ -376,21 +387,19 @@
                         </div>
                         <div class="p-4">
                             <h4 class="mb-3">Half Day Desert Tour</h4>
-                            <p class="text-muted mb-3">Experience the desert in just 4 hours. Perfect for those with limited time.</p>
-                            <div class="d-flex justify-content-between align-items-center mb-3">
-                                <div>
-                                    <i class="fas fa-clock text-gold me-2"></i>
-                                    <span>Duration: 4 hours</span>
-                                </div>
-                                <div class="h4 text-gold mb-0">$75</div>
+                            <div class="d-flex align-items-center mb-3">
+                                <i class="fas fa-clock text-gold me-2"></i>
+                                <span class="fw-bold">Duration: 4 hours</span>
                             </div>
-                            <ul class="list-unstyled mb-4">
-                                <li><i class="fas fa-check text-success me-2"></i> Dune bashing</li>
-                                <li><i class="fas fa-check text-success me-2"></i> Camel ride (15 mins)</li>
-                                <li><i class="fas fa-check text-success me-2"></i> Sandboarding</li>
-                                <li><i class="fas fa-check text-success me-2"></i> Bedouin camp visit</li>
-                            </ul>
-                            <button class="btn btn-gold w-100" onclick="selectTour('Half Day Desert Tour', '75')">
+                            <p class="text-muted mb-3">Experience the desert in just 4 hours. Perfect for those with limited time.</p>
+                            <div class="mb-3">
+                                <span class="inclusion-badge">Dune Bashing</span>
+                                <span class="inclusion-badge">Camel Ride (15 mins)</span>
+                                <span class="inclusion-badge">Sandboarding</span>
+                                <span class="inclusion-badge">Bedouin Camp Visit</span>
+                                <span class="inclusion-badge">Arabic Tea & Dates</span>
+                            </div>
+                            <button class="btn btn-gold w-100" onclick="selectTour('Half Day Desert Tour')">
                                 Select This Tour
                             </button>
                         </div>
@@ -407,21 +416,19 @@
                         </div>
                         <div class="p-4">
                             <h4 class="mb-3">Full Day City Tour</h4>
-                            <p class="text-muted mb-3">Explore Doha's highlights with our comprehensive city tour.</p>
-                            <div class="d-flex justify-content-between align-items-center mb-3">
-                                <div>
-                                    <i class="fas fa-clock text-gold me-2"></i>
-                                    <span>Duration: 8 hours</span>
-                                </div>
-                                <div class="h4 text-gold mb-0">$120</div>
+                            <div class="d-flex align-items-center mb-3">
+                                <i class="fas fa-clock text-gold me-2"></i>
+                                <span class="fw-bold">Duration: 6 hours</span>
                             </div>
-                            <ul class="list-unstyled mb-4">
-                                <li><i class="fas fa-check text-success me-2"></i> Museum of Islamic Art</li>
-                                <li><i class="fas fa-check text-success me-2"></i> Souq Waqif</li>
-                                <li><i class="fas fa-check text-success me-2"></i> The Pearl Qatar</li>
-                                <li><i class="fas fa-check text-success me-2"></i> Katara Cultural Village</li>
-                            </ul>
-                            <button class="btn btn-gold w-100" onclick="selectTour('Full Day City Tour', '120')">
+                            <p class="text-muted mb-3">Comprehensive Doha city exploration with traditional dinner included.</p>
+                            <div class="mb-3">
+                                <span class="inclusion-badge">Museum of Islamic Art</span>
+                                <span class="inclusion-badge">Souq Waqif</span>
+                                <span class="inclusion-badge">The Pearl Qatar</span>
+                                <span class="inclusion-badge">Katara Cultural Village</span>
+                                <span class="inclusion-badge">Traditional Dinner</span>
+                            </div>
+                            <button class="btn btn-gold w-100" onclick="selectTour('Full Day City Tour')">
                                 Select This Tour
                             </button>
                         </div>
@@ -438,21 +445,19 @@
                         </div>
                         <div class="p-4">
                             <h4 class="mb-3">North West Qatar Tour</h4>
-                            <p class="text-muted mb-3">Discover the hidden gems of North West Qatar's desert landscapes.</p>
-                            <div class="d-flex justify-content-between align-items-center mb-3">
-                                <div>
-                                    <i class="fas fa-clock text-gold me-2"></i>
-                                    <span>Duration: 6 hours</span>
-                                </div>
-                                <div class="h4 text-gold mb-0">$95</div>
+                            <div class="d-flex align-items-center mb-3">
+                                <i class="fas fa-clock text-gold me-2"></i>
+                                <span class="fw-bold">Duration: 6 hours</span>
                             </div>
-                            <ul class="list-unstyled mb-4">
-                                <li><i class="fas fa-check text-success me-2"></i> Zekreet Fort</li>
-                                <li><i class="fas fa-check text-success me-2"></i> Film City</li>
-                                <li><i class="fas fa-check text-success me-2"></i> East-West/West-East art installation</li>
-                                <li><i class="fas check text-success me-2"></i> Desert safari</li>
-                            </ul>
-                            <button class="btn btn-gold w-100" onclick="selectTour('North West Qatar Tour', '95')">
+                            <p class="text-muted mb-3">Discover the hidden gems of North West Qatar's desert landscapes.</p>
+                            <div class="mb-3">
+                                <span class="inclusion-badge">Zekreet Fort</span>
+                                <span class="inclusion-badge">Film City</span>
+                                <span class="inclusion-badge">East-West Art Installation</span>
+                                <span class="inclusion-badge">Desert Safari</span>
+                                <span class="inclusion-badge">Refreshments</span>
+                            </div>
+                            <button class="btn btn-gold w-100" onclick="selectTour('North West Qatar Tour')">
                                 Select This Tour
                             </button>
                         </div>
@@ -480,12 +485,13 @@
                                     <label class="form-label fw-bold">Select Tour *</label>
                                     <select class="form-control py-3" id="tourSelect" required>
                                         <option value="">Choose a tour</option>
-                                        <option value="Half Day Desert Tour - $75">Half Day Desert Tour - $75</option>
-                                        <option value="Full Day City Tour - $120">Full Day City Tour - $120</option>
-                                        <option value="North West Qatar Tour - $95">North West Qatar Tour - $95</option>
-                                        <option value="Sunset Desert Safari - $85">Sunset Desert Safari - $85</option>
-                                        <option value="Overnight Desert Camp - $150">Overnight Desert Camp - $150</option>
-                                        <option value="Private Falconry Experience - $200">Private Falconry Experience - $200</option>
+                                        <option value="Half Day Desert Tour (4 hours)">Half Day Desert Tour (4 hours)</option>
+                                        <option value="Full Day City Tour (6 hours with dinner)">Full Day City Tour (6 hours with dinner)</option>
+                                        <option value="North West Qatar Tour (6 hours)">North West Qatar Tour (6 hours)</option>
+                                        <option value="Sunset Desert Safari (4 hours)">Sunset Desert Safari (4 hours)</option>
+                                        <option value="Overnight Desert Camp (Dinner, Sleep, Breakfast)">Overnight Desert Camp (Dinner, Sleep, Breakfast)</option>
+                                        <option value="Private Falconry Experience (3 hours)">Private Falconry Experience (3 hours)</option>
+                                        <option value="Custom Private Tour">Custom Private Tour (Contact for details)</option>
                                     </select>
                                 </div>
                                 
@@ -625,17 +631,17 @@
                         
                         <div class="mb-4">
                             <div class="d-flex justify-content-between align-items-center">
-                                <h5 class="mb-0">Total Amount:</h5>
-                                <h3 class="text-gold mb-0" id="summaryTotal">$150</h3>
+                                <h5 class="mb-0">Price:</h5>
+                                <h4 class="text-gold mb-0">Contact for Quote</h4>
                             </div>
-                            <p class="small text-muted mt-2">* Prices include all taxes and fees</p>
+                            <p class="small text-muted mt-2">* We'll contact you with pricing based on group size</p>
                         </div>
                         
                         <div class="mt-5">
                             <h5 class="mb-3">Need Help?</h5>
                             <a href="https://wa.me/974555123456" class="whatsapp-btn w-100 justify-content-center" target="_blank">
                                 <i class="fab fa-whatsapp fa-lg"></i>
-                                WhatsApp Support
+                                WhatsApp for Pricing
                             </a>
                             <div class="mt-3">
                                 <p><i class="fas fa-phone text-gold me-2"></i> +974 4455 6677</p>
@@ -663,6 +669,7 @@
                         <div class="position-relative">
                             <img src="https://images.unsplash.com/photo-1511994717241-8e4e484dfa8c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80" 
                                  class="tour-image" alt="Half Day Desert Safari">
+                            <div class="tour-badge">4 Hours</div>
                         </div>
                         <div class="p-4">
                             <h4 class="mb-3">Half Day Desert Safari</h4>
@@ -671,35 +678,20 @@
                                 <span class="fw-bold">Duration: 4 hours</span>
                             </div>
                             <p class="text-muted mb-3">Perfect for those with limited time. Experience dune bashing, camel rides, and traditional Qatari hospitality.</p>
-                            <div class="row g-2 mb-3">
-                                <div class="col-6">
-                                    <div class="d-flex align-items-center">
-                                        <i class="fas fa-check-circle text-success me-2"></i>
-                                        <span>Dune Bashing</span>
-                                    </div>
-                                </div>
-                                <div class="col-6">
-                                    <div class="d-flex align-items-center">
-                                        <i class="fas fa-check-circle text-success me-2"></i>
-                                        <span>Camel Ride</span>
-                                    </div>
-                                </div>
-                                <div class="col-6">
-                                    <div class="d-flex align-items-center">
-                                        <i class="fas fa-check-circle text-success me-2"></i>
-                                        <span>Sandboarding</span>
-                                    </div>
-                                </div>
-                                <div class="col-6">
-                                    <div class="d-flex align-items-center">
-                                        <i class="fas fa-check-circle text-success me-2"></i>
-                                        <span>Tea & Dates</span>
-                                    </div>
-                                </div>
+                            <div class="mb-3">
+                                <span class="inclusion-badge">Dune Bashing</span>
+                                <span class="inclusion-badge">Camel Ride</span>
+                                <span class="inclusion-badge">Sandboarding</span>
+                                <span class="inclusion-badge">Arabic Tea & Dates</span>
+                                <span class="inclusion-badge">Bedouin Camp Visit</span>
+                                <span class="inclusion-badge">Photos Opportunities</span>
                             </div>
                             <div class="d-flex justify-content-between align-items-center mt-4">
-                                <h3 class="text-gold mb-0">$75</h3>
-                                <button class="btn btn-gold" onclick="selectTour('Half Day Desert Safari', '75')">
+                                <div>
+                                    <i class="fas fa-info-circle text-gold me-2"></i>
+                                    <span>Contact for pricing</span>
+                                </div>
+                                <button class="btn btn-gold" onclick="selectTour('Half Day Desert Safari')">
                                     Book Now
                                 </button>
                             </div>
@@ -713,43 +705,29 @@
                         <div class="position-relative">
                             <img src="https://images.unsplash.com/photo-1501555088652-021faa106b9b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80" 
                                  class="tour-image" alt="Full Day Desert Adventure">
+                            <div class="tour-badge">6 Hours</div>
                         </div>
                         <div class="p-4">
                             <h4 class="mb-3">Full Day Desert Adventure</h4>
                             <div class="d-flex align-items-center mb-3">
                                 <i class="fas fa-clock text-gold me-2"></i>
-                                <span class="fw-bold">Duration: 8 hours</span>
+                                <span class="fw-bold">Duration: 6 hours</span>
                             </div>
-                            <p class="text-muted mb-3">Comprehensive desert experience including inland sea visit, traditional lunch, and extended activities.</p>
-                            <div class="row g-2 mb-3">
-                                <div class="col-6">
-                                    <div class="d-flex align-items-center">
-                                        <i class="fas fa-check-circle text-success me-2"></i>
-                                        <span>All Half Day Features</span>
-                                    </div>
-                                </div>
-                                <div class="col-6">
-                                    <div class="d-flex align-items-center">
-                                        <i class="fas fa-check-circle text-success me-2"></i>
-                                        <span>Inland Sea Visit</span>
-                                    </div>
-                                </div>
-                                <div class="col-6">
-                                    <div class="d-flex align-items-center">
-                                        <i class="fas fa-check-circle text-success me-2"></i>
-                                        <span>Traditional Lunch</span>
-                                    </div>
-                                </div>
-                                <div class="col-6">
-                                    <div class="d-flex align-items-center">
-                                        <i class="fas fa-check-circle text-success me-2"></i>
-                                        <span>Falconry Show</span>
-                                    </div>
-                                </div>
+                            <p class="text-muted mb-3">Comprehensive desert experience including extended activities and traditional dinner.</p>
+                            <div class="mb-3">
+                                <span class="inclusion-badge">All Half Day Features</span>
+                                <span class="inclusion-badge">Inland Sea Visit</span>
+                                <span class="inclusion-badge">Traditional Dinner</span>
+                                <span class="inclusion-badge">Extended Camel Ride</span>
+                                <span class="inclusion-badge">Falconry Show</span>
+                                <span class="inclusion-badge">Sunset Viewing</span>
                             </div>
                             <div class="d-flex justify-content-between align-items-center mt-4">
-                                <h3 class="text-gold mb-0">$150</h3>
-                                <button class="btn btn-gold" onclick="selectTour('Full Day Desert Adventure', '150')">
+                                <div>
+                                    <i class="fas fa-utensils text-gold me-2"></i>
+                                    <span>Includes Dinner</span>
+                                </div>
+                                <button class="btn btn-gold" onclick="selectTour('Full Day Desert Adventure')">
                                     Book Now
                                 </button>
                             </div>
@@ -763,43 +741,29 @@
                         <div class="position-relative">
                             <img src="https://images.unsplash.com/photo-1504280390367-361c6d9f38f4?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80" 
                                  class="tour-image" alt="Overnight Desert Camp">
+                            <div class="tour-badge">Overnight</div>
                         </div>
                         <div class="p-4">
                             <h4 class="mb-3">Overnight Desert Camp</h4>
                             <div class="d-flex align-items-center mb-3">
                                 <i class="fas fa-clock text-gold me-2"></i>
-                                <span class="fw-bold">Duration: 24 hours</span>
+                                <span class="fw-bold">Duration: Overnight</span>
                             </div>
-                            <p class="text-muted mb-3">Experience the magic of the desert night with traditional camping, BBQ dinner, and sunrise views.</p>
-                            <div class="row g-2 mb-3">
-                                <div class="col-6">
-                                    <div class="d-flex align-items-center">
-                                        <i class="fas fa-check-circle text-success me-2"></i>
-                                        <span>All Day Features</span>
-                                    </div>
-                                </div>
-                                <div class="col-6">
-                                    <div class="d-flex align-items-center">
-                                        <i class="fas fa-check-circle text-success me-2"></i>
-                                        <span>Overnight Camp</span>
-                                    </div>
-                                </div>
-                                <div class="col-6">
-                                    <div class="d-flex align-items-center">
-                                        <i class="fas fa-check-circle text-success me-2"></i>
-                                        <span>BBQ Dinner</span>
-                                    </div>
-                                </div>
-                                <div class="col-6">
-                                    <div class="d-flex align-items-center">
-                                        <i class="fas fa-check-circle text-success me-2"></i>
-                                        <span>Sunrise Breakfast</span>
-                                    </div>
-                                </div>
+                            <p class="text-muted mb-3">Experience the magic of the desert night with traditional camping, stargazing, and full hospitality.</p>
+                            <div class="mb-3">
+                                <span class="inclusion-badge">All Full Day Features</span>
+                                <span class="inclusion-badge">Traditional Dinner</span>
+                                <span class="inclusion-badge">Overnight Camp Stay</span>
+                                <span class="inclusion-badge">Breakfast Included</span>
+                                <span class="inclusion-badge">Stargazing Session</span>
+                                <span class="inclusion-badge">Sunrise Experience</span>
                             </div>
                             <div class="d-flex justify-content-between align-items-center mt-4">
-                                <h3 class="text-gold mb-0">$250</h3>
-                                <button class="btn btn-gold" onclick="selectTour('Overnight Desert Camp', '250')">
+                                <div>
+                                    <i class="fas fa-bed text-gold me-2"></i>
+                                    <span>Dinner + Sleep + Breakfast</span>
+                                </div>
+                                <button class="btn btn-gold" onclick="selectTour('Overnight Desert Camp')">
                                     Book Now
                                 </button>
                             </div>
@@ -933,11 +897,11 @@
             <div class="text-center mt-5">
                 <a href="https://wa.me/974555123456" class="whatsapp-btn me-3" target="_blank">
                     <i class="fab fa-whatsapp fa-lg"></i>
-                    WhatsApp Now
+                    WhatsApp for Pricing
                 </a>
                 <a href="mailto:info@goldensky.com" class="btn btn-outline-gold px-4 py-3">
                     <i class="fas fa-envelope me-2"></i>
-                    Email Us
+                    Email for Quote
                 </a>
             </div>
         </div>
@@ -1083,22 +1047,6 @@
             // Update pickup
             document.getElementById('summaryPickup').textContent = 
                 pickupLocation.value || 'Not selected';
-            
-            // Calculate and update total
-            let basePrice = 0;
-            if (tourSelect.value) {
-                const priceMatch = tourSelect.value.match(/\$(\d+)/);
-                if (priceMatch) {
-                    basePrice = parseInt(priceMatch[1]);
-                }
-            }
-            
-            const adults = parseInt(adultsCount.value);
-            const children = parseInt(childrenCount.value);
-            const total = (basePrice * adults) + (basePrice * 0.5 * children);
-            
-            document.getElementById('summaryTotal').textContent = 
-                total > 0 ? `$${total}` : 'Select tour';
         }
         
         // Initialize summary update on form changes
@@ -1108,8 +1056,8 @@
         });
         
         // Select Tour from cards
-        function selectTour(tourName, price) {
-            document.getElementById('tourSelect').value = `${tourName} - $${price}`;
+        function selectTour(tourName) {
+            document.getElementById('tourSelect').value = tourName;
             document.getElementById('booking').scrollIntoView({behavior: 'smooth'});
             updateSummary();
         }
@@ -1139,11 +1087,6 @@
                 'sunset': 'Sunset (1:30 PM - 5:30 PM)'
             };
             
-            // Calculate total
-            const priceMatch = tourSelect.match(/\$(\d+)/);
-            const basePrice = priceMatch ? parseInt(priceMatch[1]) : 0;
-            const total = (basePrice * parseInt(adultsCount)) + (basePrice * 0.5 * parseInt(childrenCount));
-            
             // Create WhatsApp message
             const message = `🌟 *New Booking Request - Golden Sky Tourism* 🌟
 
@@ -1160,7 +1103,6 @@
 👥 *Group Information:*
 • Adults: ${adultsCount}
 • Children: ${childrenCount}
-• Total: $${total}
 
 📝 *Special Requests:*
 ${specialRequests || 'No special requests'}
@@ -1168,7 +1110,7 @@ ${specialRequests || 'No special requests'}
 🆔 *Booking ID:* GS-${Date.now().toString().slice(-6)}
 ⏰ *Request Time:* ${new Date().toLocaleString()}
 
-Thank you for choosing Golden Sky Tourism! We will contact you within 2 hours to confirm your booking.`;
+Thank you for choosing Golden Sky Tourism! We will contact you within 2 hours with pricing and to confirm your booking.`;
 
             // Encode message
             const encodedMessage = encodeURIComponent(message);
@@ -1181,7 +1123,7 @@ Thank you for choosing Golden Sky Tourism! We will contact you within 2 hours to
             window.open(whatsappURL, '_blank');
             
             // Show confirmation
-            alert(`Thank you for your booking request!\n\nBooking ID: GS-${Date.now().toString().slice(-6)}\nWe will contact you shortly to confirm your tour.`);
+            alert(`Thank you for your booking request!\n\nBooking ID: GS-${Date.now().toString().slice(-6)}\nWe will contact you shortly with pricing and to confirm your tour.`);
             
             // Reset form (optional)
             // document.getElementById('bookingForm').reset();
