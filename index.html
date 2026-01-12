@@ -296,6 +296,48 @@
             box-shadow: 0 5px 15px rgba(0,0,0,0.1);
         }
         
+        /* Tour Gallery */
+        .tour-gallery {
+            margin-top: 40px;
+        }
+        
+        .gallery-item {
+            position: relative;
+            border-radius: 15px;
+            overflow: hidden;
+            margin-bottom: 20px;
+            height: 250px;
+            cursor: pointer;
+            transition: all 0.4s ease;
+        }
+        
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s ease;
+        }
+        
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+        
+        .gallery-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+            color: white;
+            padding: 20px;
+            transform: translateY(100%);
+            transition: transform 0.4s ease;
+        }
+        
+        .gallery-item:hover .gallery-overlay {
+            transform: translateY(0);
+        }
+        
         /* Buttons */
         .btn-gold {
             background: linear-gradient(135deg, var(--gold-primary), var(--gold-secondary));
@@ -639,6 +681,52 @@
             color: #3498db;
         }
         
+        /* Photo Gallery Modal */
+        #photoModal .modal-dialog {
+            max-width: 90%;
+            max-height: 90vh;
+        }
+        
+        #photoModal .modal-content {
+            background: transparent;
+            border: none;
+        }
+        
+        #photoModal .modal-body {
+            padding: 0;
+            background: transparent;
+        }
+        
+        #photoModal .modal-body img {
+            width: 100%;
+            height: auto;
+            max-height: 80vh;
+            object-fit: contain;
+            border-radius: 10px;
+        }
+        
+        .modal-close-btn {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: rgba(0,0,0,0.5);
+            color: white;
+            border: none;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            z-index: 1000;
+            cursor: pointer;
+        }
+        
+        .modal-close-btn:hover {
+            background: rgba(0,0,0,0.8);
+        }
+        
         /* Responsive */
         @media (max-width: 768px) {
             .slide-content h1 {
@@ -664,6 +752,10 @@
             .section-heading {
                 font-size: 2.2rem;
             }
+            
+            #photoModal .modal-dialog {
+                max-width: 95%;
+            }
         }
         
         @media (max-width: 576px) {
@@ -678,6 +770,10 @@
             .booking-btn, .whatsapp-btn, .sms-btn {
                 width: 100%;
                 justify-content: center;
+            }
+            
+            .gallery-item {
+                height: 200px;
             }
         }
     </style>
@@ -697,8 +793,9 @@
             <div class="collapse navbar-collapse" id="navbarResponsive">
                 <ul class="navbar-nav ms-auto py-4 py-lg-0">
                     <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#tours">Tours</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#details">Tour Details</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#tours">Tour</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#gallery">Gallery</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#details">Details</a></li>
                     <li class="nav-item"><a class="nav-link" href="#booking">Booking</a></li>
                     <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
                     <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
@@ -728,31 +825,31 @@
                     <h1>Camel Riding Experience</h1>
                     <p>Traditional camel rides through golden sand dunes. Perfect for families and adventure seekers.</p>
                     <a href="#booking" class="booking-btn">
-                        <i class="fas fa-horse me-2"></i>Book Camel Ride
+                        <i class="fas fa-horse me-2"></i>Book Now
                     </a>
                 </div>
             </div>
         </div>
-        <!-- Slide 3 - Falconry -->
-        <div class="slide" style="background-image: url('assets/images/hero/falconry-show.jpg');">
+        <!-- Slide 3 - Dune Bashing -->
+        <div class="slide" style="background-image: url('assets/images/tour-photos/dune-bashing.jpg');">
             <div class="slide-overlay">
                 <div class="slide-content">
-                    <h1>Falconry Shows</h1>
-                    <p>Witness the ancient art of falconry. Interactive shows with Qatar's majestic national bird.</p>
+                    <h1>Dune Bashing Adventure</h1>
+                    <p>Experience the thrill of driving through Qatar's majestic sand dunes in our 4x4 Land Cruisers.</p>
                     <a href="#booking" class="booking-btn">
-                        <i class="fas fa-dove me-2"></i>Book Falcon Show
+                        <i class="fas fa-car me-2"></i>Book Your Adventure
                     </a>
                 </div>
             </div>
         </div>
-        <!-- Slide 4 - Sunset Tour -->
-        <div class="slide" style="background-image: url('assets/images/hero/sunset-tour.jpg');">
+        <!-- Slide 4 - Inland Sea -->
+        <div class="slide" style="background-image: url('assets/images/tour-photos/inland-sea.jpg');">
             <div class="slide-overlay">
                 <div class="slide-content">
-                    <h1>Sunset Desert Tours</h1>
-                    <p>Breathtaking sunset views over the desert with traditional Qatari hospitality.</p>
+                    <h1>Inland Sea Exploration</h1>
+                    <p>Visit the breathtaking Khor Al Adaid, one of the few places in the world where the sea meets the desert.</p>
                     <a href="#booking" class="booking-btn">
-                        <i class="fas fa-sun me-2"></i>Book Sunset Tour
+                        <i class="fas fa-water me-2"></i>Book Now
                     </a>
                 </div>
             </div>
@@ -770,12 +867,12 @@
     <section class="page-section" id="tours" data-aos="fade-up">
         <div class="container">
             <div class="text-center mb-5">
-                <h2 class="section-heading text-uppercase">Our Desert Tours</h2>
+                <h2 class="section-heading text-uppercase">Half Day Desert Safari</h2>
                 <h3 class="section-subheading text-muted">Experience the best of Qatar's desert in 4 hours</h3>
             </div>
             <div class="row g-4 justify-content-center">
                 <!-- Half Day Desert Tour - Updated with new info -->
-                <div class="col-lg-8 col-md-10" data-aos="fade-up" data-aos-delay="100">
+                <div class="col-lg-10" data-aos="fade-up" data-aos-delay="100">
                     <div class="tour-card">
                         <div class="position-relative">
                             <img src="assets/images/tours/half-day-desert.jpg" class="tour-image" alt="Half Day Desert Tour">
@@ -787,26 +884,27 @@
                                 <i class="fas fa-clock text-gold me-2"></i>
                                 <span class="fw-bold">Duration: 4 hours</span>
                                 <span class="ms-3"><i class="fas fa-users text-gold me-2"></i>Private Tour</span>
+                                <span class="ms-3"><i class="fas fa-car text-gold me-2"></i>4x4 Land Cruiser</span>
                             </div>
-                            <p class="text-muted mb-3">Experience Qatar's desert in just 4 hours. Perfect adventure for those with limited time but unlimited spirit!</p>
+                            <p class="text-muted mb-3">Experience Qatar's desert in just 4 hours. Perfect adventure for those with limited time but unlimited spirit! Our professional guides will take you through the most beautiful desert landscapes Qatar has to offer.</p>
                             
                             <div class="mb-4">
                                 <h6 class="fw-bold mb-3">Schedule:</h6>
                                 <div class="row g-3">
                                     <div class="col-md-4">
-                                        <div class="bg-light p-3 rounded text-center">
+                                        <div class="time-slot" data-time="sunrise">
                                             <div class="fw-bold text-gold">Sunrise Tour</div>
                                             <div class="text-muted">4:00 AM - 8:00 AM</div>
                                         </div>
                                     </div>
                                     <div class="col-md-4">
-                                        <div class="bg-light p-3 rounded text-center">
+                                        <div class="time-slot active" data-time="morning">
                                             <div class="fw-bold text-gold">Morning Tour</div>
                                             <div class="text-muted">8:30 AM - 12:30 PM</div>
                                         </div>
                                     </div>
                                     <div class="col-md-4">
-                                        <div class="bg-light p-3 rounded text-center">
+                                        <div class="time-slot" data-time="sunset">
                                             <div class="fw-bold text-gold">Sunset Tour</div>
                                             <div class="text-muted">2:30 PM - 6:30 PM</div>
                                         </div>
@@ -814,9 +912,123 @@
                                 </div>
                             </div>
                             
-                            <button class="btn btn-gold w-100" onclick="selectTour('Half Day Desert Safari')">
-                                Book This Tour
-                            </button>
+                            <div class="text-center mt-4">
+                                <button class="btn btn-gold btn-lg px-5" onclick="selectTour('Half Day Desert Safari')">
+                                    <i class="fas fa-calendar-check me-2"></i>Book This Tour Now
+                                </button>
+                                <p class="text-muted mt-2 small">Click above to book or scroll down to fill the booking form</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tour Gallery Section -->
+    <section class="page-section bg-light" id="gallery" data-aos="fade-up">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h2 class="section-heading text-uppercase">Tour Gallery</h2>
+                <h3 class="section-subheading text-muted">See what our Half Day Desert Safari looks like</h3>
+            </div>
+            
+            <div class="row tour-gallery">
+                <!-- Photo 1 - Dune Bashing -->
+                <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="100">
+                    <div class="gallery-item" onclick="openPhotoModal('assets/images/tour-photos/dune-bashing.jpg', 'Dune Bashing Adventure')">
+                        <img src="assets/images/tour-photos/dune-bashing.jpg" alt="Dune Bashing">
+                        <div class="gallery-overlay">
+                            <h5 class="mb-1">Dune Bashing</h5>
+                            <p class="mb-0 small">Thrilling ride through sand dunes</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Photo 2 - Camel Ride -->
+                <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="200">
+                    <div class="gallery-item" onclick="openPhotoModal('assets/images/tour-photos/camel-ride.jpg', 'Camel Riding Experience')">
+                        <img src="assets/images/tour-photos/camel-ride.jpg" alt="Camel Ride">
+                        <div class="gallery-overlay">
+                            <h5 class="mb-1">Camel Ride</h5>
+                            <p class="mb-0 small">Traditional desert transportation</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Photo 3 - Inland Sea -->
+                <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="300">
+                    <div class="gallery-item" onclick="openPhotoModal('assets/images/tour-photos/inland-sea.jpg', 'Inland Sea Visit')">
+                        <img src="assets/images/tour-photos/inland-sea.jpg" alt="Inland Sea">
+                        <div class="gallery-overlay">
+                            <h5 class="mb-1">Inland Sea</h5>
+                            <p class="mb-0 small">Where desert meets the sea</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Photo 4 - Sand Boarding -->
+                <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="100">
+                    <div class="gallery-item" onclick="openPhotoModal('assets/images/tour-photos/sand-boarding.jpg', 'Sand Boarding Fun')">
+                        <img src="assets/images/tour-photos/sand-boarding.jpg" alt="Sand Boarding">
+                        <div class="gallery-overlay">
+                            <h5 class="mb-1">Sand Boarding</h5>
+                            <p class="mb-0 small">Surf the sand dunes</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Photo 5 - Sunset View -->
+                <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="200">
+                    <div class="gallery-item" onclick="openPhotoModal('assets/images/tour-photos/sunset-view.jpg', 'Desert Sunset')">
+                        <img src="assets/images/tour-photos/sunset-view.jpg" alt="Sunset View">
+                        <div class="gallery-overlay">
+                            <h5 class="mb-1">Desert Sunset</h5>
+                            <p class="mb-0 small">Breathtaking views</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Photo 6 - Falcon Photo -->
+                <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="300">
+                    <div class="gallery-item" onclick="openPhotoModal('assets/images/tour-photos/falcon-photo.jpg', 'Falcon Photo Opportunity')">
+                        <img src="assets/images/tour-photos/falcon-photo.jpg" alt="Falcon Photo">
+                        <div class="gallery-overlay">
+                            <h5 class="mb-1">Falcon Photo</h5>
+                            <p class="mb-0 small">Qatar's national bird</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Photo 7 - 4x4 Vehicles -->
+                <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="100">
+                    <div class="gallery-item" onclick="openPhotoModal('assets/images/tour-photos/land-cruiser.jpg', '4x4 Land Cruiser')">
+                        <img src="assets/images/tour-photos/land-cruiser.jpg" alt="4x4 Vehicles">
+                        <div class="gallery-overlay">
+                            <h5 class="mb-1">4x4 Land Cruiser</h5>
+                            <p class="mb-0 small">Comfortable & safe vehicles</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Photo 8 - Tea Break -->
+                <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="200">
+                    <div class="gallery-item" onclick="openPhotoModal('assets/images/tour-photos/tea-break.jpg', 'Tea & Coffee Break')">
+                        <img src="assets/images/tour-photos/tea-break.jpg" alt="Tea Break">
+                        <div class="gallery-overlay">
+                            <h5 class="mb-1">Tea Break</h5>
+                            <p class="mb-0 small">Traditional Qatari hospitality</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Photo 9 - Group Photo -->
+                <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="300">
+                    <div class="gallery-item" onclick="openPhotoModal('assets/images/tour-photos/group-photo.jpg', 'Group Memories')">
+                        <img src="assets/images/tour-photos/group-photo.jpg" alt="Group Photo">
+                        <div class="gallery-overlay">
+                            <h5 class="mb-1">Memories</h5>
+                            <p class="mb-0 small">Unforgettable experiences</p>
                         </div>
                     </div>
                 </div>
@@ -947,7 +1159,7 @@
                                     </div>
                                     <div class="col-md-6">
                                         <label class="form-label">Phone Number *</label>
-                                        <input type="tel" class="form-control py-3" id="phone" required placeholder="+974 55xxxxxx">
+                                        <input type="tel" class="form-control py-3" id="phone" required placeholder="+974 51299947">
                                     </div>
                                 </div>
 
@@ -1108,12 +1320,12 @@
                         <div class="mt-5">
                             <h5 class="mb-3">Need Help?</h5>
                             <div id="communicationButtons">
-                                <a href="https://wa.me/974555123456" class="whatsapp-btn w-100 justify-content-center mb-3" target="_blank">
+                                <a href="https://wa.me/97451299947" class="whatsapp-btn w-100 justify-content-center mb-3" target="_blank">
                                     <i class="fab fa-whatsapp fa-lg"></i> WhatsApp for Pricing
                                 </a>
                             </div>
                             <div class="mt-3">
-                                <p><i class="fas fa-phone text-gold me-2"></i> +974 4455 6677</p>
+                                <p><i class="fas fa-phone text-gold me-2"></i> +974 51299947</p>
                                 <p><i class="fas fa-envelope text-gold me-2"></i> info@goldensky.com</p>
                             </div>
                         </div>
@@ -1225,7 +1437,7 @@
                         <div class="card-body p-4">
                             <i class="fas fa-phone fa-3x text-gold mb-3"></i>
                             <h4>Phone</h4>
-                            <p>+974 4455 6677<br>+974 5555 1234 (WhatsApp)</p>
+                            <p>+974 51299947<br>+974 51299947 (WhatsApp)</p>
                         </div>
                     </div>
                 </div>
@@ -1240,7 +1452,7 @@
                 </div>
             </div>
             <div class="text-center mt-5">
-                <a href="https://wa.me/974555123456" class="whatsapp-btn me-3" target="_blank">
+                <a href="https://wa.me/97451299947" class="whatsapp-btn me-3" target="_blank">
                     <i class="fab fa-whatsapp fa-lg"></i> WhatsApp for Pricing
                 </a>
                 <a href="mailto:info@goldensky.com" class="btn btn-outline-gold px-4 py-3">
@@ -1280,8 +1492,8 @@
                 </div>
                 <div class="col-lg-4 text-lg-end">
                     <h6 class="mb-3">Contact Info</h6>
-                    <p class="mb-1"><i class="fas fa-phone text-gold me-2"></i> +974 4455 6677</p>
-                    <p class="mb-1"><i class="fab fa-whatsapp text-gold me-2"></i> +974 5555 1234</p>
+                    <p class="mb-1"><i class="fas fa-phone text-gold me-2"></i> +974 51299947</p>
+                    <p class="mb-1"><i class="fab fa-whatsapp text-gold me-2"></i> +974 51299947</p>
                     <p class="mb-1"><i class="fas fa-envelope text-gold me-2"></i> info@goldensky.com</p>
                     <p class="mb-0"><i class="fas fa-map-marker-alt text-gold me-2"></i> Doha, Qatar</p>
                 </div>
@@ -1312,6 +1524,21 @@
                         We'll contact you within 2 hours to confirm your booking and provide pricing.
                     </div>
                     <button class="btn btn-gold mt-3" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Photo Gallery Modal -->
+    <div class="modal fade" id="photoModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+            <div class="modal-content">
+                <button type="button" class="modal-close-btn" data-bs-dismiss="modal" aria-label="Close">
+                    <i class="fas fa-times"></i>
+                </button>
+                <div class="modal-body text-center">
+                    <img id="modalPhoto" src="" alt="" style="width: 100%;">
+                    <h5 id="modalTitle" class="mt-3 text-white"></h5>
                 </div>
             </div>
         </div>
@@ -1458,6 +1685,14 @@
             updateSummary();
         }
         
+        // Open Photo Modal
+        function openPhotoModal(photoSrc, title) {
+            document.getElementById('modalPhoto').src = photoSrc;
+            document.getElementById('modalTitle').textContent = title;
+            const photoModal = new bootstrap.Modal(document.getElementById('photoModal'));
+            photoModal.show();
+        }
+        
         // Process Booking with Email/SMS fallback
         function processBooking() {
             const fullName = document.getElementById('fullName').value;
@@ -1533,9 +1768,9 @@ Thank you for choosing Golden Sky Tourism! We will contact you within 2 hours wi
             const encodedEmailSubject = encodeURIComponent(emailSubject);
             const encodedEmailBody = encodeURIComponent(emailBody);
             
-            // WhatsApp number and email
-            const whatsappNumber = "974555123456";
-            const smsNumber = "97444556677";
+            // WhatsApp number and email - UPDATED PHONE NUMBER
+            const whatsappNumber = "97451299947";
+            const smsNumber = "97451299947";
             const companyEmail = "info@goldensky.com";
             
             // Determine communication method
@@ -1586,8 +1821,8 @@ Your booking details:
 We have received your request and will contact you within 2 hours to confirm pricing and availability.
 
 If you have any questions, please contact us:
-📞 +974 4455 6677
-📱 WhatsApp: +974 5555 1234
+📞 +974 51299947
+📱 WhatsApp: +974 51299947
 📧 info@goldensky.com
 
 Best regards,
