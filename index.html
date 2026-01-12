@@ -1110,210 +1110,204 @@
     </section>
 
     <!-- Booking Form -->
-    <section class="page-section bg-light" id="booking" data-aos="fade-up">
-        <div class="container">
-            <div class="text-center mb-5">
-                <h2 class="section-heading text-uppercase">Book Your Desert Adventure</h2>
-                <h3 class="section-subheading text-muted">Fill in the details and we'll take care of the rest</h3>
-            </div>
-            <div class="booking-card">
-                <div class="row g-0">
-                    <div class="col-lg-8">
-                        <div class="form-section">
-                            <form id="bookingForm">
-                                <!-- Tour Selection -->
-                                <div class="mb-4">
-                                    <label class="form-label">Select Tour *</label>
-                                    <select class="form-control py-3" id="tourSelect" required>
-                                        <option value="">Choose a tour</option>
-                                        <option value="Half Day Desert Safari (4 hours)">Half Day Desert Safari (4 hours)</option>
-                                    </select>
-                                </div>
+<section class="page-section bg-light" id="booking" data-aos="fade-up">
+    <div class="container">
+        <div class="text-center mb-5">
+            <h2 class="section-heading text-uppercase">Book Your Desert Adventure</h2>
+            <h3 class="section-subheading text-muted">Fill in the details and we'll take care of the rest</h3>
+        </div>
+        <div class="booking-card">
+            <div class="row g-0">
+                <div class="col-lg-8">
+                    <div class="form-section">
+                        <form id="bookingForm">
+                            <!-- Tour Selection -->
+                            <div class="mb-4">
+                                <label class="form-label">Select Tour *</label>
+                                <select class="form-control py-3" id="tourSelect" required>
+                                    <option value="">Choose a tour</option>
+                                    <option value="Half Day Desert Safari (4 hours)">Half Day Desert Safari (4 hours)</option>
+                                </select>
+                            </div>
 
-                                <!-- Personal Information -->
-                                <div class="row g-3 mb-4">
+                            <!-- Personal Information -->
+                            <div class="row g-3 mb-4">
+                                <div class="col-md-6">
+                                    <label class="form-label">Full Name *</label>
+                                    <input type="text" class="form-control py-3" id="fullName" required placeholder="Enter your full name">
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label">Phone Number *</label>
+                                    <input type="tel" class="form-control py-3" id="phone" required placeholder="+974 51299947">
+                                </div>
+                            </div>
+
+                            <!-- Email Field -->
+                            <div class="mb-4">
+                                <label class="form-label">Email Address *</label>
+                                <input type="email" class="form-control py-3" id="email" required placeholder="your.email@example.com">
+                            </div>
+
+                            <!-- Date and Location -->
+                            <div class="row g-3 mb-4">
+                                <div class="col-md-6">
+                                    <label class="form-label">Tour Date *</label>
+                                    <input type="date" class="form-control py-3" id="tourDate" required>
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label">Pickup Location *</label>
+                                    <input type="text" class="form-control py-3" id="pickupLocation" required 
+                                           placeholder="Enter your exact pickup location (Hotel, Address, Landmark)">
+                                    <small class="text-muted">Please provide your exact location for pickup</small>
+                                </div>
+                            </div>
+
+                            <!-- Time Slot Selection - Updated times -->
+                            <div class="mb-4">
+                                <label class="form-label">Preferred Time Slot *</label>
+                                <div class="row g-3">
+                                    <div class="col-md-4">
+                                        <div class="time-slot" data-time="sunrise">
+                                            <div class="fw-bold">Sunrise Tour</div>
+                                            <div class="text-muted">4:00 AM - 8:00 AM</div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="time-slot active" data-time="morning">
+                                            <div class="fw-bold">Morning Tour</div>
+                                            <div class="text-muted">8:30 AM - 12:30 PM</div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="time-slot" data-time="sunset">
+                                            <div class="fw-bold">Sunset Tour</div>
+                                            <div class="text-muted">2:30 PM - 6:30 PM</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <input type="hidden" id="selectedTime" value="morning">
+                            </div>
+
+                            <!-- People Counter -->
+                            <div class="mb-4">
+                                <label class="form-label">Number of People *</label>
+                                <div class="row g-4">
                                     <div class="col-md-6">
-                                        <label class="form-label">Full Name *</label>
-                                        <input type="text" class="form-control py-3" id="fullName" required placeholder="Enter your full name">
+                                        <div class="d-flex align-items-center justify-content-between bg-light p-3 rounded">
+                                            <span class="fw-bold">Adults</span>
+                                            <div class="d-flex align-items-center gap-3">
+                                                <button type="button" class="counter-btn" onclick="adjustCount('adults', -1)">-</button>
+                                                <input type="number" class="counter-input" id="adultsCount" value="2" min="1" readonly>
+                                                <button type="button" class="counter-btn" onclick="adjustCount('adults', 1)">+</button>
+                                            </div>
+                                        </div>
                                     </div>
                                     <div class="col-md-6">
-                                        <label class="form-label">Phone Number *</label>
-                                        <input type="tel" class="form-control py-3" id="phone" required placeholder="+974 51299947">
+                                        <div class="d-flex align-items-center justify-content-between bg-light p-3 rounded">
+                                            <span class="fw-bold">Children (3-12)</span>
+                                            <div class="d-flex align-items-center gap-3">
+                                                <button type="button" class="counter-btn" onclick="adjustCount('children', -1)">-</button>
+                                                <input type="number" class="counter-input" id="childrenCount" value="0" min="0" readonly>
+                                                <button type="button" class="counter-btn" onclick="adjustCount('children', 1)">+</button>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
+                            </div>
 
-                                <!-- Email Field -->
-                                <div class="mb-4">
-                                    <label class="form-label">Email Address *</label>
-                                    <input type="email" class="form-control py-3" id="email" required placeholder="your.email@example.com">
-                                </div>
+                            <!-- Special Requests -->
+                            <div class="mb-4">
+                                <label class="form-label">Special Requests</label>
+                                <textarea class="form-control" id="specialRequests" rows="3" placeholder="Any special requirements, optional activities (camel ride, falcon photo, ATV), or questions..."></textarea>
+                            </div>
 
-                                <!-- Date and Pickup -->
-                                <div class="row g-3 mb-4">
+                            <!-- Communication Preference -->
+                            <div class="mb-4">
+                                <label class="form-label">Preferred Communication Method *</label>
+                                <div class="row g-3">
                                     <div class="col-md-6">
-                                        <label class="form-label">Tour Date *</label>
-                                        <input type="date" class="form-control py-3" id="tourDate" required>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="radio" name="communicationPref" id="whatsappPref" value="whatsapp" checked>
+                                            <label class="form-check-label" for="whatsappPref">
+                                                <i class="fab fa-whatsapp text-success me-2"></i> WhatsApp
+                                            </label>
+                                        </div>
                                     </div>
                                     <div class="col-md-6">
-                                        <label class="form-label">Pickup Location *</label>
-                                        <select class="form-control py-3" id="pickupLocation" required>
-                                            <option value="">Select pickup location</option>
-                                            <option value="Doha City Center">Doha City Center</option>
-                                            <option value="The Pearl Qatar">The Pearl Qatar</option>
-                                            <option value="West Bay">West Bay</option>
-                                            <option value="Souq Waqif">Souq Waqif</option>
-                                            <option value="Doha Airport">Doha Airport</option>
-                                            <option value="Hotel (Please specify in notes)">Hotel (Please specify in notes)</option>
-                                        </select>
-                                    </div>
-                                </div>
-
-                                <!-- Time Slot Selection - Updated times -->
-                                <div class="mb-4">
-                                    <label class="form-label">Preferred Time Slot *</label>
-                                    <div class="row g-3">
-                                        <div class="col-md-4">
-                                            <div class="time-slot" data-time="sunrise">
-                                                <div class="fw-bold">Sunrise Tour</div>
-                                                <div class="text-muted">4:00 AM - 8:00 AM</div>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-4">
-                                            <div class="time-slot active" data-time="morning">
-                                                <div class="fw-bold">Morning Tour</div>
-                                                <div class="text-muted">8:30 AM - 12:30 PM</div>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-4">
-                                            <div class="time-slot" data-time="sunset">
-                                                <div class="fw-bold">Sunset Tour</div>
-                                                <div class="text-muted">2:30 PM - 6:30 PM</div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <input type="hidden" id="selectedTime" value="morning">
-                                </div>
-
-                                <!-- People Counter -->
-                                <div class="mb-4">
-                                    <label class="form-label">Number of People *</label>
-                                    <div class="row g-4">
-                                        <div class="col-md-6">
-                                            <div class="d-flex align-items-center justify-content-between bg-light p-3 rounded">
-                                                <span class="fw-bold">Adults</span>
-                                                <div class="d-flex align-items-center gap-3">
-                                                    <button type="button" class="counter-btn" onclick="adjustCount('adults', -1)">-</button>
-                                                    <input type="number" class="counter-input" id="adultsCount" value="2" min="1" readonly>
-                                                    <button type="button" class="counter-btn" onclick="adjustCount('adults', 1)">+</button>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <div class="d-flex align-items-center justify-content-between bg-light p-3 rounded">
-                                                <span class="fw-bold">Children (3-12)</span>
-                                                <div class="d-flex align-items-center gap-3">
-                                                    <button type="button" class="counter-btn" onclick="adjustCount('children', -1)">-</button>
-                                                    <input type="number" class="counter-input" id="childrenCount" value="0" min="0" readonly>
-                                                    <button type="button" class="counter-btn" onclick="adjustCount('children', 1)">+</button>
-                                                </div>
-                                            </div>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="radio" name="communicationPref" id="smsPref" value="sms">
+                                            <label class="form-check-label" for="smsPref">
+                                                <i class="fas fa-sms text-primary me-2"></i> SMS
+                                            </label>
                                         </div>
                                     </div>
                                 </div>
+                            </div>
 
-                                <!-- Special Requests -->
-                                <div class="mb-4">
-                                    <label class="form-label">Special Requests</label>
-                                    <textarea class="form-control" id="specialRequests" rows="3" placeholder="Any special requirements, optional activities (camel ride, falcon photo, ATV), or questions..."></textarea>
-                                </div>
-
-                                <!-- Communication Preference -->
-                                <div class="mb-4">
-                                    <label class="form-label">Preferred Communication Method *</label>
-                                    <div class="row g-3">
-                                        <div class="col-md-6">
-                                            <div class="form-check">
-                                                <input class="form-check-input" type="radio" name="communicationPref" id="whatsappPref" value="whatsapp" checked>
-                                                <label class="form-check-label" for="whatsappPref">
-                                                    <i class="fab fa-whatsapp text-success me-2"></i> WhatsApp
-                                                </label>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <div class="form-check">
-                                                <input class="form-check-input" type="radio" name="communicationPref" id="smsPref" value="sms">
-                                                <label class="form-check-label" for="smsPref">
-                                                    <i class="fas fa-sms text-primary me-2"></i> SMS
-                                                </label>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <!-- Submit Button -->
-                                <div class="text-center mt-5">
-                                    <button type="button" class="booking-btn" onclick="processBooking()">
-                                        <i class="fas fa-calendar-check me-2"></i> Book Now
-                                    </button>
-                                </div>
-                            </form>
+                            <!-- Submit Button -->
+                            <div class="text-center mt-5">
+                                <button type="button" class="booking-btn" onclick="processBooking()">
+                                    <i class="fas fa-calendar-check me-2"></i> Book Now
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <!-- Booking Summary -->
+                <div class="col-lg-4 booking-summary">
+                    <h3 class="mb-4">Booking Summary</h3>
+                    <div class="mb-4">
+                        <div class="summary-item d-flex justify-content-between">
+                            <span>Tour:</span>
+                            <span id="summaryTour" class="fw-bold">Not selected</span>
+                        </div>
+                        <div class="summary-item d-flex justify-content-between">
+                            <span>Date:</span>
+                            <span id="summaryDate">--/--/----</span>
+                        </div>
+                        <div class="summary-item d-flex justify-content-between">
+                            <span>Time:</span>
+                            <span id="summaryTime">Morning (8:30AM-12:30PM)</span>
+                        </div>
+                        <div class="summary-item d-flex justify-content-between">
+                            <span>Adults:</span>
+                            <span id="summaryAdults">2</span>
+                        </div>
+                        <div class="summary-item d-flex justify-content-between">
+                            <span>Children:</span>
+                            <span id="summaryChildren">0</span>
+                        </div>
+                        <div class="summary-item d-flex justify-content-between">
+                            <span>Pickup:</span>
+                            <span id="summaryPickup">Not entered</span>
                         </div>
                     </div>
-                    <!-- Booking Summary -->
-                    <div class="col-lg-4 booking-summary">
-                        <h3 class="mb-4">Booking Summary</h3>
-                        <div class="mb-4">
-                            <div class="summary-item d-flex justify-content-between">
-                                <span>Tour:</span>
-                                <span id="summaryTour" class="fw-bold">Not selected</span>
-                            </div>
-                            <div class="summary-item d-flex justify-content-between">
-                                <span>Date:</span>
-                                <span id="summaryDate">--/--/----</span>
-                            </div>
-                            <div class="summary-item d-flex justify-content-between">
-                                <span>Time:</span>
-                                <span id="summaryTime">Morning (8:30AM-12:30PM)</span>
-                            </div>
-                            <div class="summary-item d-flex justify-content-between">
-                                <span>Adults:</span>
-                                <span id="summaryAdults">2</span>
-                            </div>
-                            <div class="summary-item d-flex justify-content-between">
-                                <span>Children:</span>
-                                <span id="summaryChildren">0</span>
-                            </div>
-                            <div class="summary-item d-flex justify-content-between">
-                                <span>Pickup:</span>
-                                <span id="summaryPickup">Not selected</span>
-                            </div>
+                    <hr class="my-4" style="border-color: rgba(255,255,255,0.2);">
+                    <div class="mb-4">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <h5 class="mb-0">Price:</h5>
+                            <h4 class="text-gold mb-0">Contact for Quote</h4>
                         </div>
-                        <hr class="my-4" style="border-color: rgba(255,255,255,0.2);">
-                        <div class="mb-4">
-                            <div class="d-flex justify-content-between align-items-center">
-                                <h5 class="mb-0">Price:</h5>
-                                <h4 class="text-gold mb-0">Contact for Quote</h4>
-                            </div>
-                            <p class="small text-muted mt-2">* Price varies based on group size and optional activities</p>
+                        <p class="small text-muted mt-2">* Price varies based on group size and optional activities</p>
+                    </div>
+                    <div class="mt-5">
+                        <h5 class="mb-3">Need Help?</h5>
+                        <div id="communicationButtons">
+                            <a href="https://wa.me/97451299947" class="whatsapp-btn w-100 justify-content-center mb-3" target="_blank">
+                                <i class="fab fa-whatsapp fa-lg"></i> WhatsApp for Pricing
+                            </a>
                         </div>
-                        <div class="mt-5">
-                            <h5 class="mb-3">Need Help?</h5>
-                            <div id="communicationButtons">
-                                <a href="https://wa.me/97451299947" class="whatsapp-btn w-100 justify-content-center mb-3" target="_blank">
-                                    <i class="fab fa-whatsapp fa-lg"></i> WhatsApp for Pricing
-                                </a>
-                            </div>
-                            <div class="mt-3">
-                                <p><i class="fas fa-phone text-gold me-2"></i> +974 51299947</p>
-                                <p><i class="fas fa-envelope text-gold me-2"></i> info@goldensky.com</p>
-                            </div>
+                        <div class="mt-3">
+                            <p><i class="fas fa-phone text-gold me-2"></i> +974 51299947</p>
+                            <p><i class="fas fa-envelope text-gold me-2"></i> info@goldensky.com</p>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </section>
-
+    </div>
+</section>
+    
     <!-- About Section -->
     <section class="page-section bg-light" id="about" data-aos="fade-up">
         <div class="container">
