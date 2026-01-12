@@ -141,9 +141,9 @@
             background: rgba(255, 215, 0, 0.7);
         }
         
-        /* Navigation */
+        /* Navigation - Changed to Gold */
         .navbar {
-            background: rgba(26, 26, 26, 0.95) !important;
+            background: rgba(255, 215, 0, 0.95) !important; /* Changed to gold */
             backdrop-filter: blur(10px);
             transition: all 0.4s ease;
             padding: 15px 0;
@@ -157,9 +157,15 @@
         .navbar-brand {
             font-size: 1.8rem;
             font-weight: 800;
+            color: #333 !important; /* Dark text for gold background */
         }
         
-        .nav-link {
+        .navbar-brand .text-gold {
+            color: #333 !important; /* Dark text for gold background */
+        }
+        
+        .navbar-dark .navbar-nav .nav-link {
+            color: #333 !important; /* Dark text for gold background */
             font-weight: 600;
             margin: 0 10px;
             position: relative;
@@ -173,13 +179,18 @@
             left: 0;
             width: 0;
             height: 2px;
-            background: var(--gold-primary);
+            background: #333; /* Dark line for gold background */
             transition: width 0.3s ease;
         }
         
         .nav-link:hover::after,
         .nav-link.active::after {
             width: 100%;
+        }
+        
+        .navbar-toggler {
+            color: #333 !important;
+            border-color: #333 !important;
         }
         
         /* Enhanced Booking Card */
@@ -390,7 +401,7 @@
             box-shadow: 0 15px 30px rgba(76, 175, 80, 0.3);
         }
         
-        /* Time Slots */
+        /* Time Slots - Updated with new schedule */
         .time-slot {
             border: 2px solid #dee2e6;
             border-radius: 15px;
@@ -469,6 +480,23 @@
         
         .inclusion-badge:hover {
             background: rgba(255, 215, 0, 0.2);
+            transform: translateY(-2px);
+        }
+        
+        .optional-badge {
+            display: inline-block;
+            background: rgba(52, 152, 219, 0.12);
+            color: #333;
+            padding: 8px 16px;
+            border-radius: 25px;
+            font-size: 0.85rem;
+            margin: 5px;
+            border: 1px solid rgba(52, 152, 219, 0.3);
+            transition: all 0.3s ease;
+        }
+        
+        .optional-badge:hover {
+            background: rgba(52, 152, 219, 0.2);
             transform: translateY(-2px);
         }
         
@@ -580,6 +608,37 @@
             padding: 30px;
         }
         
+        /* Tour Details */
+        .tour-details-section {
+            background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+            padding: 60px 0;
+        }
+        
+        .included-list, .optional-list {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .included-list li, .optional-list li {
+            padding: 8px 0;
+            border-bottom: 1px solid rgba(0,0,0,0.1);
+            display: flex;
+            align-items: center;
+        }
+        
+        .included-list li i, .optional-list li i {
+            margin-right: 10px;
+            width: 20px;
+        }
+        
+        .included-list li i {
+            color: var(--gold-primary);
+        }
+        
+        .optional-list li i {
+            color: #3498db;
+        }
+        
         /* Responsive */
         @media (max-width: 768px) {
             .slide-content h1 {
@@ -624,23 +683,23 @@
     </style>
 </head>
 <body id="page-top" data-bs-spy="scroll" data-bs-target="#mainNav" data-bs-offset="100">
-    <!-- Navigation-->
+    <!-- Navigation - Changed to Gold -->
     <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
         <div class="container">
             <a class="navbar-brand" href="#page-top">
-                <i class="fas fa-sun me-2 text-gold"></i>
-                <span class="fw-bold">Golden Sky</span>
-                Tourism
+                <i class="fas fa-sun me-2" style="color: #333;"></i>
+                <span class="fw-bold" style="color: #333;">Golden Sky</span>
+                <span style="color: #333;">Tourism</span>
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive">
-                <i class="fas fa-bars"></i>
+                <i class="fas fa-bars" style="color: #333;"></i>
             </button>
             <div class="collapse navbar-collapse" id="navbarResponsive">
                 <ul class="navbar-nav ms-auto py-4 py-lg-0">
                     <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
                     <li class="nav-item"><a class="nav-link" href="#tours">Tours</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#details">Tour Details</a></li>
                     <li class="nav-item"><a class="nav-link" href="#booking">Booking</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#packages">Packages</a></li>
                     <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
                     <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
                 </ul>
@@ -654,10 +713,10 @@
         <div class="slide active" style="background-image: url('assets/images/hero/desert-safari.jpg');">
             <div class="slide-overlay">
                 <div class="slide-content">
-                    <h1>Desert Safari Adventures</h1>
-                    <p>Experience the magic of Qatar's desert with our guided tours. Dune bashing, camel rides, and authentic Bedouin experiences await you.</p>
+                    <h1>Qatar Desert Safari Adventures</h1>
+                    <p>Experience the magic of Qatar's golden deserts with our professional guided tours. Dune bashing, camel rides, and authentic experiences await you.</p>
                     <a href="#booking" class="booking-btn">
-                        <i class="fas fa-calendar-alt me-2"></i>Book Your Adventure
+                        <i class="fas fa-calendar-alt me-2"></i>Book Your Desert Adventure
                     </a>
                 </div>
             </div>
@@ -707,92 +766,151 @@
         </div>
     </header>
 
-    <!-- Tours Section -->
+    <!-- Tours Section - Updated with Half Day Desert Tour Only -->
     <section class="page-section" id="tours" data-aos="fade-up">
         <div class="container">
             <div class="text-center mb-5">
-                <h2 class="section-heading text-uppercase">Our Popular Tours</h2>
-                <h3 class="section-subheading text-muted">Choose from our most requested desert experiences</h3>
+                <h2 class="section-heading text-uppercase">Our Desert Tours</h2>
+                <h3 class="section-subheading text-muted">Experience the best of Qatar's desert in 4 hours</h3>
             </div>
-            <div class="row g-4">
-                <!-- Tour 1 - Half Day Desert Tour -->
-                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
+            <div class="row g-4 justify-content-center">
+                <!-- Half Day Desert Tour - Updated with new info -->
+                <div class="col-lg-8 col-md-10" data-aos="fade-up" data-aos-delay="100">
                     <div class="tour-card">
                         <div class="position-relative">
                             <img src="assets/images/tours/half-day-desert.jpg" class="tour-image" alt="Half Day Desert Tour">
                             <div class="tour-badge">Most Popular</div>
                         </div>
                         <div class="p-4">
-                            <h4 class="mb-3">Half Day Desert Tour</h4>
+                            <h4 class="mb-3">Half Day Desert Safari</h4>
                             <div class="d-flex align-items-center mb-3">
                                 <i class="fas fa-clock text-gold me-2"></i>
                                 <span class="fw-bold">Duration: 4 hours</span>
+                                <span class="ms-3"><i class="fas fa-users text-gold me-2"></i>Private Tour</span>
                             </div>
-                            <p class="text-muted mb-3">Experience the desert in just 4 hours. Perfect for those with limited time.</p>
-                            <div class="mb-3">
-                                <span class="inclusion-badge">Dune Bashing</span>
-                                <span class="inclusion-badge">Camel Ride (15 mins)</span>
-                                <span class="inclusion-badge">Sandboarding</span>
-                                <span class="inclusion-badge">Bedouin Camp Visit</span>
-                                <span class="inclusion-badge">Arabic Tea & Dates</span>
+                            <p class="text-muted mb-3">Experience Qatar's desert in just 4 hours. Perfect adventure for those with limited time but unlimited spirit!</p>
+                            
+                            <div class="mb-4">
+                                <h6 class="fw-bold mb-3">Schedule:</h6>
+                                <div class="row g-3">
+                                    <div class="col-md-4">
+                                        <div class="bg-light p-3 rounded text-center">
+                                            <div class="fw-bold text-gold">Sunrise Tour</div>
+                                            <div class="text-muted">4:00 AM - 8:00 AM</div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="bg-light p-3 rounded text-center">
+                                            <div class="fw-bold text-gold">Morning Tour</div>
+                                            <div class="text-muted">8:30 AM - 12:30 PM</div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="bg-light p-3 rounded text-center">
+                                            <div class="fw-bold text-gold">Sunset Tour</div>
+                                            <div class="text-muted">2:30 PM - 6:30 PM</div>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
-                            <button class="btn btn-gold w-100" onclick="selectTour('Half Day Desert Tour')">
-                                Select This Tour
+                            
+                            <button class="btn btn-gold w-100" onclick="selectTour('Half Day Desert Safari')">
+                                Book This Tour
                             </button>
                         </div>
                     </div>
                 </div>
-                <!-- Tour 2 - Full Day City Tour -->
-                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
-                    <div class="tour-card">
-                        <div class="position-relative">
-                            <img src="assets/images/tours/full-day-city.jpg" class="tour-image" alt="Full Day City Tour">
-                            <div class="tour-badge">Family Friendly</div>
-                        </div>
-                        <div class="p-4">
-                            <h4 class="mb-3">Full Day City Tour</h4>
-                            <div class="d-flex align-items-center mb-3">
-                                <i class="fas fa-clock text-gold me-2"></i>
-                                <span class="fw-bold">Duration: 6 hours</span>
-                            </div>
-                            <p class="text-muted mb-3">Comprehensive Doha city exploration with traditional dinner included.</p>
-                            <div class="mb-3">
-                                <span class="inclusion-badge">Museum of Islamic Art</span>
-                                <span class="inclusion-badge">Souq Waqif</span>
-                                <span class="inclusion-badge">The Pearl Qatar</span>
-                                <span class="inclusion-badge">Katara Cultural Village</span>
-                                <span class="inclusion-badge">Traditional Dinner</span>
-                            </div>
-                            <button class="btn btn-gold w-100" onclick="selectTour('Full Day City Tour')">
-                                Select This Tour
-                            </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tour Details Section -->
+    <section class="tour-details-section" id="details" data-aos="fade-up">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h2 class="section-heading text-uppercase">Tour Details & Inclusions</h2>
+                <h3 class="section-subheading text-muted">Everything included in your desert adventure</h3>
+            </div>
+            
+            <div class="row">
+                <div class="col-lg-6 mb-4" data-aos="fade-right">
+                    <div class="card h-100 border-0 shadow-sm">
+                        <div class="card-body p-4">
+                            <h4 class="card-title mb-4 text-gold">
+                                <i class="fas fa-check-circle me-2"></i>Included in Your Tour
+                            </h4>
+                            <ul class="included-list">
+                                <li><i class="fas fa-car text-gold"></i> Pickup & Dropoff from your location</li>
+                                <li><i class="fas fa-truck text-gold"></i> Land Cruiser 4x4 with AC</li>
+                                <li><i class="fas fa-user-tie text-gold"></i> Professional & Experienced driver</li>
+                                <li><i class="fas fa-shield-alt text-gold"></i> Off-Road Insurance coverage</li>
+                                <li><i class="fas fa-tint text-gold"></i> Mineral Water Bottles</li>
+                                <li><i class="fas fa-coffee text-gold"></i> Tea & Coffee at Camel Area</li>
+                                <li><i class="fas fa-restroom text-gold"></i> Toilet facility in Camel Area</li>
+                                <li><i class="fas fa-road text-gold"></i> Dune Bashing adventure</li>
+                                <li><i class="fas fa-water text-gold"></i> Visit to Inland Sea (Khor Al Adaid)</li>
+                                <li><i class="fas fa-snowboarding text-gold"></i> Sand Boarding Stop</li>
+                                <li><i class="fas fa-umbrella-beach text-gold"></i> Visit to Sealine Beach</li>
+                                <li><i class="fas fa-mountain text-gold"></i> Middle of Desert Stop for photos</li>
+                            </ul>
                         </div>
                     </div>
                 </div>
-                <!-- Tour 3 - North West Qatar Tour -->
-                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
-                    <div class="tour-card">
-                        <div class="position-relative">
-                            <img src="assets/images/tours/north-west-qatar.jpg" class="tour-image" alt="North West Qatar Tour">
-                            <div class="tour-badge">Adventure</div>
-                        </div>
-                        <div class="p-4">
-                            <h4 class="mb-3">North West Qatar Tour</h4>
-                            <div class="d-flex align-items-center mb-3">
-                                <i class="fas fa-clock text-gold me-2"></i>
-                                <span class="fw-bold">Duration: 6 hours</span>
+                
+                <div class="col-lg-6 mb-4" data-aos="fade-left">
+                    <div class="card h-100 border-0 shadow-sm">
+                        <div class="card-body p-4">
+                            <h4 class="card-title mb-4" style="color: #3498db;">
+                                <i class="fas fa-star me-2" style="color: #3498db;"></i>Optional Activities
+                            </h4>
+                            <ul class="optional-list">
+                                <li><i class="fas fa-snowboarding" style="color: #3498db;"></i> Sandboarding (Free)</li>
+                                <li><i class="fas fa-horse" style="color: #3498db;"></i> Camel Ride (upon request)</li>
+                                <li><i class="fas fa-dove" style="color: #3498db;"></i> Photo with Falcon (upon request)</li>
+                                <li><i class="fas fa-motorcycle" style="color: #3498db;"></i> ATV/Quad Biking (upon request)</li>
+                            </ul>
+                            
+                            <div class="mt-4 pt-3 border-top">
+                                <h5 class="mb-3">Tour Highlights:</h5>
+                                <div class="row">
+                                    <div class="col-md-6 mb-3">
+                                        <div class="d-flex align-items-center">
+                                            <i class="fas fa-sun text-gold me-3"></i>
+                                            <div>
+                                                <div class="fw-bold">Best Time</div>
+                                                <small class="text-muted">Sunrise or Sunset</small>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 mb-3">
+                                        <div class="d-flex align-items-center">
+                                            <i class="fas fa-users text-gold me-3"></i>
+                                            <div>
+                                                <div class="fw-bold">Group Size</div>
+                                                <small class="text-muted">1-6 persons per vehicle</small>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 mb-3">
+                                        <div class="d-flex align-items-center">
+                                            <i class="fas fa-camera text-gold me-3"></i>
+                                            <div>
+                                                <div class="fw-bold">Photo Stops</div>
+                                                <small class="text-muted">Multiple locations</small>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 mb-3">
+                                        <div class="d-flex align-items-center">
+                                            <i class="fas fa-language text-gold me-3"></i>
+                                            <div>
+                                                <div class="fw-bold">Languages</div>
+                                                <small class="text-muted">English & Arabic</small>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
-                            <p class="text-muted mb-3">Discover the hidden gems of North West Qatar's desert landscapes.</p>
-                            <div class="mb-3">
-                                <span class="inclusion-badge">Zekreet Fort</span>
-                                <span class="inclusion-badge">Film City</span>
-                                <span class="inclusion-badge">East-West Art Installation</span>
-                                <span class="inclusion-badge">Desert Safari</span>
-                                <span class="inclusion-badge">Refreshments</span>
-                            </div>
-                            <button class="btn btn-gold w-100" onclick="selectTour('North West Qatar Tour')">
-                                Select This Tour
-                            </button>
                         </div>
                     </div>
                 </div>
@@ -817,13 +935,7 @@
                                     <label class="form-label">Select Tour *</label>
                                     <select class="form-control py-3" id="tourSelect" required>
                                         <option value="">Choose a tour</option>
-                                        <option value="Half Day Desert Tour (4 hours)">Half Day Desert Tour (4 hours)</option>
-                                        <option value="Full Day City Tour (6 hours with dinner)">Full Day City Tour (6 hours with dinner)</option>
-                                        <option value="North West Qatar Tour (6 hours)">North West Qatar Tour (6 hours)</option>
-                                        <option value="Sunset Desert Safari (4 hours)">Sunset Desert Safari (4 hours)</option>
-                                        <option value="Overnight Desert Camp (Dinner, Sleep, Breakfast)">Overnight Desert Camp (Dinner, Sleep, Breakfast)</option>
-                                        <option value="Private Falconry Experience (3 hours)">Private Falconry Experience (3 hours)</option>
-                                        <option value="Custom Private Tour">Custom Private Tour (Contact for details)</option>
+                                        <option value="Half Day Desert Safari (4 hours)">Half Day Desert Safari (4 hours)</option>
                                     </select>
                                 </div>
 
@@ -865,26 +977,26 @@
                                     </div>
                                 </div>
 
-                                <!-- Time Slot Selection -->
+                                <!-- Time Slot Selection - Updated times -->
                                 <div class="mb-4">
                                     <label class="form-label">Preferred Time Slot *</label>
                                     <div class="row g-3">
                                         <div class="col-md-4">
                                             <div class="time-slot" data-time="sunrise">
-                                                <div class="fw-bold">Sunrise</div>
+                                                <div class="fw-bold">Sunrise Tour</div>
                                                 <div class="text-muted">4:00 AM - 8:00 AM</div>
                                             </div>
                                         </div>
                                         <div class="col-md-4">
                                             <div class="time-slot active" data-time="morning">
-                                                <div class="fw-bold">Morning</div>
-                                                <div class="text-muted">8:00 AM - 12:00 PM</div>
+                                                <div class="fw-bold">Morning Tour</div>
+                                                <div class="text-muted">8:30 AM - 12:30 PM</div>
                                             </div>
                                         </div>
                                         <div class="col-md-4">
                                             <div class="time-slot" data-time="sunset">
-                                                <div class="fw-bold">Sunset</div>
-                                                <div class="text-muted">1:30 PM - 5:30 PM</div>
+                                                <div class="fw-bold">Sunset Tour</div>
+                                                <div class="text-muted">2:30 PM - 6:30 PM</div>
                                             </div>
                                         </div>
                                     </div>
@@ -921,7 +1033,7 @@
                                 <!-- Special Requests -->
                                 <div class="mb-4">
                                     <label class="form-label">Special Requests</label>
-                                    <textarea class="form-control" id="specialRequests" rows="3" placeholder="Any special requirements, dietary restrictions, or questions..."></textarea>
+                                    <textarea class="form-control" id="specialRequests" rows="3" placeholder="Any special requirements, optional activities (camel ride, falcon photo, ATV), or questions..."></textarea>
                                 </div>
 
                                 <!-- Communication Preference -->
@@ -970,7 +1082,7 @@
                             </div>
                             <div class="summary-item d-flex justify-content-between">
                                 <span>Time:</span>
-                                <span id="summaryTime">Morning (8AM-12PM)</span>
+                                <span id="summaryTime">Morning (8:30AM-12:30PM)</span>
                             </div>
                             <div class="summary-item d-flex justify-content-between">
                                 <span>Adults:</span>
@@ -991,7 +1103,7 @@
                                 <h5 class="mb-0">Price:</h5>
                                 <h4 class="text-gold mb-0">Contact for Quote</h4>
                             </div>
-                            <p class="small text-muted mt-2">* We'll contact you with pricing based on group size</p>
+                            <p class="small text-muted mt-2">* Price varies based on group size and optional activities</p>
                         </div>
                         <div class="mt-5">
                             <h5 class="mb-3">Need Help?</h5>
@@ -1003,114 +1115,6 @@
                             <div class="mt-3">
                                 <p><i class="fas fa-phone text-gold me-2"></i> +974 4455 6677</p>
                                 <p><i class="fas fa-envelope text-gold me-2"></i> info@goldensky.com</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Packages Section -->
-    <section class="page-section" id="packages" data-aos="fade-up">
-        <div class="container">
-            <div class="text-center mb-5">
-                <h2 class="section-heading text-uppercase">Desert Tour Packages</h2>
-                <h3 class="section-subheading text-muted">Experience Qatar's desert in different ways</h3>
-            </div>
-            <div class="row g-4">
-                <!-- Half Day Desert Card -->
-                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
-                    <div class="tour-card">
-                        <div class="position-relative">
-                            <img src="assets/images/packages/half-day-safari.jpg" class="tour-image" alt="Half Day Desert Safari">
-                            <div class="tour-badge">4 Hours</div>
-                        </div>
-                        <div class="p-4">
-                            <h4 class="mb-3">Half Day Desert Safari</h4>
-                            <div class="d-flex align-items-center mb-3">
-                                <i class="fas fa-clock text-gold me-2"></i>
-                                <span class="fw-bold">Duration: 4 hours</span>
-                            </div>
-                            <p class="text-muted mb-3">Perfect for those with limited time. Experience dune bashing, camel rides, and traditional Qatari hospitality.</p>
-                            <div class="mb-3">
-                                <span class="inclusion-badge">Dune Bashing</span>
-                                <span class="inclusion-badge">Camel Ride</span>
-                                <span class="inclusion-badge">Sandboarding</span>
-                                <span class="inclusion-badge">Arabic Tea & Dates</span>
-                                <span class="inclusion-badge">Bedouin Camp Visit</span>
-                                <span class="inclusion-badge">Photos Opportunities</span>
-                            </div>
-                            <div class="d-flex justify-content-between align-items-center mt-4">
-                                <div>
-                                    <i class="fas fa-info-circle text-gold me-2"></i>
-                                    <span>Contact for pricing</span>
-                                </div>
-                                <button class="btn btn-gold" onclick="selectTour('Half Day Desert Safari')"> Book Now </button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- Full Day Desert Card -->
-                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
-                    <div class="tour-card">
-                        <div class="position-relative">
-                            <img src="assets/images/packages/full-day-adventure.jpg" class="tour-image" alt="Full Day Desert Adventure">
-                            <div class="tour-badge">6 Hours</div>
-                        </div>
-                        <div class="p-4">
-                            <h4 class="mb-3">Full Day Desert Adventure</h4>
-                            <div class="d-flex align-items-center mb-3">
-                                <i class="fas fa-clock text-gold me-2"></i>
-                                <span class="fw-bold">Duration: 6 hours</span>
-                            </div>
-                            <p class="text-muted mb-3">Comprehensive desert experience including extended activities and traditional dinner.</p>
-                            <div class="mb-3">
-                                <span class="inclusion-badge">All Half Day Features</span>
-                                <span class="inclusion-badge">Inland Sea Visit</span>
-                                <span class="inclusion-badge">Traditional Dinner</span>
-                                <span class="inclusion-badge">Extended Camel Ride</span>
-                                <span class="inclusion-badge">Falconry Show</span>
-                                <span class="inclusion-badge">Sunset Viewing</span>
-                            </div>
-                            <div class="d-flex justify-content-between align-items-center mt-4">
-                                <div>
-                                    <i class="fas fa-utensils text-gold me-2"></i>
-                                    <span>Includes Dinner</span>
-                                </div>
-                                <button class="btn btn-gold" onclick="selectTour('Full Day Desert Adventure')"> Book Now </button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- Overnight Card -->
-                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
-                    <div class="tour-card">
-                        <div class="position-relative">
-                            <img src="assets/images/packages/overnight-camp.jpg" class="tour-image" alt="Overnight Desert Camp">
-                            <div class="tour-badge">Overnight</div>
-                        </div>
-                        <div class="p-4">
-                            <h4 class="mb-3">Overnight Desert Camp</h4>
-                            <div class="d-flex align-items-center mb-3">
-                                <i class="fas fa-clock text-gold me-2"></i>
-                                <span class="fw-bold">Duration: Overnight</span>
-                            </div>
-                            <p class="text-muted mb-3">Experience the magic of the desert night with traditional camping, stargazing, and full hospitality.</p>
-                            <div class="mb-3">
-                                <span class="inclusion-badge">All Full Day Features</span>
-                                <span class="inclusion-badge">Traditional Dinner</span>
-                                <span class="inclusion-badge">Overnight Camp Stay</span>
-                                <span class="inclusion-badge">Breakfast Included</span>
-                                <span class="inclusion-badge">Stargazing Session</span>
-                                <span class="inclusion-badge">Sunrise Experience</span>
-                            </div>
-                            <div class="d-flex justify-content-between align-items-center mt-4">
-                                <div>
-                                    <i class="fas fa-bed text-gold me-2"></i>
-                                    <span>Dinner + Sleep + Breakfast</span>
-                                </div>
-                                <button class="btn btn-gold" onclick="selectTour('Overnight Desert Camp')"> Book Now </button>
                             </div>
                         </div>
                     </div>
@@ -1145,7 +1149,7 @@
                                     <i class="fas fa-car text-gold fa-lg me-3 mt-1"></i>
                                     <div>
                                         <h6>Modern Fleet</h6>
-                                        <p class="text-muted small">Air-conditioned 4x4 vehicles maintained to the highest standards.</p>
+                                        <p class="text-muted small">Air-conditioned 4x4 Land Cruisers maintained to the highest standards.</p>
                                     </div>
                                 </div>
                             </div>
@@ -1153,8 +1157,8 @@
                                 <div class="d-flex align-items-start">
                                     <i class="fas fa-user-tie text-gold fa-lg me-3 mt-1"></i>
                                     <div>
-                                        <h6>Expert Guides</h6>
-                                        <p class="text-muted small">Professional guides with extensive knowledge of Qatar's desert.</p>
+                                        <h6>Expert Drivers</h6>
+                                        <p class="text-muted small">Professional drivers with extensive knowledge of Qatar's desert terrain.</p>
                                     </div>
                                 </div>
                             </div>
@@ -1163,7 +1167,7 @@
                                     <i class="fas fa-heart text-gold fa-lg me-3 mt-1"></i>
                                     <div>
                                         <h6>Safety First</h6>
-                                        <p class="text-muted small">Safety equipment and protocols for all activities.</p>
+                                        <p class="text-muted small">Safety equipment and protocols for all desert activities.</p>
                                     </div>
                                 </div>
                             </div>
@@ -1253,7 +1257,7 @@
                 <div class="col-lg-4 text-lg-start">
                     <div class="mb-3">
                         <i class="fas fa-sun fa-2x text-gold me-2"></i>
-                        <span style="font-size: 24px; font-weight: bold;">Golden Sky</span>
+                        <span style="font-size: 24px; font-weight: bold; color: var(--gold-primary);">Golden Sky</span>
                         <span class="text-gold">Tourism</span>
                     </div>
                     <p>Golden Sky For Tourism Services<br>Licensed by Qatar Tourism Authority</p>
@@ -1431,11 +1435,11 @@
                     day: 'numeric' 
                 }) : '--/--/----';
             
-            // Update time
+            // Update time with new schedule
             const timeText = {
-                'sunrise': 'Sunrise (4AM-8AM)',
-                'morning': 'Morning (8AM-12PM)',
-                'sunset': 'Sunset (1:30PM-5:30PM)'
+                'sunrise': 'Sunrise (4:00AM-8:00AM)',
+                'morning': 'Morning (8:30AM-12:30PM)',
+                'sunset': 'Sunset (2:30PM-6:30PM)'
             };
             document.getElementById('summaryTime').textContent = timeText[selectedTime.value] || 'Not selected';
             
@@ -1481,11 +1485,11 @@
                 return;
             }
             
-            // Time text mapping
+            // Time text mapping with new schedule
             const timeText = {
                 'sunrise': 'Sunrise (4:00 AM - 8:00 AM)',
-                'morning': 'Morning (8:00 AM - 12:00 PM)',
-                'sunset': 'Sunset (1:30 PM - 5:30 PM)'
+                'morning': 'Morning (8:30 AM - 12:30 PM)',
+                'sunset': 'Sunset (2:30 PM - 6:30 PM)'
             };
             
             // Generate booking ID
