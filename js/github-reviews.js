@@ -1,5 +1,5 @@
 // github-reviews.js - GitHub API Review System
-const GITHUB_USERNAME = 'MuhanadEldai'; // Replace with your GitHub username
+const GITHUB_USERNAME = 'muhanadeldai'; // Replace with your GitHub username
 const REPO_NAME = 'qatar_website'; // Replace with your repository name
 const GITHUB_TOKEN = ''; // Keep empty for public repos or add token for private
 
