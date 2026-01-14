@@ -1,7 +1,7 @@
 // github-issues.js - GitHub Issues Review System
 // Configuration - REPLACE THESE WITH YOUR VALUES
 const GITHUB_CONFIG = {
-    username: 'muhanadeldai',      // Replace with your GitHub username
+    username: 'MuhanadEldai',      // Replace with your GitHub username
     repo: 'qatar_website',                // Replace with your repository name
     issueLabel: 'review',                  // Label to use for reviews
     moderatorLabel: 'approved',            // Label for approved reviews
