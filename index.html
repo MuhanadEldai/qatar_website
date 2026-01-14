@@ -513,168 +513,215 @@
     </section>
 
     <!-- Reviews Section -->
-    <section class="page-section bg-light" id="reviews" data-aos="fade-up">
-        <div class="container">
-            <div class="text-center mb-5">
-                <h2 class="section-heading text-uppercase">Customer Reviews</h2>
-                <h3 class="section-subheading text-muted">See what our customers say about their desert experience</h3>
-            </div>
-            
-            <!-- Review Stats -->
-            <div class="row mb-5">
-                <div class="col-md-3 text-center mb-4">
-                    <div class="card border-0 shadow-sm h-100">
-                        <div class="card-body p-4">
-                            <h1 class="display-4 text-gold mb-2" id="averageRating">4.8</h1>
-                            <div class="text-warning mb-2">
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star-half-alt"></i>
-                            </div>
-                            <p class="text-muted mb-0">Average Rating</p>
+<section class="page-section bg-light" id="reviews" data-aos="fade-up">
+    <div class="container">
+        <div class="text-center mb-5">
+            <h2 class="section-heading text-uppercase">Customer Reviews</h2>
+            <h3 class="section-subheading text-muted">Real reviews from our happy customers</h3>
+        </div>
+
+        <!-- Review Stats -->
+        <div class="row mb-5">
+            <div class="col-md-3 text-center mb-4">
+                <div class="card border-0 shadow-sm h-100">
+                    <div class="card-body p-4">
+                        <h1 class="display-4 text-gold mb-2" id="averageRating">4.8</h1>
+                        <div class="text-warning mb-2">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
                         </div>
-                    </div>
-                </div>
-                <div class="col-md-3 text-center mb-4">
-                    <div class="card border-0 shadow-sm h-100">
-                        <div class="card-body p-4">
-                            <h1 class="display-4 text-gold mb-2" id="totalReviews">12</h1>
-                            <p class="text-muted mb-0">Total Reviews</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-3 text-center mb-4">
-                    <div class="card border-0 shadow-sm h-100">
-                        <div class="card-body p-4">
-                            <h1 class="display-4 text-gold mb-2">98%</h1>
-                            <p class="text-muted mb-0">Would Recommend</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-3 text-center mb-4">
-                    <div class="card border-0 shadow-sm h-100">
-                        <div class="card-body p-4">
-                            <h1 class="display-4 text-gold mb-2">24h</h1>
-                            <p class="text-muted mb-0">Response Time</p>
-                        </div>
+                        <p class="text-muted mb-0">Average Rating</p>
                     </div>
                 </div>
             </div>
-            
-            <!-- Reviews Container -->
-            <div class="mb-5">
-                <h4 class="mb-4">Recent Reviews</h4>
-                <div id="reviewsContainer">
-                    <div class="text-center py-5">
-                        <div class="spinner-border text-gold" role="status">
-                            <span class="visually-hidden">Loading reviews...</span>
-                        </div>
-                        <p class="mt-3">Loading reviews...</p>
+            <div class="col-md-3 text-center mb-4">
+                <div class="card border-0 shadow-sm h-100">
+                    <div class="card-body p-4">
+                        <h1 class="display-4 text-gold mb-2" id="totalReviews">12</h1>
+                        <p class="text-muted mb-0">Total Reviews</p>
                     </div>
                 </div>
-                
-                <!-- Show More Button -->
-                <div class="text-center mt-4 d-none" id="showMoreContainer">
-                    <button class="btn btn-outline-gold px-5" id="showMoreBtn">
-                        <i class="fas fa-chevron-down me-2"></i>Show More Reviews
-                    </button>
-                </div>
-                
-                <!-- No Reviews Message -->
-                <div class="text-center py-5 d-none" id="noReviewsMessage">
-                    <i class="fas fa-comments fa-3x text-muted mb-3"></i>
-                    <h4 class="mb-3">No Reviews Yet</h4>
-                    <p class="text-muted mb-4">Be the first to share your experience!</p>
+            </div>
+            <div class="col-md-3 text-center mb-4">
+                <div class="card border-0 shadow-sm h-100">
+                    <div class="card-body p-4">
+                        <h1 class="display-4 text-gold mb-2" id="responseRate">98%</h1>
+                        <p class="text-muted mb-0">Response Rate</p>
+                    </div>
                 </div>
             </div>
-            
-            <!-- Leave Review Button -->
-            <div class="text-center mb-5">
-                <button class="btn btn-gold px-5 py-3" id="openReviewFormBtn">
-                    <i class="fas fa-pencil-alt me-2"></i> Write a Review
+            <div class="col-md-3 text-center mb-4">
+                <div class="card border-0 shadow-sm h-100">
+                    <div class="card-body p-4">
+                        <h1 class="display-4 text-gold mb-2" id="recentReviews">24</h1>
+                        <p class="text-muted mb-0">This Month</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- GitHub Integration Info -->
+        <div class="alert alert-info mb-4">
+            <div class="d-flex align-items-center">
+                <i class="fab fa-github fa-2x me-3"></i>
+                <div>
+                    <h5 class="mb-1">Real GitHub Reviews</h5>
+                    <p class="mb-0">All reviews are submitted as GitHub issues. Once moderated, they appear here for everyone to see.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Reviews Container -->
+        <div class="mb-5">
+            <div class="d-flex justify-content-between align-items-center mb-4">
+                <h4 class="mb-0">Verified Reviews</h4>
+                <button class="btn btn-sm btn-outline-gold" onclick="refreshReviews()">
+                    <i class="fas fa-sync-alt me-1"></i> Refresh
                 </button>
             </div>
             
-            <!-- Review Form -->
-            <div class="card border-0 shadow-lg mb-5 d-none" id="reviewFormContainer">
-                <div class="card-body p-5">
-                    <div class="d-flex justify-content-between align-items-center mb-4">
-                        <h3 class="mb-0">Share Your Experience</h3>
-                        <button class="btn btn-sm btn-outline-secondary" id="closeReviewFormBtn">
-                            <i class="fas fa-times"></i>
-                        </button>
+            <div id="reviewsContainer">
+                <!-- Reviews will be loaded here -->
+                <div class="text-center py-5">
+                    <div class="spinner-border text-gold" role="status">
+                        <span class="visually-hidden">Loading reviews...</span>
                     </div>
-                    <p class="text-muted mb-4">Tell us about your desert adventure with Golden Sky Tourism</p>
-                    
-                    <form id="reviewForm">
-                        <div class="row g-3">
-                            <div class="col-md-6">
-                                <div class="mb-3">
-                                    <label class="form-label">Your Name *</label>
-                                    <input type="text" class="form-control py-3" id="reviewName" required placeholder="Enter your name">
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="mb-3">
-                                    <label class="form-label">Your Email *</label>
-                                    <input type="email" class="form-control py-3" id="reviewEmail" required placeholder="your.email@example.com">
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div class="mb-3">
-                            <label class="form-label">Rating *</label>
-                            <div class="d-flex align-items-center" id="starRating">
-                                <i class="far fa-star fa-2x me-2 text-warning" data-rating="1" style="cursor: pointer;"></i>
-                                <i class="far fa-star fa-2x me-2 text-warning" data-rating="2" style="cursor: pointer;"></i>
-                                <i class="far fa-star fa-2x me-2 text-warning" data-rating="3" style="cursor: pointer;"></i>
-                                <i class="far fa-star fa-2x me-2 text-warning" data-rating="4" style="cursor: pointer;"></i>
-                                <i class="far fa-star fa-2x me-2 text-warning" data-rating="5" style="cursor: pointer;"></i>
-                                <span class="ms-3 fw-bold" id="ratingText">0 out of 5 stars</span>
-                            </div>
-                            <input type="hidden" id="ratingValue" value="0">
-                        </div>
-                        
-                        <div class="mb-4">
-                            <label class="form-label">Your Review *</label>
-                            <textarea class="form-control" id="reviewText" rows="4" required placeholder="Share details about your experience with Golden Sky Tourism..."></textarea>
-                            <div class="form-text">Minimum 50 characters, maximum 1000 characters</div>
-                        </div>
-                        
-                        <div class="mb-4">
-                            <label class="form-label">Which tour did you take?</label>
-                            <select class="form-control py-3" id="reviewTour">
-                                <option value="">Select tour (optional)</option>
-                                <option value="Half Day Desert Safari">Half Day Desert Safari</option>
-                            </select>
-                        </div>
-                        
-                        <div class="form-check mb-4">
-                            <input class="form-check-input" type="checkbox" id="allowPublishing" checked>
-                            <label class="form-check-label" for="allowPublishing">
-                                I allow Golden Sky Tourism to publish my review on their website
-                            </label>
-                        </div>
-                        
-                        <div class="text-center">
-                            <button type="button" class="btn btn-gold px-5 py-3" id="submitReviewBtn">
-                                <i class="fas fa-paper-plane me-2"></i> Submit Review
-                            </button>
-                            <p class="text-muted mt-2 small">Your review will be published after moderation</p>
-                        </div>
-                    </form>
+                    <p class="mt-3">Loading reviews from GitHub...</p>
                 </div>
             </div>
             
-            <!-- Success Message -->
-            <div class="alert alert-success d-none text-center" id="reviewSuccessMessage">
-                <i class="fas fa-check-circle me-2"></i>
-                <strong>Thank you!</strong> Your review has been submitted and is pending moderation.
+            <!-- Show More Button -->
+            <div class="text-center mt-4 d-none" id="showMoreContainer">
+                <button class="btn btn-outline-gold px-5" id="showMoreBtn">
+                    <i class="fas fa-chevron-down me-2"></i>Load More Reviews
+                </button>
+            </div>
+            
+            <!-- No Reviews Message -->
+            <div class="text-center py-5 d-none" id="noReviewsMessage">
+                <i class="fas fa-comments fa-3x text-muted mb-3"></i>
+                <h4 class="mb-3">No Reviews Yet</h4>
+                <p class="text-muted mb-4">Be the first to share your experience!</p>
+            </div>
+            
+            <!-- Error Message -->
+            <div class="alert alert-danger d-none text-center" id="errorMessage">
+                <i class="fas fa-exclamation-triangle me-2"></i>
+                <span id="errorText">Unable to load reviews. Please try again later.</span>
             </div>
         </div>
-    </section>
+
+        <!-- Leave Review Button -->
+        <div class="text-center mb-5">
+            <button class="btn btn-gold px-5 py-3" id="openReviewFormBtn">
+                <i class="fas fa-pencil-alt me-2"></i> Share Your Experience
+            </button>
+            <p class="text-muted mt-2 small">Your review will be visible to everyone after moderation</p>
+        </div>
+
+        <!-- Leave Review Form -->
+        <div class="card border-0 shadow-lg mb-5 d-none" id="reviewFormContainer">
+            <div class="card-body p-5">
+                <div class="d-flex justify-content-between align-items-center mb-4">
+                    <h3 class="mb-0">Submit Your Review</h3>
+                    <button class="btn btn-sm btn-outline-secondary" id="closeReviewFormBtn">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+                <p class="text-muted mb-4">Your review will be submitted as a GitHub issue and publicly visible once approved</p>
+                
+                <form id="reviewForm">
+                    <div class="row g-3">
+                        <div class="col-md-6">
+                            <div class="mb-3">
+                                <label class="form-label">Your Name *</label>
+                                <input type="text" class="form-control py-3" id="reviewName" required placeholder="Enter your name">
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="mb-3">
+                                <label class="form-label">Your Email *</label>
+                                <input type="email" class="form-control py-3" id="reviewEmail" required placeholder="your.email@example.com">
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="mb-3">
+                        <label class="form-label">Rating *</label>
+                        <div class="d-flex align-items-center" id="starRating">
+                            <i class="far fa-star fa-2x me-2 text-warning" data-rating="1" style="cursor: pointer;"></i>
+                            <i class="far fa-star fa-2x me-2 text-warning" data-rating="2" style="cursor: pointer;"></i>
+                            <i class="far fa-star fa-2x me-2 text-warning" data-rating="3" style="cursor: pointer;"></i>
+                            <i class="far fa-star fa-2x me-2 text-warning" data-rating="4" style="cursor: pointer;"></i>
+                            <i class="far fa-star fa-2x me-2 text-warning" data-rating="5" style="cursor: pointer;"></i>
+                            <span class="ms-3 fw-bold" id="ratingText">0 out of 5 stars</span>
+                        </div>
+                        <input type="hidden" id="ratingValue" value="0">
+                    </div>
+                    
+                    <div class="mb-4">
+                        <label class="form-label">Your Review *</label>
+                        <textarea class="form-control" id="reviewText" rows="4" required placeholder="Share your honest experience with Golden Sky Tourism..."></textarea>
+                        <div class="form-text">Minimum 50 characters, maximum 1000 characters</div>
+                    </div>
+                    
+                    <div class="mb-4">
+                        <label class="form-label">Which tour did you take?</label>
+                        <select class="form-control py-3" id="reviewTour">
+                            <option value="">Select tour (optional)</option>
+                            <option value="Half Day Desert Safari">Half Day Desert Safari</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-check mb-4">
+                        <input class="form-check-input" type="checkbox" id="agreeTerms" required>
+                        <label class="form-check-label" for="agreeTerms">
+                            I agree that my review will be published publicly on this website
+                        </label>
+                    </div>
+                    
+                    <div class="d-flex gap-3 justify-content-center">
+                        <button type="button" class="btn btn-gold px-5 py-3" id="submitReviewBtn">
+                            <i class="fas fa-paper-plane me-2"></i> Submit Review
+                        </button>
+                        <button type="button" class="btn btn-outline-secondary px-5 py-3" id="cancelReviewBtn">
+                            Cancel
+                        </button>
+                    </div>
+                    
+                    <p class="text-muted mt-3 text-center small">
+                        <i class="fab fa-github me-1"></i>
+                        Your review will be created as a GitHub issue for moderation
+                    </p>
+                </form>
+            </div>
+        </div>
+
+        <!-- Review Submitted Success -->
+        <div class="alert alert-success d-none text-center" id="reviewSuccessMessage">
+            <div class="d-flex align-items-center justify-content-center">
+                <i class="fas fa-check-circle fa-2x me-3"></i>
+                <div>
+                    <h5 class="mb-1">Review Submitted Successfully!</h5>
+                    <p class="mb-0" id="successMessageText">Your review has been submitted for moderation.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- View All Reviews Link -->
+        <div class="text-center mt-5">
+            <a href="https://github.com/YOUR_USERNAME/YOUR_REPO/issues?q=label%3Areview" 
+               class="btn btn-outline-dark" 
+               target="_blank">
+                <i class="fab fa-github me-2"></i> View All Reviews on GitHub
+            </a>
+            <p class="text-muted mt-2 small">See all submitted reviews and moderation status</p>
+        </div>
+    </div>
+</section>
 
     <!-- About Section -->
     <section class="page-section bg-light" id="about" data-aos="fade-up">
