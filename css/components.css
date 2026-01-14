@@ -633,3 +633,73 @@
 .modal-close-btn:hover {
     background: rgba(0,0,0,0.8);
 }
+
+/* GitHub Review System Styles */
+.review-pending {
+    opacity: 0.8;
+    border-left: 4px solid #ffc107;
+}
+
+.pending-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    background: rgba(255, 193, 7, 0.1);
+    color: #ffc107;
+    padding: 3px 10px;
+    border-radius: 12px;
+    font-size: 0.8rem;
+    font-weight: 600;
+}
+
+.github-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    background: rgba(36, 41, 46, 0.1);
+    color: #24292e;
+    padding: 3px 10px;
+    border-radius: 12px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    text-decoration: none;
+    margin-left: 5px;
+}
+
+.github-badge:hover {
+    background: rgba(36, 41, 46, 0.2);
+    color: #24292e;
+    text-decoration: none;
+}
+
+.review-avatar.pending {
+    background: linear-gradient(135deg, #ffc107, #ff9800);
+}
+
+/* Auto-refresh notification */
+.refresh-notification {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: var(--gold-primary);
+    color: #333;
+    padding: 10px 20px;
+    border-radius: 25px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    z-index: 1000;
+    animation: slideInUp 0.3s ease-out;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+@keyframes slideInUp {
+    from {
+        transform: translateY(100px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
