@@ -22,764 +22,11 @@
     <!-- AOS Animation -->
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     
-    <style>
-        :root {
-            --gold-primary: #FFD700;
-            --gold-secondary: #FFC107;
-            --dark-bg: #1a1a1a;
-            --text-light: #f8f9fa;
-            --text-muted: #6c757d;
-            --success: #28a745;
-        }
-        
-        /* Custom Styles */
-        body {
-            font-family: 'Montserrat', sans-serif;
-            overflow-x: hidden;
-            color: #333;
-        }
-        
-        h1, h2, h3, h4, .section-heading {
-            font-family: 'Playfair Display', serif;
-            font-weight: 700;
-        }
-        
-        /* Enhanced Hero Slider */
-        .hero-slider {
-            position: relative;
-            height: 100vh;
-            overflow: hidden;
-        }
-        
-        .slide {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-size: cover;
-            background-position: center;
-            opacity: 0;
-            transition: opacity 1.2s cubic-bezier(0.4, 0, 0.2, 1);
-            transform: scale(1.1);
-        }
-        
-        .slide.active {
-            opacity: 1;
-            transform: scale(1);
-        }
-        
-        .slide-overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(135deg, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.4) 100%);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 20px;
-        }
-        
-        .slide-content {
-            color: white;
-            text-align: center;
-            padding: 40px;
-            max-width: 900px;
-            backdrop-filter: blur(5px);
-            background: rgba(0, 0, 0, 0.2);
-            border-radius: 20px;
-            border: 1px solid rgba(255, 215, 0, 0.1);
-        }
-        
-        .slide-content h1 {
-            font-size: 4rem;
-            margin-bottom: 25px;
-            text-shadow: 2px 2px 8px rgba(0,0,0,0.5);
-            line-height: 1.2;
-            animation: fadeInUp 1s ease-out;
-        }
-        
-        .slide-content p {
-            font-size: 1.3rem;
-            margin-bottom: 35px;
-            line-height: 1.6;
-            animation: fadeInUp 1s ease-out 0.2s both;
-        }
-        
-        /* Slider Dots */
-        .slider-dots {
-            position: absolute;
-            bottom: 60px;
-            left: 50%;
-            transform: translateX(-50%);
-            display: flex;
-            gap: 20px;
-            z-index: 100;
-        }
-        
-        .dot {
-            width: 16px;
-            height: 16px;
-            border-radius: 50%;
-            background: rgba(255,255,255,0.4);
-            cursor: pointer;
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-            border: 2px solid transparent;
-        }
-        
-        .dot.active {
-            background: var(--gold-primary);
-            transform: scale(1.4);
-            border-color: white;
-            box-shadow: 0 0 15px rgba(255, 215, 0, 0.5);
-        }
-        
-        .dot:hover {
-            transform: scale(1.2);
-            background: rgba(255, 215, 0, 0.7);
-        }
-        
-        /* Navigation - Changed to Gold */
-        .navbar {
-            background: rgba(255, 215, 0, 0.95) !important; /* Changed to gold */
-            backdrop-filter: blur(10px);
-            transition: all 0.4s ease;
-            padding: 15px 0;
-        }
-        
-        .navbar.scrolled {
-            padding: 10px 0;
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
-        }
-        
-        .navbar-brand {
-            font-size: 1.8rem;
-            font-weight: 800;
-            color: #333 !important; /* Dark text for gold background */
-        }
-        
-        .navbar-brand .text-gold {
-            color: #333 !important; /* Dark text for gold background */
-        }
-        
-        .navbar-dark .navbar-nav .nav-link {
-            color: #333 !important; /* Dark text for gold background */
-            font-weight: 600;
-            margin: 0 10px;
-            position: relative;
-            padding: 8px 0 !important;
-        }
-        
-        .nav-link::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background: #333; /* Dark line for gold background */
-            transition: width 0.3s ease;
-        }
-        
-        .nav-link:hover::after,
-        .nav-link.active::after {
-            width: 100%;
-        }
-        
-        .navbar-toggler {
-            color: #333 !important;
-            border-color: #333 !important;
-        }
-        
-        /* Enhanced Booking Card */
-        .booking-card {
-            background: white;
-            border-radius: 25px;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.12);
-            overflow: hidden;
-            border: none;
-            margin-top: -100px;
-            position: relative;
-            z-index: 10;
-        }
-        
-        .form-section {
-            padding: 50px;
-        }
-        
-        .counter-btn {
-            width: 45px;
-            height: 45px;
-            border-radius: 50%;
-            background: #f8f9fa;
-            border: 2px solid #dee2e6;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: bold;
-            cursor: pointer;
-            transition: all 0.3s;
-            font-size: 1.2rem;
-        }
-        
-        .counter-btn:hover {
-            background: var(--gold-primary);
-            border-color: var(--gold-primary);
-            transform: scale(1.1);
-        }
-        
-        .counter-input {
-            width: 70px;
-            text-align: center;
-            border: 2px solid #dee2e6;
-            border-radius: 12px;
-            padding: 10px;
-            font-weight: bold;
-            font-size: 1.1rem;
-        }
-        
-        /* Enhanced Tour Cards */
-        .tour-card {
-            border: 1px solid rgba(0,0,0,0.08);
-            border-radius: 20px;
-            overflow: hidden;
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-            height: 100%;
-            background: white;
-            position: relative;
-        }
-        
-        .tour-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(135deg, rgba(255,215,0,0.1) 0%, transparent 100%);
-            opacity: 0;
-            transition: opacity 0.4s ease;
-        }
-        
-        .tour-card:hover {
-            transform: translateY(-15px);
-            box-shadow: 0 25px 50px rgba(0,0,0,0.15);
-        }
-        
-        .tour-card:hover::before {
-            opacity: 1;
-        }
-        
-        .tour-image {
-            height: 250px;
-            width: 100%;
-            object-fit: cover;
-            transition: transform 0.6s ease;
-        }
-        
-        .tour-card:hover .tour-image {
-            transform: scale(1.05);
-        }
-        
-        .tour-badge {
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            background: var(--gold-primary);
-            color: #333;
-            padding: 8px 20px;
-            border-radius: 25px;
-            font-weight: bold;
-            font-size: 0.9rem;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-        }
-        
-        /* Tour Gallery */
-        .tour-gallery {
-            margin-top: 40px;
-        }
-        
-        .gallery-item {
-            position: relative;
-            border-radius: 15px;
-            overflow: hidden;
-            margin-bottom: 20px;
-            height: 250px;
-            cursor: pointer;
-            transition: all 0.4s ease;
-        }
-        
-        .gallery-item img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.6s ease;
-        }
-        
-        .gallery-item:hover img {
-            transform: scale(1.1);
-        }
-        
-        .gallery-overlay {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
-            color: white;
-            padding: 20px;
-            transform: translateY(100%);
-            transition: transform 0.4s ease;
-        }
-        
-        .gallery-item:hover .gallery-overlay {
-            transform: translateY(0);
-        }
-        
-        /* Buttons */
-        .btn-gold {
-            background: linear-gradient(135deg, var(--gold-primary), var(--gold-secondary));
-            color: #333;
-            border: none;
-            font-weight: 700;
-            padding: 14px 35px;
-            border-radius: 35px;
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .btn-gold::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
-            transition: left 0.7s ease;
-        }
-        
-        .btn-gold:hover::before {
-            left: 100%;
-        }
-        
-        .btn-gold:hover {
-            background: linear-gradient(135deg, var(--gold-secondary), var(--gold-primary));
-            transform: translateY(-3px) scale(1.05);
-            box-shadow: 0 15px 30px rgba(255, 193, 7, 0.4);
-        }
-        
-        .booking-btn {
-            background: linear-gradient(135deg, var(--gold-primary), var(--gold-secondary));
-            color: #333;
-            border: none;
-            padding: 18px 45px;
-            border-radius: 35px;
-            font-weight: 700;
-            font-size: 1.2rem;
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            gap: 12px;
-            position: relative;
-            overflow: hidden;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-        
-        .booking-btn:hover {
-            background: linear-gradient(135deg, var(--gold-secondary), var(--gold-primary));
-            transform: translateY(-5px) scale(1.05);
-            box-shadow: 0 20px 40px rgba(255, 193, 7, 0.4);
-        }
-        
-        .whatsapp-btn {
-            background: linear-gradient(135deg, #25D366, #128C7E);
-            color: white;
-            padding: 16px 35px;
-            border-radius: 35px;
-            text-decoration: none;
-            display: inline-flex;
-            align-items: center;
-            gap: 12px;
-            font-weight: 700;
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
-        
-        .whatsapp-btn:hover {
-            background: linear-gradient(135deg, #128C7E, #25D366);
-            color: white;
-            transform: translateY(-3px) scale(1.05);
-            box-shadow: 0 15px 30px rgba(37, 211, 102, 0.3);
-        }
-        
-        .sms-btn {
-            background: linear-gradient(135deg, #4CAF50, #2E7D32);
-            color: white;
-            padding: 16px 35px;
-            border-radius: 35px;
-            text-decoration: none;
-            display: inline-flex;
-            align-items: center;
-            gap: 12px;
-            font-weight: 700;
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
-        
-        .sms-btn:hover {
-            background: linear-gradient(135deg, #2E7D32, #4CAF50);
-            color: white;
-            transform: translateY(-3px) scale(1.05);
-            box-shadow: 0 15px 30px rgba(76, 175, 80, 0.3);
-        }
-        
-        /* Time Slots - Updated with new schedule */
-        .time-slot {
-            border: 2px solid #dee2e6;
-            border-radius: 15px;
-            padding: 20px;
-            text-align: center;
-            cursor: pointer;
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-            background: white;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .time-slot::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 5px;
-            background: var(--gold-primary);
-            transform: scaleX(0);
-            transition: transform 0.4s ease;
-        }
-        
-        .time-slot:hover {
-            border-color: var(--gold-primary);
-            transform: translateY(-5px);
-            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
-        }
-        
-        .time-slot.active {
-            border-color: var(--gold-primary);
-            background: linear-gradient(to bottom, rgba(255,215,0,0.05), transparent);
-            box-shadow: 0 10px 25px rgba(255,215,0,0.15);
-        }
-        
-        .time-slot.active::before {
-            transform: scaleX(1);
-        }
-        
-        /* Form Controls */
-        .form-control {
-            padding: 15px;
-            border: 2px solid #e0e0e0;
-            border-radius: 12px;
-            font-size: 1rem;
-            transition: all 0.3s ease;
-        }
-        
-        .form-control:focus {
-            border-color: var(--gold-primary);
-            box-shadow: 0 0 0 0.35rem rgba(255, 215, 0, 0.2);
-            transform: translateY(-2px);
-        }
-        
-        .form-label {
-            font-weight: 600;
-            margin-bottom: 8px;
-            color: #333;
-            font-size: 0.95rem;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
-        
-        .inclusion-badge {
-            display: inline-block;
-            background: rgba(255, 215, 0, 0.12);
-            color: #333;
-            padding: 8px 16px;
-            border-radius: 25px;
-            font-size: 0.85rem;
-            margin: 5px;
-            border: 1px solid rgba(255, 215, 0, 0.3);
-            transition: all 0.3s ease;
-        }
-        
-        .inclusion-badge:hover {
-            background: rgba(255, 215, 0, 0.2);
-            transform: translateY(-2px);
-        }
-        
-        .optional-badge {
-            display: inline-block;
-            background: rgba(52, 152, 219, 0.12);
-            color: #333;
-            padding: 8px 16px;
-            border-radius: 25px;
-            font-size: 0.85rem;
-            margin: 5px;
-            border: 1px solid rgba(52, 152, 219, 0.3);
-            transition: all 0.3s ease;
-        }
-        
-        .optional-badge:hover {
-            background: rgba(52, 152, 219, 0.2);
-            transform: translateY(-2px);
-        }
-        
-        /* Booking Summary */
-        .booking-summary {
-            background: linear-gradient(135deg, #2c3e50, #34495e);
-            color: white;
-            padding: 50px;
-            height: 100%;
-        }
-        
-        .summary-item {
-            padding: 12px 0;
-            border-bottom: 1px solid rgba(255,255,255,0.1);
-        }
-        
-        /* Animations */
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-        
-        .fade-in {
-            animation: fadeInUp 0.8s ease-out;
-        }
-        
-        /* Section Spacing */
-        .page-section {
-            padding: 100px 0;
-        }
-        
-        .section-heading {
-            font-size: 3rem;
-            margin-bottom: 20px;
-            position: relative;
-            display: inline-block;
-        }
-        
-        .section-heading::after {
-            content: '';
-            position: absolute;
-            bottom: -10px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 80px;
-            height: 4px;
-            background: linear-gradient(to right, transparent, var(--gold-primary), transparent);
-        }
-        
-        .section-subheading {
-            font-size: 1.2rem;
-            color: var(--text-muted);
-            margin-bottom: 60px;
-        }
-        
-        /* Footer */
-        .footer {
-            background: var(--dark-bg);
-            color: white;
-            padding: 80px 0 40px;
-        }
-        
-        .footer h6 {
-            color: var(--gold-primary);
-            margin-bottom: 25px;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-        
-        .footer .btn-social {
-            width: 45px;
-            height: 45px;
-            border-radius: 50%;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            transition: all 0.3s ease;
-            margin: 0 5px;
-        }
-        
-        .footer .btn-social:hover {
-            transform: translateY(-5px) rotate(10deg);
-            background: var(--gold-primary) !important;
-            color: #333 !important;
-        }
-        
-        /* Modal */
-        .modal-content {
-            border-radius: 20px;
-            border: none;
-            overflow: hidden;
-        }
-        
-        .modal-header {
-            background: linear-gradient(135deg, var(--gold-primary), var(--gold-secondary));
-            color: #333;
-            border: none;
-            padding: 25px;
-        }
-        
-        .modal-body {
-            padding: 30px;
-        }
-        
-        /* Tour Details */
-        .tour-details-section {
-            background: linear-gradient(135deg, #f8f9fa, #e9ecef);
-            padding: 60px 0;
-        }
-        
-        .included-list, .optional-list {
-            list-style: none;
-            padding: 0;
-        }
-        
-        .included-list li, .optional-list li {
-            padding: 8px 0;
-            border-bottom: 1px solid rgba(0,0,0,0.1);
-            display: flex;
-            align-items: center;
-        }
-        
-        .included-list li i, .optional-list li i {
-            margin-right: 10px;
-            width: 20px;
-        }
-        
-        .included-list li i {
-            color: var(--gold-primary);
-        }
-        
-        .optional-list li i {
-            color: #3498db;
-        }
-        
-        /* Photo Gallery Modal */
-        #photoModal .modal-dialog {
-            max-width: 90%;
-            max-height: 90vh;
-        }
-        
-        #photoModal .modal-content {
-            background: transparent;
-            border: none;
-        }
-        
-        #photoModal .modal-body {
-            padding: 0;
-            background: transparent;
-        }
-        
-        #photoModal .modal-body img {
-            width: 100%;
-            height: auto;
-            max-height: 80vh;
-            object-fit: contain;
-            border-radius: 10px;
-        }
-        
-        .modal-close-btn {
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            background: rgba(0,0,0,0.5);
-            color: white;
-            border: none;
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.5rem;
-            z-index: 1000;
-            cursor: pointer;
-        }
-        
-        .modal-close-btn:hover {
-            background: rgba(0,0,0,0.8);
-        }
-        
-        /* Responsive */
-        @media (max-width: 768px) {
-            .slide-content h1 {
-                font-size: 2.5rem;
-            }
-            
-            .slide-content p {
-                font-size: 1.1rem;
-            }
-            
-            .booking-card {
-                margin-top: 0;
-            }
-            
-            .form-section {
-                padding: 30px;
-            }
-            
-            .booking-summary {
-                padding: 30px;
-            }
-            
-            .section-heading {
-                font-size: 2.2rem;
-            }
-            
-            #photoModal .modal-dialog {
-                max-width: 95%;
-            }
-        }
-        
-        @media (max-width: 576px) {
-            .slide-content {
-                padding: 20px;
-            }
-            
-            .slide-content h1 {
-                font-size: 2rem;
-            }
-            
-            .booking-btn, .whatsapp-btn, .sms-btn {
-                width: 100%;
-                justify-content: center;
-            }
-            
-            .gallery-item {
-                height: 200px;
-            }
-        }
-    </style>
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body id="page-top" data-bs-spy="scroll" data-bs-target="#mainNav" data-bs-offset="100">
-    <!-- Navigation - Changed to Gold -->
+    <!-- Navigation -->
     <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
         <div class="container">
             <a class="navbar-brand" href="#page-top">
@@ -807,7 +54,6 @@
 
     <!-- Hero Slider -->
     <header class="hero-slider" id="home">
-        <!-- Slide 1 - Desert Safari -->
         <div class="slide active" style="background-image: url('assets/images/hero/desert-safari.jpg');">
             <div class="slide-overlay">
                 <div class="slide-content">
@@ -819,7 +65,6 @@
                 </div>
             </div>
         </div>
-        <!-- Slide 2 - Camel Riding -->
         <div class="slide" style="background-image: url('assets/images/hero/camel-riding.jpg');">
             <div class="slide-overlay">
                 <div class="slide-content">
@@ -831,7 +76,6 @@
                 </div>
             </div>
         </div>
-        <!-- Slide 3 - Dune Bashing -->
         <div class="slide" style="background-image: url('assets/images/tour-photos/dune-bashing.jpg');">
             <div class="slide-overlay">
                 <div class="slide-content">
@@ -843,7 +87,6 @@
                 </div>
             </div>
         </div>
-        <!-- Slide 4 - Inland Sea -->
         <div class="slide" style="background-image: url('assets/images/tour-photos/inland-sea.jpg');">
             <div class="slide-overlay">
                 <div class="slide-content">
@@ -855,7 +98,6 @@
                 </div>
             </div>
         </div>
-        <!-- Dots Navigation -->
         <div class="slider-dots">
             <div class="dot active" data-slide="0"></div>
             <div class="dot" data-slide="1"></div>
@@ -864,7 +106,7 @@
         </div>
     </header>
 
-    <!-- Tours Section - Updated with Half Day Desert Tour Only -->
+    <!-- Tours Section -->
     <section class="page-section" id="tours" data-aos="fade-up">
         <div class="container">
             <div class="text-center mb-5">
@@ -872,7 +114,6 @@
                 <h3 class="section-subheading text-muted">Experience the best of Qatar's desert in 4 hours</h3>
             </div>
             <div class="row g-4 justify-content-center">
-                <!-- Half Day Desert Tour - Updated with new info -->
                 <div class="col-lg-10" data-aos="fade-up" data-aos-delay="100">
                     <div class="tour-card">
                         <div class="position-relative">
@@ -888,7 +129,6 @@
                                 <span class="ms-3"><i class="fas fa-car text-gold me-2"></i>4x4 Land Cruiser</span>
                             </div>
                             <p class="text-muted mb-3">Experience Qatar's desert in just 4 hours. Perfect adventure for those with limited time but unlimited spirit! Our professional guides will take you through the most beautiful desert landscapes Qatar has to offer.</p>
-                            
                             <div class="mb-4">
                                 <h6 class="fw-bold mb-3">Schedule:</h6>
                                 <div class="row g-3">
@@ -912,7 +152,6 @@
                                     </div>
                                 </div>
                             </div>
-                            
                             <div class="text-center mt-4">
                                 <button class="btn btn-gold btn-lg px-5" onclick="selectTour('Half Day Desert Safari')">
                                     <i class="fas fa-calendar-check me-2"></i>Book This Tour Now
@@ -926,16 +165,14 @@
         </div>
     </section>
 
-    <!-- Tour Gallery Section -->
+    <!-- Gallery Section -->
     <section class="page-section bg-light" id="gallery" data-aos="fade-up">
         <div class="container">
             <div class="text-center mb-5">
                 <h2 class="section-heading text-uppercase">Tour Gallery</h2>
                 <h3 class="section-subheading text-muted">See what our Half Day Desert Safari looks like</h3>
             </div>
-            
             <div class="row tour-gallery">
-                <!-- Photo 1 - Dune Bashing -->
                 <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="100">
                     <div class="gallery-item" onclick="openPhotoModal('assets/images/tour-photos/dune-bashing.jpg', 'Dune Bashing Adventure')">
                         <img src="assets/images/tour-photos/dune-bashing.jpg" alt="Dune Bashing">
@@ -945,8 +182,6 @@
                         </div>
                     </div>
                 </div>
-                
-                <!-- Photo 3 - Inland Sea -->
                 <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="300">
                     <div class="gallery-item" onclick="openPhotoModal('assets/images/tour-photos/inland-sea.jpg', 'Inland Sea Visit')">
                         <img src="assets/images/tour-photos/inland-sea.jpg" alt="Inland Sea">
@@ -956,8 +191,6 @@
                         </div>
                     </div>
                 </div>
-                
-                <!-- Photo 4 - Sand Boarding -->
                 <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="100">
                     <div class="gallery-item" onclick="openPhotoModal('assets/images/tour-photos/sand-boarding.jpg', 'Sand Boarding Fun')">
                         <img src="assets/images/tour-photos/sand-boarding.jpg" alt="Sand Boarding">
@@ -967,8 +200,6 @@
                         </div>
                     </div>
                 </div>
-                
-                <!-- Photo 5 - Sunset View -->
                 <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="200">
                     <div class="gallery-item" onclick="openPhotoModal('assets/images/tour-photos/sunset-view.jpg', 'Desert Sunset')">
                         <img src="assets/images/tour-photos/sunset-view.jpg" alt="Sunset View">
@@ -978,8 +209,6 @@
                         </div>
                     </div>
                 </div>
-                
-                <!-- Photo 6 - Falcon Photo -->
                 <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="300">
                     <div class="gallery-item" onclick="openPhotoModal('assets/images/tour-photos/falcon-photo.jpg', 'Falcon Photo Opportunity')">
                         <img src="assets/images/tour-photos/falcon-photo.jpg" alt="Falcon Photo">
@@ -989,8 +218,6 @@
                         </div>
                     </div>
                 </div>
-                
-                <!-- Photo 7 - 4x4 Vehicles -->
                 <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="100">
                     <div class="gallery-item" onclick="openPhotoModal('assets/images/tour-photos/land-cruiser.jpg', '4x4 Land Cruiser')">
                         <img src="assets/images/tour-photos/land-cruiser.jpg" alt="4x4 Vehicles">
@@ -1000,8 +227,6 @@
                         </div>
                     </div>
                 </div>
-                
-                <!-- Photo 9 - Group Photo -->
                 <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="300">
                     <div class="gallery-item" onclick="openPhotoModal('assets/images/tour-photos/group-photo.jpg', 'Group Memories')">
                         <img src="assets/images/tour-photos/group-photo.jpg" alt="Group Photo">
@@ -1015,14 +240,13 @@
         </div>
     </section>
 
-    <!-- Tour Details Section -->
+    <!-- Details Section -->
     <section class="tour-details-section" id="details" data-aos="fade-up">
         <div class="container">
             <div class="text-center mb-5">
                 <h2 class="section-heading text-uppercase">Tour Details & Inclusions</h2>
                 <h3 class="section-subheading text-muted">Everything included in your desert adventure</h3>
             </div>
-            
             <div class="row">
                 <div class="col-lg-6 mb-4" data-aos="fade-right">
                     <div class="card h-100 border-0 shadow-sm">
@@ -1047,7 +271,6 @@
                         </div>
                     </div>
                 </div>
-                
                 <div class="col-lg-6 mb-4" data-aos="fade-left">
                     <div class="card h-100 border-0 shadow-sm">
                         <div class="card-body p-4">
@@ -1060,7 +283,6 @@
                                 <li><i class="fas fa-dove" style="color: #3498db;"></i> Photo with Falcon (upon request)</li>
                                 <li><i class="fas fa-motorcycle" style="color: #3498db;"></i> ATV/Quad Biking (upon request)</li>
                             </ul>
-                            
                             <div class="mt-4 pt-3 border-top">
                                 <h5 class="mb-3">Tour Highlights:</h5>
                                 <div class="row">
@@ -1109,7 +331,7 @@
         </div>
     </section>
 
-    <!-- Booking Form -->
+    <!-- Booking Section -->
     <section class="page-section bg-light" id="booking" data-aos="fade-up">
         <div class="container">
             <div class="text-center mb-5">
@@ -1121,7 +343,6 @@
                     <div class="col-lg-8">
                         <div class="form-section">
                             <form id="bookingForm">
-                                <!-- Tour Selection -->
                                 <div class="mb-4">
                                     <label class="form-label">Select Tour *</label>
                                     <select class="form-control py-3" id="tourSelect" required>
@@ -1129,8 +350,6 @@
                                         <option value="Half Day Desert Safari (4 hours)">Half Day Desert Safari (4 hours)</option>
                                     </select>
                                 </div>
-
-                                <!-- Personal Information -->
                                 <div class="row g-3 mb-4">
                                     <div class="col-md-6">
                                         <label class="form-label">Full Name *</label>
@@ -1141,14 +360,10 @@
                                         <input type="tel" class="form-control py-3" id="phone" required placeholder="+974 66955259">
                                     </div>
                                 </div>
-
-                                <!-- Email Field -->
                                 <div class="mb-4">
                                     <label class="form-label">Email Address *</label>
                                     <input type="email" class="form-control py-3" id="email" required placeholder="your.email@example.com">
                                 </div>
-
-                                <!-- Date and Location -->
                                 <div class="row g-3 mb-4">
                                     <div class="col-md-6">
                                         <label class="form-label">Tour Date *</label>
@@ -1161,8 +376,6 @@
                                         <small class="text-muted">Please provide your exact location for pickup</small>
                                     </div>
                                 </div>
-
-                                <!-- Time Slot Selection - Updated times -->
                                 <div class="mb-4">
                                     <label class="form-label">Preferred Time Slot *</label>
                                     <div class="row g-3">
@@ -1187,8 +400,6 @@
                                     </div>
                                     <input type="hidden" id="selectedTime" value="morning">
                                 </div>
-
-                                <!-- People Counter -->
                                 <div class="mb-4">
                                     <label class="form-label">Number of People *</label>
                                     <div class="row g-4">
@@ -1214,14 +425,10 @@
                                         </div>
                                     </div>
                                 </div>
-
-                                <!-- Special Requests -->
                                 <div class="mb-4">
                                     <label class="form-label">Special Requests</label>
                                     <textarea class="form-control" id="specialRequests" rows="3" placeholder="Any special requirements, optional activities (camel ride, falcon photo, ATV), or questions..."></textarea>
                                 </div>
-
-                                <!-- Communication Preference -->
                                 <div class="mb-4">
                                     <label class="form-label">Preferred Communication Method *</label>
                                     <div class="row g-3">
@@ -1243,8 +450,6 @@
                                         </div>
                                     </div>
                                 </div>
-
-                                <!-- Submit Button -->
                                 <div class="text-center mt-5">
                                     <button type="button" class="booking-btn" onclick="processBooking()">
                                         <i class="fas fa-calendar-check me-2"></i> Book Now
@@ -1253,7 +458,6 @@
                             </form>
                         </div>
                     </div>
-                    <!-- Booking Summary -->
                     <div class="col-lg-4 booking-summary">
                         <h3 class="mb-4">Booking Summary</h3>
                         <div class="mb-4">
@@ -1316,88 +520,93 @@
                 <h3 class="section-subheading text-muted">See what our customers say about their desert experience</h3>
             </div>
             
-            <!-- Existing Reviews -->
-            <div class="row g-4 mb-5">
-                <div class="col-md-4">
-                    <div class="card h-100 border-0 shadow-sm">
+            <!-- Review Stats -->
+            <div class="row mb-5">
+                <div class="col-md-3 text-center mb-4">
+                    <div class="card border-0 shadow-sm h-100">
                         <div class="card-body p-4">
-                            <div class="d-flex align-items-center mb-3">
-                                <div class="me-3">
-                                    <i class="fas fa-user-circle fa-3x text-gold"></i>
-                                </div>
-                                <div>
-                                    <h5 class="mb-1">Sarah M.</h5>
-                                    <div class="text-warning">
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                    </div>
-                                </div>
+                            <h1 class="display-4 text-gold mb-2" id="averageRating">4.8</h1>
+                            <div class="text-warning mb-2">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
                             </div>
-                            <p class="card-text">"Amazing experience! The sunset desert safari was breathtaking. Our guide Ahmed was very knowledgeable and made us feel safe throughout the dune bashing."</p>
-                            <small class="text-muted">February 2024</small>
+                            <p class="text-muted mb-0">Average Rating</p>
                         </div>
                     </div>
                 </div>
-                
-                <div class="col-md-4">
-                    <div class="card h-100 border-0 shadow-sm">
+                <div class="col-md-3 text-center mb-4">
+                    <div class="card border-0 shadow-sm h-100">
                         <div class="card-body p-4">
-                            <div class="d-flex align-items-center mb-3">
-                                <div class="me-3">
-                                    <i class="fas fa-user-circle fa-3x text-gold"></i>
-                                </div>
-                                <div>
-                                    <h5 class="mb-1">James R.</h5>
-                                    <div class="text-warning">
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                    </div>
-                                </div>
-                            </div>
-                            <p class="card-text">"Perfect family adventure! The kids loved the camel ride and sand boarding. Professional service from pickup to dropoff. Highly recommended!"</p>
-                            <small class="text-muted">January 2024</small>
+                            <h1 class="display-4 text-gold mb-2" id="totalReviews">12</h1>
+                            <p class="text-muted mb-0">Total Reviews</p>
                         </div>
                     </div>
                 </div>
-                
-                <div class="col-md-4">
-                    <div class="card h-100 border-0 shadow-sm">
+                <div class="col-md-3 text-center mb-4">
+                    <div class="card border-0 shadow-sm h-100">
                         <div class="card-body p-4">
-                            <div class="d-flex align-items-center mb-3">
-                                <div class="me-3">
-                                    <i class="fas fa-user-circle fa-3x text-gold"></i>
-                                </div>
-                                <div>
-                                    <h5 class="mb-1">Fatima A.</h5>
-                                    <div class="text-warning">
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star-half-alt"></i>
-                                    </div>
-                                </div>
-                            </div>
-                            <p class="card-text">"Great value for money! The Inland Sea visit was magical. Very organized tour with excellent photo opportunities. Will definitely book again!"</p>
-                            <small class="text-muted">December 2023</small>
+                            <h1 class="display-4 text-gold mb-2">98%</h1>
+                            <p class="text-muted mb-0">Would Recommend</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 text-center mb-4">
+                    <div class="card border-0 shadow-sm h-100">
+                        <div class="card-body p-4">
+                            <h1 class="display-4 text-gold mb-2">24h</h1>
+                            <p class="text-muted mb-0">Response Time</p>
                         </div>
                     </div>
                 </div>
             </div>
             
-            <!-- Leave Review Form -->
-            <div class="card border-0 shadow-lg">
-                <div class="card-body p-5">
-                    <div class="text-center mb-4">
-                        <h3 class="mb-3">Share Your Experience</h3>
-                        <p class="text-muted">Tell us about your desert adventure with Golden Sky Tourism</p>
+            <!-- Reviews Container -->
+            <div class="mb-5">
+                <h4 class="mb-4">Recent Reviews</h4>
+                <div id="reviewsContainer">
+                    <div class="text-center py-5">
+                        <div class="spinner-border text-gold" role="status">
+                            <span class="visually-hidden">Loading reviews...</span>
+                        </div>
+                        <p class="mt-3">Loading reviews...</p>
                     </div>
+                </div>
+                
+                <!-- Show More Button -->
+                <div class="text-center mt-4 d-none" id="showMoreContainer">
+                    <button class="btn btn-outline-gold px-5" id="showMoreBtn">
+                        <i class="fas fa-chevron-down me-2"></i>Show More Reviews
+                    </button>
+                </div>
+                
+                <!-- No Reviews Message -->
+                <div class="text-center py-5 d-none" id="noReviewsMessage">
+                    <i class="fas fa-comments fa-3x text-muted mb-3"></i>
+                    <h4 class="mb-3">No Reviews Yet</h4>
+                    <p class="text-muted mb-4">Be the first to share your experience!</p>
+                </div>
+            </div>
+            
+            <!-- Leave Review Button -->
+            <div class="text-center mb-5">
+                <button class="btn btn-gold px-5 py-3" id="openReviewFormBtn">
+                    <i class="fas fa-pencil-alt me-2"></i> Write a Review
+                </button>
+            </div>
+            
+            <!-- Review Form -->
+            <div class="card border-0 shadow-lg mb-5 d-none" id="reviewFormContainer">
+                <div class="card-body p-5">
+                    <div class="d-flex justify-content-between align-items-center mb-4">
+                        <h3 class="mb-0">Share Your Experience</h3>
+                        <button class="btn btn-sm btn-outline-secondary" id="closeReviewFormBtn">
+                            <i class="fas fa-times"></i>
+                        </button>
+                    </div>
+                    <p class="text-muted mb-4">Tell us about your desert adventure with Golden Sky Tourism</p>
                     
                     <form id="reviewForm">
                         <div class="row g-3">
@@ -1431,6 +640,7 @@
                         <div class="mb-4">
                             <label class="form-label">Your Review *</label>
                             <textarea class="form-control" id="reviewText" rows="4" required placeholder="Share details about your experience with Golden Sky Tourism..."></textarea>
+                            <div class="form-text">Minimum 50 characters, maximum 1000 characters</div>
                         </div>
                         
                         <div class="mb-4">
@@ -1441,14 +651,27 @@
                             </select>
                         </div>
                         
+                        <div class="form-check mb-4">
+                            <input class="form-check-input" type="checkbox" id="allowPublishing" checked>
+                            <label class="form-check-label" for="allowPublishing">
+                                I allow Golden Sky Tourism to publish my review on their website
+                            </label>
+                        </div>
+                        
                         <div class="text-center">
-                            <button type="button" class="btn btn-gold px-5 py-3" onclick="submitReview()">
+                            <button type="button" class="btn btn-gold px-5 py-3" id="submitReviewBtn">
                                 <i class="fas fa-paper-plane me-2"></i> Submit Review
                             </button>
                             <p class="text-muted mt-2 small">Your review will be published after moderation</p>
                         </div>
                     </form>
                 </div>
+            </div>
+            
+            <!-- Success Message -->
+            <div class="alert alert-success d-none text-center" id="reviewSuccessMessage">
+                <i class="fas fa-check-circle me-2"></i>
+                <strong>Thank you!</strong> Your review has been submitted and is pending moderation.
             </div>
         </div>
     </section>
@@ -1585,7 +808,7 @@
         </div>
     </section>
 
-    <!-- Footer-->
+    <!-- Footer -->
     <footer class="footer py-5 bg-dark text-white">
         <div class="container">
             <div class="row align-items-center">
@@ -1628,7 +851,7 @@
         </div>
     </footer>
 
-    <!-- Success Modal -->
+    <!-- Modals -->
     <div class="modal fade" id="successModal" tabindex="-1" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
@@ -1652,7 +875,6 @@
         </div>
     </div>
 
-    <!-- Photo Gallery Modal -->
     <div class="modal fade" id="photoModal" tabindex="-1" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered modal-lg">
             <div class="modal-content">
@@ -1667,447 +889,14 @@
         </div>
     </div>
 
-    <!-- Bootstrap JS -->
+    <!-- External JavaScript -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    
-    <!-- AOS Animation -->
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     
     <!-- Custom JavaScript -->
-    <script>
-        // Initialize AOS
-        AOS.init({
-            duration: 1000,
-            once: true,
-            offset: 100
-        });
-
-        // Slider Functionality
-        let currentSlide = 0;
-        const slides = document.querySelectorAll('.slide');
-        const dots = document.querySelectorAll('.dot');
-        
-        function showSlide(n) {
-            slides.forEach(slide => slide.classList.remove('active'));
-            dots.forEach(dot => dot.classList.remove('active'));
-            
-            currentSlide = (n + slides.length) % slides.length;
-            slides[currentSlide].classList.add('active');
-            dots[currentSlide].classList.add('active');
-        }
-        
-        function nextSlide() {
-            showSlide(currentSlide + 1);
-        }
-        
-        // Auto slide every 5 seconds
-        setInterval(nextSlide, 5000);
-        
-        // Dot click events
-        dots.forEach((dot, index) => {
-            dot.addEventListener('click', () => {
-                showSlide(index);
-            });
-        });
-        
-        // Navbar scroll effect
-        window.addEventListener('scroll', function() {
-            const navbar = document.getElementById('mainNav');
-            if (window.scrollY > 100) {
-                navbar.classList.add('scrolled');
-            } else {
-                navbar.classList.remove('scrolled');
-            }
-            
-            // Update active nav link
-            const sections = document.querySelectorAll('section[id]');
-            const scrollPos = window.scrollY + 100;
-            
-            sections.forEach(section => {
-                const sectionHeight = section.offsetHeight;
-                const sectionTop = section.offsetTop;
-                const sectionId = section.getAttribute('id');
-                
-                if (scrollPos > sectionTop && scrollPos <= sectionTop + sectionHeight) {
-                    document.querySelectorAll('.nav-link').forEach(link => {
-                        link.classList.remove('active');
-                        if (link.getAttribute('href') === `#${sectionId}`) {
-                            link.classList.add('active');
-                        }
-                    });
-                }
-            });
-        });
-        
-        // Time Slot Selection
-        document.querySelectorAll('.time-slot').forEach(slot => {
-            slot.addEventListener('click', function() {
-                document.querySelectorAll('.time-slot').forEach(s => s.classList.remove('active'));
-                this.classList.add('active');
-                document.getElementById('selectedTime').value = this.getAttribute('data-time');
-                updateSummary();
-            });
-        });
-        
-        // Counter Functions
-        function adjustCount(type, change) {
-            const input = document.getElementById(`${type}Count`);
-            let value = parseInt(input.value) + change;
-            
-            if (type === 'adults') {
-                value = Math.max(1, value);
-            } else {
-                value = Math.max(0, value);
-            }
-            
-            input.value = value;
-            updateSummary();
-        }
-        
-        // Update Booking Summary
-        function updateSummary() {
-            const tourSelect = document.getElementById('tourSelect');
-            const tourDate = document.getElementById('tourDate');
-            const selectedTime = document.getElementById('selectedTime');
-            const adultsCount = document.getElementById('adultsCount');
-            const childrenCount = document.getElementById('childrenCount');
-            const pickupLocation = document.getElementById('pickupLocation');
-            
-            // Update tour
-            document.getElementById('summaryTour').textContent = tourSelect.value || 'Not selected';
-            
-            // Update date
-            document.getElementById('summaryDate').textContent = tourDate.value ? 
-                new Date(tourDate.value).toLocaleDateString('en-US', { 
-                    weekday: 'short', 
-                    year: 'numeric', 
-                    month: 'short', 
-                    day: 'numeric' 
-                }) : '--/--/----';
-            
-            // Update time with new schedule
-            const timeText = {
-                'sunrise': 'Sunrise (4:00AM-8:00AM)',
-                'morning': 'Morning (8:30AM-12:30PM)',
-                'sunset': 'Sunset (2:30PM-6:30PM)'
-            };
-            document.getElementById('summaryTime').textContent = timeText[selectedTime.value] || 'Not selected';
-            
-            // Update counts
-            document.getElementById('summaryAdults').textContent = adultsCount.value;
-            document.getElementById('summaryChildren').textContent = childrenCount.value;
-            
-            // Update pickup
-            document.getElementById('summaryPickup').textContent = pickupLocation.value || 'Not entered';
-        }
-        
-        // Select Tour from cards
-        function selectTour(tourName) {
-            document.getElementById('tourSelect').value = tourName;
-            document.getElementById('booking').scrollIntoView({behavior: 'smooth'});
-            updateSummary();
-        }
-        
-        // Open Photo Modal
-        function openPhotoModal(photoSrc, title) {
-            document.getElementById('modalPhoto').src = photoSrc;
-            document.getElementById('modalTitle').textContent = title;
-            const photoModal = new bootstrap.Modal(document.getElementById('photoModal'));
-            photoModal.show();
-        }
-        
-        // Process Booking with Email/SMS fallback
-        function processBooking() {
-            const fullName = document.getElementById('fullName').value;
-            const phone = document.getElementById('phone').value;
-            const email = document.getElementById('email').value;
-            const tourSelect = document.getElementById('tourSelect').value;
-            const tourDate = document.getElementById('tourDate').value;
-            const pickupLocation = document.getElementById('pickupLocation').value;
-            const selectedTime = document.getElementById('selectedTime').value;
-            const adultsCount = document.getElementById('adultsCount').value;
-            const childrenCount = document.getElementById('childrenCount').value;
-            const specialRequests = document.getElementById('specialRequests').value;
-            const communicationPref = document.querySelector('input[name="communicationPref"]:checked').value;
-            
-            // Validation
-            if (!fullName || !phone || !email || !tourSelect || !tourDate || !pickupLocation) {
-                alert('Please fill in all required fields (*)');
-                return;
-            }
-            
-            // Email validation
-            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-            if (!emailRegex.test(email)) {
-                alert('Please enter a valid email address');
-                return;
-            }
-            
-            // Time text mapping with new schedule
-            const timeText = {
-                'sunrise': 'Sunrise (4:00 AM - 8:00 AM)',
-                'morning': 'Morning (8:30 AM - 12:30 PM)',
-                'sunset': 'Sunset (2:30 PM - 6:30 PM)'
-            };
-            
-            // Generate booking ID
-            const bookingId = 'GS-' + Date.now().toString().slice(-8);
-            
-            // Create booking message
-            const message = `🌟 *New Booking Request - Golden Sky Tourism* 🌟
-
-👤 *Customer Information:*
-• Name: ${fullName}
-• Phone: ${phone}
-• Email: ${email}
-• Preferred Contact: ${communicationPref.toUpperCase()}
-
-🗓️ *Tour Details:*
-• Tour: ${tourSelect}
-• Date: ${new Date(tourDate).toLocaleDateString()}
-• Time: ${timeText[selectedTime]}
-• Pickup Location: ${pickupLocation}
-
-👥 *Group Information:*
-• Adults: ${adultsCount}
-• Children: ${childrenCount}
-
-📝 *Special Requests:*
-${specialRequests || 'No special requests'}
-
-🆔 *Booking ID:* ${bookingId}
-⏰ *Request Time:* ${new Date().toLocaleString()}
-
-Thank you for choosing Golden Sky Tourism! We will contact you within 2 hours with pricing and to confirm your booking.`;
-            
-            // Create email body
-            const emailSubject = `New Booking Request - ${bookingId}`;
-            const emailBody = message.replace(/\*/g, '').replace(/🌟/g, '').replace(/👤/g, 'CUSTOMER INFORMATION:')
-                .replace(/🗓️/g, 'TOUR DETAILS:').replace(/👥/g, 'GROUP INFORMATION:')
-                .replace(/📝/g, 'SPECIAL REQUESTS:').replace(/🆔/g, 'BOOKING ID:').replace(/⏰/g, 'REQUEST TIME:');
-            
-            // Encode message
-            const encodedMessage = encodeURIComponent(message);
-            const encodedEmailSubject = encodeURIComponent(emailSubject);
-            const encodedEmailBody = encodeURIComponent(emailBody);
-            
-            // WhatsApp number and email - UPDATED PHONE NUMBER
-            const whatsappNumber = "97466955259";
-            const smsNumber = "97466955259";
-            const companyEmail = "info@goldensky.com";
-            
-            // Determine communication method
-            if (communicationPref === 'whatsapp') {
-                // Try WhatsApp first
-                const whatsappURL = `https://wa.me/${whatsappNumber}?text=${encodedMessage}`;
-                window.open(whatsappURL, '_blank');
-                
-                // Also send email copy to company
-                const emailURL = `mailto:${companyEmail}?subject=${encodedEmailSubject}&body=${encodedEmailBody}`;
-                setTimeout(() => {
-                    window.location.href = emailURL;
-                }, 1000);
-                
-            } else {
-                // Send SMS (using mailto as fallback since direct SMS requires device API)
-                const smsBody = `New booking from ${fullName}. Tour: ${tourSelect}. Date: ${tourDate}. Please check email for full details.`;
-                const smsURL = `mailto:${smsNumber}@?subject=Booking Request&body=${encodeURIComponent(smsBody)}`;
-                
-                // Send to SMS gateway and company email
-                window.location.href = smsURL;
-                
-                // Also send full details to company email
-                setTimeout(() => {
-                    window.location.href = `mailto:${companyEmail}?subject=${encodedEmailSubject}&body=${encodedEmailBody}`;
-                }, 500);
-            }
-            
-            // Show confirmation modal
-            document.getElementById('bookingId').textContent = bookingId;
-            const successModal = new bootstrap.Modal(document.getElementById('successModal'));
-            successModal.show();
-            
-            // Send email confirmation to customer
-            const customerEmailSubject = `Booking Confirmation - ${bookingId}`;
-            const customerEmailBody = `Dear ${fullName},
-
-Thank you for your booking request with Golden Sky Tourism!
-
-Your booking details:
-- Booking ID: ${bookingId}
-- Tour: ${tourSelect}
-- Date: ${new Date(tourDate).toLocaleDateString()}
-- Time: ${timeText[selectedTime]}
-- Pickup Location: ${pickupLocation}
-- Adults: ${adultsCount}, Children: ${childrenCount}
-
-We have received your request and will contact you within 2 hours to confirm pricing and availability.
-
-If you have any questions, please contact us:
-📞 +974 66955259
-📱 WhatsApp: +974 66955259
-📧 info@goldensky.com
-
-Best regards,
-Golden Sky Tourism Team`;
-            
-            // Store booking data (in a real implementation, this would be sent to a server)
-            const bookingData = {
-                id: bookingId,
-                name: fullName,
-                phone: phone,
-                email: email,
-                tour: tourSelect,
-                date: tourDate,
-                time: selectedTime,
-                adults: adultsCount,
-                children: childrenCount,
-                pickup: pickupLocation,
-                requests: specialRequests,
-                timestamp: new Date().toISOString()
-            };
-            
-            // Store in localStorage (temporary)
-            localStorage.setItem(`booking_${bookingId}`, JSON.stringify(bookingData));
-            
-            // Clear form
-            setTimeout(() => {
-                document.getElementById('bookingForm').reset();
-                updateSummary();
-            }, 2000);
-        }
-        
-        // Set date restrictions
-        const today = new Date();
-        document.getElementById('tourDate').min = today.toISOString().split('T')[0];
-        const maxDate = new Date();
-        maxDate.setMonth(maxDate.getMonth() + 3);
-        document.getElementById('tourDate').max = maxDate.toISOString().split('T')[0];
-        
-        // Set default date to tomorrow
-        const tomorrow = new Date();
-        tomorrow.setDate(tomorrow.getDate() + 1);
-        document.getElementById('tourDate').value = tomorrow.toISOString().split('T')[0];
-        
-        // Initialize summary
-        document.querySelectorAll('#bookingForm select, #bookingForm input').forEach(element => {
-            element.addEventListener('change', updateSummary);
-            element.addEventListener('input', updateSummary);
-        });
-        
-        updateSummary();
-        
-        // Smooth scrolling for navigation links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
-            });
-        });
-        
-        // Review System
-        let currentRating = 0;
-
-        // Star rating functionality
-        document.querySelectorAll('#starRating i').forEach(star => {
-            star.addEventListener('mouseover', function() {
-                const rating = parseInt(this.getAttribute('data-rating'));
-                highlightStars(rating);
-            });
-            
-            star.addEventListener('click', function() {
-                currentRating = parseInt(this.getAttribute('data-rating'));
-                highlightStars(currentRating);
-                document.getElementById('ratingValue').value = currentRating;
-                document.getElementById('ratingText').textContent = `${currentRating} out of 5 stars`;
-            });
-        });
-
-        function highlightStars(rating) {
-            document.querySelectorAll('#starRating i').forEach((star, index) => {
-                if (index < rating) {
-                    star.classList.remove('far');
-                    star.classList.add('fas');
-                } else {
-                    star.classList.remove('fas');
-                    star.classList.add('far');
-                }
-            });
-        }
-
-        // Reset stars on mouse leave
-        document.getElementById('starRating').addEventListener('mouseleave', function() {
-            highlightStars(currentRating);
-        });
-
-        // Submit review function
-        function submitReview() {
-            const name = document.getElementById('reviewName').value;
-            const email = document.getElementById('reviewEmail').value;
-            const rating = document.getElementById('ratingValue').value;
-            const reviewText = document.getElementById('reviewText').value;
-            const tour = document.getElementById('reviewTour').value;
-            
-            // Validation
-            if (!name || !email || !rating || !reviewText) {
-                alert('Please fill in all required fields (*)');
-                return;
-            }
-            
-            if (rating === '0') {
-                alert('Please select a rating');
-                return;
-            }
-            
-            // Email validation
-            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-            if (!emailRegex.test(email)) {
-                alert('Please enter a valid email address');
-                return;
-            }
-            
-            // Create review message
-            const reviewMessage = `🌟 *New Customer Review Submission* 🌟
-
-👤 *Reviewer Information:*
-• Name: ${name}
-• Email: ${email}
-
-⭐ *Rating:* ${rating}/5 stars
-${'★'.repeat(rating)}${'☆'.repeat(5-rating)}
-
-🗺️ *Tour:* ${tour || 'Not specified'}
-
-📝 *Review:*
-${reviewText}
-
-⏰ *Submitted:* ${new Date().toLocaleString()}
-
-This review needs to be moderated before publishing on the website.`;
-            
-            // Encode message
-            const encodedReview = encodeURIComponent(reviewMessage);
-            
-            // Send to WhatsApp for moderation
-            const whatsappURL = `https://wa.me/97466955259?text=${encodedReview}`;
-            window.open(whatsappURL, '_blank');
-            
-            // Show success message
-            alert('Thank you for your review! Your review has been submitted for moderation and will be published soon.');
-            
-            // Clear form
-            document.getElementById('reviewForm').reset();
-            currentRating = 0;
-            document.getElementById('ratingValue').value = '0';
-            document.getElementById('ratingText').textContent = '0 out of 5 stars';
-            highlightStars(0);
-        }
-    </script>
+    <script src="js/main.js"></script>
+    <script src="js/slider.js"></script>
+    <script src="js/booking.js"></script>
+    <script src="js/reviews.js"></script>
 </body>
 </html>
