@@ -1,0 +1,172 @@
+/* layout.css - Layout Styles */
+
+/* Section Spacing */
+.page-section {
+    padding: 100px 0;
+}
+
+.section-heading {
+    font-size: 3rem;
+    margin-bottom: 20px;
+    position: relative;
+    display: inline-block;
+}
+
+.section-heading::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 4px;
+    background: linear-gradient(to right, transparent, var(--gold-primary), transparent);
+}
+
+.section-subheading {
+    font-size: 1.2rem;
+    color: var(--text-muted);
+    margin-bottom: 60px;
+}
+
+/* Review System Styles */
+.review-card {
+    border: 1px solid rgba(0,0,0,0.08);
+    border-radius: 15px;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    background: white;
+    margin-bottom: 20px;
+}
+
+.review-card:hover {
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    transform: translateY(-2px);
+}
+
+.review-header {
+    padding: 20px;
+    border-bottom: 1px solid rgba(0,0,0,0.05);
+    background: linear-gradient(135deg, rgba(255,215,0,0.05), transparent);
+}
+
+.review-body {
+    padding: 20px;
+    position: relative;
+}
+
+.review-content {
+    line-height: 1.6;
+    color: #333;
+    margin-bottom: 15px;
+}
+
+.review-content.collapsed {
+    max-height: 120px;
+    overflow: hidden;
+    position: relative;
+}
+
+.review-content.collapsed::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 40px;
+    background: linear-gradient(to bottom, transparent, white);
+}
+
+.review-meta {
+    font-size: 0.9rem;
+    color: #6c757d;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.read-more-btn {
+    background: none;
+    border: none;
+    color: var(--gold-primary);
+    font-weight: 600;
+    cursor: pointer;
+    padding: 0;
+    font-size: 0.9rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.read-more-btn:hover {
+    color: #333;
+    text-decoration: underline;
+}
+
+.review-avatar {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--gold-primary), var(--gold-secondary));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+.rating-stars {
+    color: #FFD700;
+    font-size: 0.9rem;
+}
+
+.verified-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    background: rgba(40, 167, 69, 0.1);
+    color: #28a745;
+    padding: 3px 10px;
+    border-radius: 12px;
+    font-size: 0.8rem;
+    font-weight: 600;
+}
+
+.review-date {
+    color: #6c757d;
+    font-size: 0.85rem;
+}
+
+/* Spinner for loading */
+.spinner-border.text-gold {
+    color: var(--gold-primary) !important;
+}
+
+/* Review stats cards */
+.card-stat {
+    transition: all 0.3s ease;
+}
+
+.card-stat:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+}
+
+/* Review form toggle animation */
+#reviewFormContainer {
+    animation: slideDown 0.5s ease-out;
+}
+
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
