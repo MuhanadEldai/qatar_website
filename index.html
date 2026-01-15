@@ -145,23 +145,16 @@
         </div>
     </nav>
 
-    <!-- Hero Slider with optimized images -->
-    <header class="hero-slider" id="home">
-        <!-- Slide 1 -->
-        <div class="slide active">
-            <div class="slide-overlay">
-                <div class="slide-content">
-                    <h1>Qatar Desert Safari Adventures</h1>
-                    <p class="lead">Experience the magic of Qatar's golden deserts with professional guided tours.</p>
-                    <a href="#booking" class="btn btn-warning btn-lg px-5 py-3 fw-bold">
-                        <i class="fas fa-calendar-alt me-2"></i>Book Your Adventure
-                    </a>
-                </div>
-            </div>
-        </div>
-        
-        <!-- Additional slides would be loaded dynamically -->
-    </header>
+    <!-- Simple Hero Section -->
+<header class="hero-section" id="home">
+    <div class="hero-content">
+        <h1>Qatar Desert Safari Adventures</h1>
+        <p class="lead">Experience the magic of Qatar's golden deserts with professional guided tours.</p>
+        <a href="#booking" class="btn btn-warning btn-lg px-4 py-3 fw-bold">
+            <i class="fas fa-calendar-alt me-2"></i>Book Your Adventure
+        </a>
+    </div>
+</header>
 
     <!-- Tours Section -->
     <section class="py-5" id="tours">
@@ -233,18 +226,18 @@
     </section>
 
     <!-- Gallery Section -->
-    <section class="py-5 bg-light" id="gallery">
-        <div class="container py-5">
-            <div class="text-center mb-5">
-                <h2 class="fw-bold display-5 mb-3">Tour Gallery</h2>
-                <p class="text-muted lead">See what our desert safari looks like</p>
-            </div>
-            
-            <div class="row g-3" id="galleryGrid">
-                <!-- Gallery items will be loaded dynamically -->
-            </div>
+<section class="py-5 bg-light" id="gallery">
+    <div class="container py-5">
+        <div class="text-center mb-5">
+            <h2 class="fw-bold display-5 mb-3">Tour Gallery</h2>
+            <p class="text-muted lead">See what our desert safari looks like</p>
         </div>
-    </section>
+        
+        <div class="gallery-container" id="galleryGrid">
+            <!-- Gallery items will be loaded dynamically -->
+        </div>
+    </div>
+</section>
 
     <!-- Details Section -->
     <section class="py-5" id="details">
@@ -460,28 +453,22 @@
                                     </div>
                                     
                                     <div class="col-12">
-                                        <label class="form-label fw-bold">Preferred Time *</label>
-                                        <div class="row g-2">
-                                            <div class="col-4">
-                                                <div class="border rounded p-3 text-center time-slot">
-                                                    <div class="fw-bold">Sunrise</div>
-                                                    <small class="text-muted">4:00-8:00 AM</small>
-                                                </div>
-                                            </div>
-                                            <div class="col-4">
-                                                <div class="border rounded p-3 text-center time-slot active">
-                                                    <div class="fw-bold">Morning</div>
-                                                    <small>8:30-12:30 PM</small>
-                                                </div>
-                                            </div>
-                                            <div class="col-4">
-                                                <div class="border rounded p-3 text-center time-slot">
-                                                    <div class="fw-bold">Sunset</div>
-                                                    <small class="text-muted">2:30-6:30 PM</small>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
+    <label class="form-label fw-bold">Preferred Time *</label>
+    <div class="time-slots-container">
+        <div class="time-slot">
+            <span class="time-label">Sunrise</span>
+            <span class="time-range">4:00-8:00 AM</span>
+        </div>
+        <div class="time-slot active">
+            <span class="time-label">Morning</span>
+            <span class="time-range">8:30-12:30 PM</span>
+        </div>
+        <div class="time-slot">
+            <span class="time-label">Sunset</span>
+            <span class="time-range">2:30-6:30 PM</span>
+        </div>
+    </div>
+</div>
                                     
                                     <div class="col-md-6">
                                         <label class="form-label fw-bold">Number of Adults *</label>
