@@ -3,39 +3,133 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-    <meta name="description" content="Golden Sky For Tourism Services - Qatar Desert Adventures. Book your desert safari, camel rides, and authentic Bedouin experiences in Qatar." />
-    <meta name="keywords" content="Qatar desert safari, Doha tours, camel riding Qatar, Bedouin experience, falconry shows, desert adventures" />
+    <meta name="description" content="Golden Sky For Tourism Services - Qatar Desert Adventures. Book desert safari, camel rides, and authentic Bedouin experiences." />
+    <meta name="keywords" content="Qatar desert safari, Doha tours, camel riding Qatar, Bedouin experience, desert adventures" />
     <meta name="author" content="Golden Sky Tourism" />
     <title>Golden Sky Tourism | Qatar Desert Adventures</title>
     
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Critical CSS Inline -->
+    <style>
+        /* CRITICAL CSS - Loads immediately */
+        :root {
+            --gold-primary: #FFD700;
+            --gold-secondary: #FFC107;
+            --dark-bg: #1a1a1a;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+            overflow-x: hidden;
+            color: #333;
+        }
+        
+        .navbar {
+            background: rgba(255, 215, 0, 0.95) !important;
+            padding: 15px 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+        
+        /* Hero Slider Critical */
+        .hero-slider {
+            height: 100vh;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .slide {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+            opacity: 0;
+            transition: opacity 1s ease;
+        }
+        
+        .slide.active {
+            opacity: 1;
+        }
+        
+        .slide-overlay {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.5);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+        
+        .slide-content {
+            color: white;
+            text-align: center;
+            padding: 20px;
+            max-width: 800px;
+        }
+        
+        .slide-content h1 {
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            margin-bottom: 20px;
+        }
+        
+        /* Loading Optimization */
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+        
+        /* Deferred Loading for images */
+        img:not([data-src]) {
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        
+        img.loaded {
+            opacity: 1;
+        }
+    </style>
     
-    <!-- Google Fonts -->
+    <!-- Deferred External Resources -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
     
-    <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" media="print" onload="this.media='all'">
     
-    <!-- AOS Animation -->
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <!-- Bootstrap with defer -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" media="print" onload="this.media='all'">
     
-    <!-- Custom CSS -->
-    <link rel="stylesheet" href="css/style.css">
+    <!-- AOS with defer -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" media="print" onload="this.media='all'">
+    
+    <!-- Main CSS (deferred) -->
+    <link rel="stylesheet" href="css/style.css" media="print" onload="this.media='all'">
+    
+    <!-- Preload critical images -->
+    <link rel="preload" as="image" href="assets/images/hero/desert-safari-small.jpg">
+    <link rel="preload" as="image" href="assets/images/tours/half-day-desert-small.jpg">
 </head>
-<body id="page-top" data-bs-spy="scroll" data-bs-target="#mainNav" data-bs-offset="100">
+<body id="page-top">
     <!-- Navigation -->
     <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
         <div class="container">
             <a class="navbar-brand" href="#page-top">
-                <i class="fas fa-sun me-2" style="color: #333;"></i>
-                <span class="fw-bold" style="color: #333;">Golden Sky</span>
-                <span style="color: #333;">Tourism</span>
+                <i class="fas fa-sun me-2"></i>
+                <span class="fw-bold">Golden Sky</span> Tourism
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive">
-                <i class="fas fa-bars" style="color: #333;"></i>
+                <i class="fas fa-bars"></i>
             </button>
             <div class="collapse navbar-collapse" id="navbarResponsive">
                 <ul class="navbar-nav ms-auto py-4 py-lg-0">
@@ -45,118 +139,91 @@
                     <li class="nav-item"><a class="nav-link" href="#details">Details</a></li>
                     <li class="nav-item"><a class="nav-link" href="#booking">Booking</a></li>
                     <li class="nav-item"><a class="nav-link" href="#reviews">Reviews</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
                     <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
                 </ul>
             </div>
         </div>
     </nav>
 
-    <!-- Hero Slider -->
+    <!-- Hero Slider with optimized images -->
     <header class="hero-slider" id="home">
-        <div class="slide active" style="background-image: url('assets/images/tour-photos/group-photo.jpg');">
+        <!-- Slide 1 -->
+        <div class="slide active">
             <div class="slide-overlay">
                 <div class="slide-content">
                     <h1>Qatar Desert Safari Adventures</h1>
-                    <p>Experience the magic of Qatar's golden deserts with our professional guided tours. Dune bashing, camel rides, and authentic experiences await you.</p>
-                    <a href="#booking" class="booking-btn">
-                        <i class="fas fa-calendar-alt me-2"></i>Book Your Desert Adventure
+                    <p class="lead">Experience the magic of Qatar's golden deserts with professional guided tours.</p>
+                    <a href="#booking" class="btn btn-warning btn-lg px-5 py-3 fw-bold">
+                        <i class="fas fa-calendar-alt me-2"></i>Book Your Adventure
                     </a>
                 </div>
             </div>
         </div>
-        <div class="slide" style="background-image: url('assets/images/tour-photos/land-cruiser.jpg');">
-            <div class="slide-overlay">
-                <div class="slide-content">
-                    <h1>Camel Riding Experience</h1>
-                    <p>Traditional camel rides through golden sand dunes. Perfect for families and adventure seekers.</p>
-                    <a href="#booking" class="booking-btn">
-                        <i class="fas fa-horse me-2"></i>Book Now
-                    </a>
-                </div>
-            </div>
-        </div>
-        <div class="slide" style="background-image: url('assets/images/tour-photos/sand-boarding.jpg');">
-            <div class="slide-overlay">
-                <div class="slide-content">
-                    <h1>Dune Bashing Adventure</h1>
-                    <p>Experience the thrill of driving through Qatar's majestic sand dunes in our 4x4 Land Cruisers.</p>
-                    <a href="#booking" class="booking-btn">
-                        <i class="fas fa-car me-2"></i>Book Your Adventure
-                    </a>
-                </div>
-            </div>
-        </div>
-        <div class="slide" style="background-image: url('assets/images/tour-photos/sunset-view.jpg');">
-            <div class="slide-overlay">
-                <div class="slide-content">
-                    <h1>Inland Sea Exploration</h1>
-                    <p>Visit the breathtaking Khor Al Adaid, one of the few places in the world where the sea meets the desert.</p>
-                    <a href="#booking" class="booking-btn">
-                        <i class="fas fa-water me-2"></i>Book Now
-                    </a>
-                </div>
-            </div>
-        </div>
-        <div class="slider-dots">
-            <div class="dot active" data-slide="0"></div>
-            <div class="dot" data-slide="1"></div>
-            <div class="dot" data-slide="2"></div>
-            <div class="dot" data-slide="3"></div>
-        </div>
+        
+        <!-- Additional slides would be loaded dynamically -->
     </header>
 
     <!-- Tours Section -->
-    <section class="page-section" id="tours" data-aos="fade-up">
-        <div class="container">
+    <section class="py-5" id="tours">
+        <div class="container py-5">
             <div class="text-center mb-5">
-                <h2 class="section-heading text-uppercase">Half Day Desert Safari</h2>
-                <h3 class="section-subheading text-muted">Experience the best of Qatar's desert in 4 hours</h3>
+                <h2 class="fw-bold display-5 mb-3">Half Day Desert Safari</h2>
+                <p class="text-muted lead">Experience the best of Qatar's desert in 4 hours</p>
             </div>
-            <div class="row g-4 justify-content-center">
-                <div class="col-lg-10" data-aos="fade-up" data-aos-delay="100">
-                    <div class="tour-card">
-                        <div class="position-relative">
-                            <img src="assets/images/tour/half-day.jpg" class="tour-image" alt="Half Day Desert Tour">
-                            <div class="tour-badge">Most Popular</div>
-                        </div>
-                        <div class="p-4">
-                            <h4 class="mb-3">Half Day Desert Safari</h4>
-                            <div class="d-flex align-items-center mb-3">
-                                <i class="fas fa-clock text-gold me-2"></i>
-                                <span class="fw-bold">Duration: 4 hours</span>
-                                <span class="ms-3"><i class="fas fa-users text-gold me-2"></i>Private Tour</span>
-                                <span class="ms-3"><i class="fas fa-car text-gold me-2"></i>4x4 Land Cruiser</span>
-                            </div>
-                            <p class="text-muted mb-3">Experience Qatar's desert in just 4 hours. Perfect adventure for those with limited time but unlimited spirit! Our professional guides will take you through the most beautiful desert landscapes Qatar has to offer.</p>
-                            <div class="mb-4">
-                                <h6 class="fw-bold mb-3">Schedule:</h6>
-                                <div class="row g-3">
-                                    <div class="col-md-4">
-                                        <div class="time-slot" data-time="sunrise">
-                                            <div class="fw-bold text-gold">Sunrise Tour</div>
-                                            <div class="text-muted">4:00 AM - 8:00 AM</div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-4">
-                                        <div class="time-slot active" data-time="morning">
-                                            <div class="fw-bold text-gold">Morning Tour</div>
-                                            <div class="text-muted">8:30 AM - 12:30 PM</div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-4">
-                                        <div class="time-slot" data-time="sunset">
-                                            <div class="fw-bold text-gold">Sunset Tour</div>
-                                            <div class="text-muted">2:30 PM - 6:30 PM</div>
-                                        </div>
+            
+            <div class="row justify-content-center">
+                <div class="col-lg-10">
+                    <div class="card border-0 shadow-lg overflow-hidden">
+                        <div class="row g-0">
+                            <div class="col-md-6">
+                                <div class="position-relative">
+                                    <img src="assets/images/tours/half-day-desert-small.jpg" 
+                                         data-src="assets/images/tours/half-day-desert.jpg"
+                                         alt="Half Day Desert Tour" 
+                                         class="img-fluid w-100 h-100 object-fit-cover lazy">
+                                    <div class="position-absolute top-0 end-0 m-3">
+                                        <span class="badge bg-warning text-dark px-3 py-2 fs-6">Most Popular</span>
                                     </div>
                                 </div>
                             </div>
-                            <div class="text-center mt-4">
-                                <button class="btn btn-gold btn-lg px-5" onclick="selectTour('Half Day Desert Safari')">
-                                    <i class="fas fa-calendar-check me-2"></i>Book This Tour Now
-                                </button>
-                                <p class="text-muted mt-2 small">Click above to book or scroll down to fill the booking form</p>
+                            <div class="col-md-6">
+                                <div class="p-4 p-md-5">
+                                    <h3 class="fw-bold mb-3">Half Day Desert Safari</h3>
+                                    <div class="d-flex align-items-center gap-4 mb-3">
+                                        <div><i class="fas fa-clock text-warning me-2"></i> 4 hours</div>
+                                        <div><i class="fas fa-users text-warning me-2"></i> Private</div>
+                                        <div><i class="fas fa-car text-warning me-2"></i> 4x4 Land Cruiser</div>
+                                    </div>
+                                    <p class="text-muted mb-4">Perfect adventure for those with limited time but unlimited spirit! Professional guides through beautiful desert landscapes.</p>
+                                    
+                                    <div class="mb-4">
+                                        <h6 class="fw-bold mb-3">Schedule:</h6>
+                                        <div class="row g-2">
+                                            <div class="col-4">
+                                                <div class="border rounded p-3 text-center">
+                                                    <div class="fw-bold">Sunrise</div>
+                                                    <small class="text-muted">4:00-8:00 AM</small>
+                                                </div>
+                                            </div>
+                                            <div class="col-4">
+                                                <div class="border rounded p-3 text-center bg-warning">
+                                                    <div class="fw-bold">Morning</div>
+                                                    <small>8:30-12:30 PM</small>
+                                                </div>
+                                            </div>
+                                            <div class="col-4">
+                                                <div class="border rounded p-3 text-center">
+                                                    <div class="fw-bold">Sunset</div>
+                                                    <small class="text-muted">2:30-6:30 PM</small>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <button class="btn btn-warning w-100 py-3 fw-bold" onclick="scrollToBooking()">
+                                        <i class="fas fa-calendar-check me-2"></i>Book This Tour
+                                    </button>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -166,160 +233,186 @@
     </section>
 
     <!-- Gallery Section -->
-    <section class="page-section bg-light" id="gallery" data-aos="fade-up">
-        <div class="container">
+    <section class="py-5 bg-light" id="gallery">
+        <div class="container py-5">
             <div class="text-center mb-5">
-                <h2 class="section-heading text-uppercase">Tour Gallery</h2>
-                <h3 class="section-subheading text-muted">See what our Half Day Desert Safari looks like</h3>
+                <h2 class="fw-bold display-5 mb-3">Tour Gallery</h2>
+                <p class="text-muted lead">See what our desert safari looks like</p>
             </div>
-            <div class="row tour-gallery">
-                <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="100">
-                    <div class="gallery-item" onclick="openPhotoModal('assets/images/tour-photos/dune-bashing.jpg', 'Dune Bashing Adventure')">
-                        <img src="assets/images/tour-photos/dune-bashing.jpg" alt="Dune Bashing">
-                        <div class="gallery-overlay">
-                            <h5 class="mb-1">Dune Bashing</h5>
-                            <p class="mb-0 small">Thrilling ride through sand dunes</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="300">
-                    <div class="gallery-item" onclick="openPhotoModal('assets/images/tour-photos/inland-sea.jpg', 'Inland Sea Visit')">
-                        <img src="assets/images/tour-photos/inland-sea.jpg" alt="Inland Sea">
-                        <div class="gallery-overlay">
-                            <h5 class="mb-1">Inland Sea</h5>
-                            <p class="mb-0 small">Where desert meets the sea</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="100">
-                    <div class="gallery-item" onclick="openPhotoModal('assets/images/tour-photos/sand-boarding.jpg', 'Sand Boarding Fun')">
-                        <img src="assets/images/tour-photos/sand-boarding.jpg" alt="Sand Boarding">
-                        <div class="gallery-overlay">
-                            <h5 class="mb-1">Sand Boarding</h5>
-                            <p class="mb-0 small">Surf the sand dunes</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="200">
-                    <div class="gallery-item" onclick="openPhotoModal('assets/images/tour-photos/sunset-view.jpg', 'Desert Sunset')">
-                        <img src="assets/images/tour-photos/sunset-view.jpg" alt="Sunset View">
-                        <div class="gallery-overlay">
-                            <h5 class="mb-1">Desert Sunset</h5>
-                            <p class="mb-0 small">Breathtaking views</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="300">
-                    <div class="gallery-item" onclick="openPhotoModal('assets/images/tour-photos/falcon-photo.jpg', 'Falcon Photo Opportunity')">
-                        <img src="assets/images/tour-photos/falcon-photo.jpg" alt="Falcon Photo">
-                        <div class="gallery-overlay">
-                            <h5 class="mb-1">Falcon Photo</h5>
-                            <p class="mb-0 small">Qatar's national bird</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="100">
-                    <div class="gallery-item" onclick="openPhotoModal('assets/images/tour-photos/land-cruiser.jpg', '4x4 Land Cruiser')">
-                        <img src="assets/images/tour-photos/land-cruiser.jpg" alt="4x4 Vehicles">
-                        <div class="gallery-overlay">
-                            <h5 class="mb-1">4x4 Land Cruiser</h5>
-                            <p class="mb-0 small">Comfortable & safe vehicles</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="300">
-                    <div class="gallery-item" onclick="openPhotoModal('assets/images/tour-photos/group-photo.jpg', 'Group Memories')">
-                        <img src="assets/images/tour-photos/group-photo.jpg" alt="Group Photo">
-                        <div class="gallery-overlay">
-                            <h5 class="mb-1">Memories</h5>
-                            <p class="mb-0 small">Unforgettable experiences</p>
-                        </div>
-                    </div>
-                </div>
+            
+            <div class="row g-3" id="galleryGrid">
+                <!-- Gallery items will be loaded dynamically -->
             </div>
         </div>
     </section>
 
     <!-- Details Section -->
-    <section class="tour-details-section" id="details" data-aos="fade-up">
-        <div class="container">
+    <section class="py-5" id="details">
+        <div class="container py-5">
             <div class="text-center mb-5">
-                <h2 class="section-heading text-uppercase">Tour Details & Inclusions</h2>
-                <h3 class="section-subheading text-muted">Everything included in your desert adventure</h3>
+                <h2 class="fw-bold display-5 mb-3">Tour Details & Inclusions</h2>
+                <p class="text-muted lead">Everything included in your desert adventure</p>
             </div>
-            <div class="row">
-                <div class="col-lg-6 mb-4" data-aos="fade-right">
+            
+            <div class="row g-4">
+                <div class="col-lg-6">
                     <div class="card h-100 border-0 shadow-sm">
                         <div class="card-body p-4">
-                            <h4 class="card-title mb-4 text-gold">
+                            <h4 class="card-title text-warning mb-4">
                                 <i class="fas fa-check-circle me-2"></i>Included in Your Tour
                             </h4>
-                            <ul class="included-list">
-                                <li><i class="fas fa-car text-gold"></i> Pickup & Dropoff from your location</li>
-                                <li><i class="fas fa-truck text-gold"></i> Land Cruiser 4x4 with AC</li>
-                                <li><i class="fas fa-user-tie text-gold"></i> Professional & Experienced driver</li>
-                                <li><i class="fas fa-shield-alt text-gold"></i> Off-Road Insurance coverage</li>
-                                <li><i class="fas fa-tint text-gold"></i> Mineral Water Bottles</li>
-                                <li><i class="fas fa-coffee text-gold"></i> Tea & Coffee at Camel Area</li>
-                                <li><i class="fas fa-restroom text-gold"></i> Toilet facility in Camel Area</li>
-                                <li><i class="fas fa-road text-gold"></i> Dune Bashing adventure</li>
-                                <li><i class="fas fa-water text-gold"></i> Visit to Inland Sea (Khor Al Adaid)</li>
-                                <li><i class="fas fa-snowboarding text-gold"></i> Sand Boarding Stop</li>
-                                <li><i class="fas fa-umbrella-beach text-gold"></i> Visit to Sealine Beach</li>
-                                <li><i class="fas fa-mountain text-gold"></i> Middle of Desert Stop for photos</li>
-                            </ul>
+                            <div class="row">
+                                <div class="col-md-6 mb-3">
+                                    <div class="d-flex align-items-start">
+                                        <i class="fas fa-check text-warning mt-1 me-2"></i>
+                                        <div>
+                                            <span class="fw-bold">Pickup & Dropoff</span>
+                                            <p class="text-muted small mb-0">From your location</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <div class="d-flex align-items-start">
+                                        <i class="fas fa-check text-warning mt-1 me-2"></i>
+                                        <div>
+                                            <span class="fw-bold">4x4 Land Cruiser</span>
+                                            <p class="text-muted small mb-0">With AC</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <div class="d-flex align-items-start">
+                                        <i class="fas fa-check text-warning mt-1 me-2"></i>
+                                        <div>
+                                            <span class="fw-bold">Professional Driver</span>
+                                            <p class="text-muted small mb-0">Experienced guide</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <div class="d-flex align-items-start">
+                                        <i class="fas fa-check text-warning mt-1 me-2"></i>
+                                        <div>
+                                            <span class="fw-bold">Insurance</span>
+                                            <p class="text-muted small mb-0">Off-road coverage</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <div class="d-flex align-items-start">
+                                        <i class="fas fa-check text-warning mt-1 me-2"></i>
+                                        <div>
+                                            <span class="fw-bold">Dune Bashing</span>
+                                            <p class="text-muted small mb-0">Adventure ride</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <div class="d-flex align-items-start">
+                                        <i class="fas fa-check text-warning mt-1 me-2"></i>
+                                        <div>
+                                            <span class="fw-bold">Inland Sea Visit</span>
+                                            <p class="text-muted small mb-0">Khor Al Adaid</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <div class="d-flex align-items-start">
+                                        <i class="fas fa-check text-warning mt-1 me-2"></i>
+                                        <div>
+                                            <span class="fw-bold">Sand Boarding</span>
+                                            <p class="text-muted small mb-0">Fun activity</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <div class="d-flex align-items-start">
+                                        <i class="fas fa-check text-warning mt-1 me-2"></i>
+                                        <div>
+                                            <span class="fw-bold">Photo Stops</span>
+                                            <p class="text-muted small mb-0">Multiple locations</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-6 mb-4" data-aos="fade-left">
+                
+                <div class="col-lg-6">
                     <div class="card h-100 border-0 shadow-sm">
                         <div class="card-body p-4">
-                            <h4 class="card-title mb-4" style="color: #3498db;">
-                                <i class="fas fa-star me-2" style="color: #3498db;"></i>Optional Activities
+                            <h4 class="card-title text-primary mb-4">
+                                <i class="fas fa-star me-2"></i>Optional Activities
                             </h4>
-                            <ul class="optional-list">
-                                <li><i class="fas fa-snowboarding" style="color: #3498db;"></i> Sandboarding (Free)</li>
-                                <li><i class="fas fa-horse" style="color: #3498db;"></i> Camel Ride (upon request)</li>
-                                <li><i class="fas fa-dove" style="color: #3498db;"></i> Photo with Falcon (upon request)</li>
-                                <li><i class="fas fa-motorcycle" style="color: #3498db;"></i> ATV/Quad Biking (upon request)</li>
-                            </ul>
-                            <div class="mt-4 pt-3 border-top">
-                                <h5 class="mb-3">Tour Highlights:</h5>
-                                <div class="row">
-                                    <div class="col-md-6 mb-3">
-                                        <div class="d-flex align-items-center">
-                                            <i class="fas fa-sun text-gold me-3"></i>
-                                            <div>
-                                                <div class="fw-bold">Best Time</div>
-                                                <small class="text-muted">Sunrise or Sunset</small>
-                                            </div>
+                            <div class="mb-4">
+                                <div class="d-flex align-items-center mb-2">
+                                    <i class="fas fa-snowboarding text-primary me-3"></i>
+                                    <div>
+                                        <span class="fw-bold">Sandboarding</span>
+                                        <p class="text-muted small mb-0">Free activity</p>
+                                    </div>
+                                </div>
+                                <div class="d-flex align-items-center mb-2">
+                                    <i class="fas fa-horse text-primary me-3"></i>
+                                    <div>
+                                        <span class="fw-bold">Camel Ride</span>
+                                        <p class="text-muted small mb-0">Upon request</p>
+                                    </div>
+                                </div>
+                                <div class="d-flex align-items-center mb-2">
+                                    <i class="fas fa-dove text-primary me-3"></i>
+                                    <div>
+                                        <span class="fw-bold">Falcon Photo</span>
+                                        <p class="text-muted small mb-0">Photo opportunity</p>
+                                    </div>
+                                </div>
+                                <div class="d-flex align-items-center">
+                                    <i class="fas fa-motorcycle text-primary me-3"></i>
+                                    <div>
+                                        <span class="fw-bold">ATV/Quad Biking</span>
+                                        <p class="text-muted small mb-0">Upon request</p>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <hr class="my-4">
+                            
+                            <h5 class="fw-bold mb-3">Tour Highlights</h5>
+                            <div class="row">
+                                <div class="col-6 mb-3">
+                                    <div class="d-flex align-items-center">
+                                        <i class="fas fa-sun text-warning me-3"></i>
+                                        <div>
+                                            <div class="fw-bold small">Best Time</div>
+                                            <small class="text-muted">Sunrise/Sunset</small>
                                         </div>
                                     </div>
-                                    <div class="col-md-6 mb-3">
-                                        <div class="d-flex align-items-center">
-                                            <i class="fas fa-users text-gold me-3"></i>
-                                            <div>
-                                                <div class="fw-bold">Group Size</div>
-                                                <small class="text-muted">1-6 persons per vehicle</small>
-                                            </div>
+                                </div>
+                                <div class="col-6 mb-3">
+                                    <div class="d-flex align-items-center">
+                                        <i class="fas fa-users text-warning me-3"></i>
+                                        <div>
+                                            <div class="fw-bold small">Group Size</div>
+                                            <small class="text-muted">1-6 persons</small>
                                         </div>
                                     </div>
-                                    <div class="col-md-6 mb-3">
-                                        <div class="d-flex align-items-center">
-                                            <i class="fas fa-camera text-gold me-3"></i>
-                                            <div>
-                                                <div class="fw-bold">Photo Stops</div>
-                                                <small class="text-muted">Multiple locations</small>
-                                            </div>
+                                </div>
+                                <div class="col-6 mb-3">
+                                    <div class="d-flex align-items-center">
+                                        <i class="fas fa-language text-warning me-3"></i>
+                                        <div>
+                                            <div class="fw-bold small">Languages</div>
+                                            <small class="text-muted">English & Arabic</small>
                                         </div>
                                     </div>
-                                    <div class="col-md-6 mb-3">
-                                        <div class="d-flex align-items-center">
-                                            <i class="fas fa-language text-gold me-3"></i>
-                                            <div>
-                                                <div class="fw-bold">Languages</div>
-                                                <small class="text-muted">English & Arabic</small>
-                                            </div>
+                                </div>
+                                <div class="col-6 mb-3">
+                                    <div class="d-flex align-items-center">
+                                        <i class="fas fa-camera text-warning me-3"></i>
+                                        <div>
+                                            <div class="fw-bold small">Photo Stops</div>
+                                            <small class="text-muted">Multiple</small>
                                         </div>
                                     </div>
                                 </div>
@@ -331,179 +424,136 @@
         </div>
     </section>
 
-    <!-- Booking Section -->
-    <section class="page-section bg-light" id="booking" data-aos="fade-up">
-        <div class="container">
+    <!-- Booking Form -->
+    <section class="py-5 bg-light" id="booking">
+        <div class="container py-5">
             <div class="text-center mb-5">
-                <h2 class="section-heading text-uppercase">Book Your Desert Adventure</h2>
-                <h3 class="section-subheading text-muted">Fill in the details and we'll take care of the rest</h3>
+                <h2 class="fw-bold display-5 mb-3">Book Your Desert Adventure</h2>
+                <p class="text-muted lead">Fill in the details and we'll take care of the rest</p>
             </div>
-            <div class="booking-card">
-                <div class="row g-0">
-                    <div class="col-lg-8">
-                        <div class="form-section">
+            
+            <div class="card border-0 shadow-lg">
+                <div class="card-body p-0">
+                    <div class="row g-0">
+                        <div class="col-lg-8 p-4 p-lg-5">
                             <form id="bookingForm">
-                                <div class="mb-4">
-                                    <label class="form-label">Select Tour *</label>
-                                    <select class="form-control py-3" id="tourSelect" required>
-                                        <option value="">Choose a tour</option>
-                                        <option value="Half Day Desert Safari (4 hours)">Half Day Desert Safari (4 hours)</option>
-                                    </select>
-                                </div>
-                                <div class="row g-3 mb-4">
+                                <div class="row g-3">
                                     <div class="col-md-6">
-                                        <label class="form-label">Full Name *</label>
-                                        <input type="text" class="form-control py-3" id="fullName" required placeholder="Enter your full name">
+                                        <label class="form-label fw-bold">Full Name *</label>
+                                        <input type="text" class="form-control py-3" required placeholder="Enter your name">
                                     </div>
                                     <div class="col-md-6">
-                                        <label class="form-label">Phone Number *</label>
-                                        <input type="tel" class="form-control py-3" id="phone" required placeholder="+974 66955259">
+                                        <label class="form-label fw-bold">Phone Number *</label>
+                                        <input type="tel" class="form-control py-3" required placeholder="+974 66955259">
                                     </div>
-                                </div>
-                                <div class="mb-4">
-                                    <label class="form-label">Email Address *</label>
-                                    <input type="email" class="form-control py-3" id="email" required placeholder="your.email@example.com">
-                                </div>
-                                <div class="row g-3 mb-4">
-                                    <div class="col-md-6">
-                                        <label class="form-label">Tour Date *</label>
-                                        <input type="date" class="form-control py-3" id="tourDate" required>
+                                    <div class="col-12">
+                                        <label class="form-label fw-bold">Email Address *</label>
+                                        <input type="email" class="form-control py-3" required placeholder="your.email@example.com">
                                     </div>
                                     <div class="col-md-6">
-                                        <label class="form-label">Pickup Location *</label>
-                                        <input type="text" class="form-control py-3" id="pickupLocation" required 
-                                               placeholder="Enter your exact pickup location (Hotel, Address, Landmark)">
-                                        <small class="text-muted">Please provide your exact location for pickup</small>
+                                        <label class="form-label fw-bold">Tour Date *</label>
+                                        <input type="date" class="form-control py-3" required>
                                     </div>
-                                </div>
-                                <div class="mb-4">
-                                    <label class="form-label">Preferred Time Slot *</label>
-                                    <div class="row g-3">
-                                        <div class="col-md-4">
-                                            <div class="time-slot" data-time="sunrise">
-                                                <div class="fw-bold">Sunrise Tour</div>
-                                                <div class="text-muted">4:00 AM - 8:00 AM</div>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-4">
-                                            <div class="time-slot active" data-time="morning">
-                                                <div class="fw-bold">Morning Tour</div>
-                                                <div class="text-muted">8:30 AM - 12:30 PM</div>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-4">
-                                            <div class="time-slot" data-time="sunset">
-                                                <div class="fw-bold">Sunset Tour</div>
-                                                <div class="text-muted">2:30 PM - 6:30 PM</div>
-                                            </div>
-                                        </div>
+                                    <div class="col-md-6">
+                                        <label class="form-label fw-bold">Pickup Location *</label>
+                                        <input type="text" class="form-control py-3" required placeholder="Your hotel/address in Doha">
                                     </div>
-                                    <input type="hidden" id="selectedTime" value="morning">
-                                </div>
-                                <div class="mb-4">
-                                    <label class="form-label">Number of People *</label>
-                                    <div class="row g-4">
-                                        <div class="col-md-6">
-                                            <div class="d-flex align-items-center justify-content-between bg-light p-3 rounded">
-                                                <span class="fw-bold">Adults</span>
-                                                <div class="d-flex align-items-center gap-3">
-                                                    <button type="button" class="counter-btn" onclick="adjustCount('adults', -1)">-</button>
-                                                    <input type="number" class="counter-input" id="adultsCount" value="2" min="1" readonly>
-                                                    <button type="button" class="counter-btn" onclick="adjustCount('adults', 1)">+</button>
+                                    
+                                    <div class="col-12">
+                                        <label class="form-label fw-bold">Preferred Time *</label>
+                                        <div class="row g-2">
+                                            <div class="col-4">
+                                                <div class="border rounded p-3 text-center time-slot">
+                                                    <div class="fw-bold">Sunrise</div>
+                                                    <small class="text-muted">4:00-8:00 AM</small>
                                                 </div>
                                             </div>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <div class="d-flex align-items-center justify-content-between bg-light p-3 rounded">
-                                                <span class="fw-bold">Children (3-12)</span>
-                                                <div class="d-flex align-items-center gap-3">
-                                                    <button type="button" class="counter-btn" onclick="adjustCount('children', -1)">-</button>
-                                                    <input type="number" class="counter-input" id="childrenCount" value="0" min="0" readonly>
-                                                    <button type="button" class="counter-btn" onclick="adjustCount('children', 1)">+</button>
+                                            <div class="col-4">
+                                                <div class="border rounded p-3 text-center time-slot active">
+                                                    <div class="fw-bold">Morning</div>
+                                                    <small>8:30-12:30 PM</small>
+                                                </div>
+                                            </div>
+                                            <div class="col-4">
+                                                <div class="border rounded p-3 text-center time-slot">
+                                                    <div class="fw-bold">Sunset</div>
+                                                    <small class="text-muted">2:30-6:30 PM</small>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
-                                </div>
-                                <div class="mb-4">
-                                    <label class="form-label">Special Requests</label>
-                                    <textarea class="form-control" id="specialRequests" rows="3" placeholder="Any special requirements, optional activities (camel ride, falcon photo, ATV), or questions..."></textarea>
-                                </div>
-                                <div class="mb-4">
-                                    <label class="form-label">Preferred Communication Method *</label>
-                                    <div class="row g-3">
-                                        <div class="col-md-6">
-                                            <div class="form-check">
-                                                <input class="form-check-input" type="radio" name="communicationPref" id="whatsappPref" value="whatsapp" checked>
-                                                <label class="form-check-label" for="whatsappPref">
-                                                    <i class="fab fa-whatsapp text-success me-2"></i> WhatsApp
-                                                </label>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <div class="form-check">
-                                                <input class="form-check-input" type="radio" name="communicationPref" id="smsPref" value="sms">
-                                                <label class="form-check-label" for="smsPref">
-                                                    <i class="fas fa-sms text-primary me-2"></i> SMS
-                                                </label>
-                                            </div>
+                                    
+                                    <div class="col-md-6">
+                                        <label class="form-label fw-bold">Number of Adults *</label>
+                                        <div class="input-group">
+                                            <button class="btn btn-outline-secondary" type="button" onclick="adjustCount('adults', -1)">-</button>
+                                            <input type="number" class="form-control text-center" value="2" min="1" id="adultsCount" readonly>
+                                            <button class="btn btn-outline-secondary" type="button" onclick="adjustCount('adults', 1)">+</button>
                                         </div>
                                     </div>
-                                </div>
-                                <div class="text-center mt-5">
-                                    <button type="button" class="booking-btn" onclick="processBooking()">
-                                        <i class="fas fa-calendar-check me-2"></i> Book Now
-                                    </button>
+                                    
+                                    <div class="col-md-6">
+                                        <label class="form-label fw-bold">Children (3-12)</label>
+                                        <div class="input-group">
+                                            <button class="btn btn-outline-secondary" type="button" onclick="adjustCount('children', -1)">-</button>
+                                            <input type="number" class="form-control text-center" value="0" min="0" id="childrenCount" readonly>
+                                            <button class="btn btn-outline-secondary" type="button" onclick="adjustCount('children', 1)">+</button>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="col-12">
+                                        <label class="form-label fw-bold">Special Requests</label>
+                                        <textarea class="form-control" rows="3" placeholder="Any special requirements or questions..."></textarea>
+                                    </div>
+                                    
+                                    <div class="col-12">
+                                        <button type="button" class="btn btn-warning w-100 py-3 fw-bold fs-5" onclick="submitBooking()">
+                                            <i class="fas fa-calendar-check me-2"></i>Book Now via WhatsApp
+                                        </button>
+                                    </div>
                                 </div>
                             </form>
                         </div>
-                    </div>
-                    <div class="col-lg-4 booking-summary">
-                        <h3 class="mb-4">Booking Summary</h3>
-                        <div class="mb-4">
-                            <div class="summary-item d-flex justify-content-between">
-                                <span>Tour:</span>
-                                <span id="summaryTour" class="fw-bold">Not selected</span>
+                        
+                        <div class="col-lg-4 bg-dark text-white p-4 p-lg-5">
+                            <h3 class="fw-bold mb-4">Booking Summary</h3>
+                            <div class="mb-4">
+                                <div class="d-flex justify-content-between py-2 border-bottom">
+                                    <span>Tour:</span>
+                                    <span class="fw-bold">Half Day Desert Safari</span>
+                                </div>
+                                <div class="d-flex justify-content-between py-2 border-bottom">
+                                    <span>Date:</span>
+                                    <span id="summaryDate">Tomorrow</span>
+                                </div>
+                                <div class="d-flex justify-content-between py-2 border-bottom">
+                                    <span>Time:</span>
+                                    <span>Morning (8:30-12:30)</span>
+                                </div>
+                                <div class="d-flex justify-content-between py-2 border-bottom">
+                                    <span>Adults:</span>
+                                    <span>2</span>
+                                </div>
+                                <div class="d-flex justify-content-between py-2 border-bottom">
+                                    <span>Children:</span>
+                                    <span>0</span>
+                                </div>
                             </div>
-                            <div class="summary-item d-flex justify-content-between">
-                                <span>Date:</span>
-                                <span id="summaryDate">--/--/----</span>
-                            </div>
-                            <div class="summary-item d-flex justify-content-between">
-                                <span>Time:</span>
-                                <span id="summaryTime">Morning (8:30AM-12:30PM)</span>
-                            </div>
-                            <div class="summary-item d-flex justify-content-between">
-                                <span>Adults:</span>
-                                <span id="summaryAdults">2</span>
-                            </div>
-                            <div class="summary-item d-flex justify-content-between">
-                                <span>Children:</span>
-                                <span id="summaryChildren">0</span>
-                            </div>
-                            <div class="summary-item d-flex justify-content-between">
-                                <span>Pickup:</span>
-                                <span id="summaryPickup">Not entered</span>
-                            </div>
-                        </div>
-                        <hr class="my-4" style="border-color: rgba(255,255,255,0.2);">
-                        <div class="mb-4">
-                            <div class="d-flex justify-content-between align-items-center">
-                                <h5 class="mb-0">Price:</h5>
-                                <h4 class="text-gold mb-0">Contact for Quote</h4>
-                            </div>
-                            <p class="small text-muted mt-2">* Price varies based on group size and optional activities</p>
-                        </div>
-                        <div class="mt-5">
-                            <h5 class="mb-3">Need Help?</h5>
-                            <div id="communicationButtons">
-                                <a href="https://wa.me/97466955259" class="whatsapp-btn w-100 justify-content-center mb-3" target="_blank">
-                                    <i class="fab fa-whatsapp fa-lg"></i> WhatsApp for Pricing
+                            
+                            <hr class="my-4 bg-white">
+                            
+                            <div class="text-center">
+                                <h4 class="text-warning mb-3">Contact for Pricing</h4>
+                                <p class="small text-light">Price varies based on group size and options</p>
+                                
+                                <a href="https://wa.me/97466955259" class="btn btn-success w-100 py-3 fw-bold mb-3" target="_blank">
+                                    <i class="fab fa-whatsapp me-2"></i>WhatsApp for Quote
                                 </a>
-                            </div>
-                            <div class="mt-3">
-                                <p><i class="fas fa-phone text-gold me-2"></i> +974 66955259</p>
-                                <p><i class="fas fa-envelope text-gold me-2"></i> info@goldensky.com</p>
+                                
+                                <div class="mt-4">
+                                    <p><i class="fas fa-phone text-warning me-2"></i> +974 66955259</p>
+                                    <p><i class="fas fa-envelope text-warning me-2"></i> info@goldensky.com</p>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -512,440 +562,250 @@
         </div>
     </section>
 
-    <!-- Reviews Section -->
-<section class="page-section bg-light" id="reviews" data-aos="fade-up">
-    <div class="container">
-        <div class="text-center mb-5">
-            <h2 class="section-heading text-uppercase">Customer Reviews</h2>
-            <h3 class="section-subheading text-muted">Real reviews from our happy customers</h3>
-        </div>
-
-        <!-- Review Stats -->
-        <div class="row mb-5">
-            <div class="col-md-3 text-center mb-4">
-                <div class="card border-0 shadow-sm h-100">
-                    <div class="card-body p-4">
-                        <h1 class="display-4 text-gold mb-2" id="averageRating">4.8</h1>
-                        <div class="text-warning mb-2">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star-half-alt"></i>
-                        </div>
-                        <p class="text-muted mb-0">Average Rating</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-3 text-center mb-4">
-                <div class="card border-0 shadow-sm h-100">
-                    <div class="card-body p-4">
-                        <h1 class="display-4 text-gold mb-2" id="totalReviews">12</h1>
-                        <p class="text-muted mb-0">Total Reviews</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-3 text-center mb-4">
-                <div class="card border-0 shadow-sm h-100">
-                    <div class="card-body p-4">
-                        <h1 class="display-4 text-gold mb-2" id="responseRate">98%</h1>
-                        <p class="text-muted mb-0">Response Rate</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-3 text-center mb-4">
-                <div class="card border-0 shadow-sm h-100">
-                    <div class="card-body p-4">
-                        <h1 class="display-4 text-gold mb-2" id="recentReviews">24</h1>
-                        <p class="text-muted mb-0">This Month</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- GitHub Integration Info -->
-        <div class="alert alert-info mb-4">
-            <div class="d-flex align-items-center">
-                <i class="fab fa-github fa-2x me-3"></i>
-                <div>
-                    <h5 class="mb-1">Real GitHub Reviews</h5>
-                    <p class="mb-0">All reviews are submitted as GitHub issues. Once moderated, they appear here for everyone to see.</p>
-                </div>
-            </div>
-        </div>
-
-        <!-- Reviews Container -->
-        <div class="mb-5">
-            <div class="d-flex justify-content-between align-items-center mb-4">
-                <h4 class="mb-0">Verified Reviews</h4>
-                <button class="btn btn-sm btn-outline-gold" onclick="refreshReviews()">
-                    <i class="fas fa-sync-alt me-1"></i> Refresh
-                </button>
-            </div>
-            
-            <div id="reviewsContainer">
-                <!-- Reviews will be loaded here -->
-                <div class="text-center py-5">
-                    <div class="spinner-border text-gold" role="status">
-                        <span class="visually-hidden">Loading reviews...</span>
-                    </div>
-                    <p class="mt-3">Loading reviews from GitHub...</p>
-                </div>
-            </div>
-            
-            <!-- Show More Button -->
-            <div class="text-center mt-4 d-none" id="showMoreContainer">
-                <button class="btn btn-outline-gold px-5" id="showMoreBtn">
-                    <i class="fas fa-chevron-down me-2"></i>Load More Reviews
-                </button>
-            </div>
-            
-            <!-- No Reviews Message -->
-            <div class="text-center py-5 d-none" id="noReviewsMessage">
-                <i class="fas fa-comments fa-3x text-muted mb-3"></i>
-                <h4 class="mb-3">No Reviews Yet</h4>
-                <p class="text-muted mb-4">Be the first to share your experience!</p>
-            </div>
-            
-            <!-- Error Message -->
-            <div class="alert alert-danger d-none text-center" id="errorMessage">
-                <i class="fas fa-exclamation-triangle me-2"></i>
-                <span id="errorText">Unable to load reviews. Please try again later.</span>
-            </div>
-        </div>
-
-        <!-- Leave Review Button -->
-        <div class="text-center mb-5">
-            <button class="btn btn-gold px-5 py-3" id="openReviewFormBtn">
-                <i class="fas fa-pencil-alt me-2"></i> Share Your Experience
-            </button>
-            <p class="text-muted mt-2 small">Your review will be visible to everyone after moderation</p>
-        </div>
-
-        <!-- Leave Review Form -->
-        <div class="card border-0 shadow-lg mb-5 d-none" id="reviewFormContainer">
-            <div class="card-body p-5">
-                <div class="d-flex justify-content-between align-items-center mb-4">
-                    <h3 class="mb-0">Submit Your Review</h3>
-                    <button class="btn btn-sm btn-outline-secondary" id="closeReviewFormBtn">
-                        <i class="fas fa-times"></i>
-                    </button>
-                </div>
-                <p class="text-muted mb-4">Your review will be submitted as a GitHub issue and publicly visible once approved</p>
-                
-                <form id="reviewForm">
-                    <div class="row g-3">
-                        <div class="col-md-6">
-                            <div class="mb-3">
-                                <label class="form-label">Your Name *</label>
-                                <input type="text" class="form-control py-3" id="reviewName" required placeholder="Enter your name">
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="mb-3">
-                                <label class="form-label">Your Email *</label>
-                                <input type="email" class="form-control py-3" id="reviewEmail" required placeholder="your.email@example.com">
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="mb-3">
-                        <label class="form-label">Rating *</label>
-                        <div class="d-flex align-items-center" id="starRating">
-                            <i class="far fa-star fa-2x me-2 text-warning" data-rating="1" style="cursor: pointer;"></i>
-                            <i class="far fa-star fa-2x me-2 text-warning" data-rating="2" style="cursor: pointer;"></i>
-                            <i class="far fa-star fa-2x me-2 text-warning" data-rating="3" style="cursor: pointer;"></i>
-                            <i class="far fa-star fa-2x me-2 text-warning" data-rating="4" style="cursor: pointer;"></i>
-                            <i class="far fa-star fa-2x me-2 text-warning" data-rating="5" style="cursor: pointer;"></i>
-                            <span class="ms-3 fw-bold" id="ratingText">0 out of 5 stars</span>
-                        </div>
-                        <input type="hidden" id="ratingValue" value="0">
-                    </div>
-                    
-                    <div class="mb-4">
-                        <label class="form-label">Your Review *</label>
-                        <textarea class="form-control" id="reviewText" rows="4" required placeholder="Share your honest experience with Golden Sky Tourism..."></textarea>
-                        <div class="form-text">Minimum 50 characters, maximum 1000 characters</div>
-                    </div>
-                    
-                    <div class="mb-4">
-                        <label class="form-label">Which tour did you take?</label>
-                        <select class="form-control py-3" id="reviewTour">
-                            <option value="">Select tour (optional)</option>
-                            <option value="Half Day Desert Safari">Half Day Desert Safari</option>
-                        </select>
-                    </div>
-                    
-                    <div class="form-check mb-4">
-                        <input class="form-check-input" type="checkbox" id="agreeTerms" required>
-                        <label class="form-check-label" for="agreeTerms">
-                            I agree that my review will be published publicly on this website
-                        </label>
-                    </div>
-                    
-                    <div class="d-flex gap-3 justify-content-center">
-                        <button type="button" class="btn btn-gold px-5 py-3" id="submitReviewBtn">
-                            <i class="fas fa-paper-plane me-2"></i> Submit Review
-                        </button>
-                        <button type="button" class="btn btn-outline-secondary px-5 py-3" id="cancelReviewBtn">
-                            Cancel
-                        </button>
-                    </div>
-                    
-                    <p class="text-muted mt-3 text-center small">
-                        <i class="fab fa-github me-1"></i>
-                        Your review will be created as a GitHub issue for moderation
-                    </p>
-                </form>
-            </div>
-        </div>
-
-        <!-- Review Submitted Success -->
-        <div class="alert alert-success d-none text-center" id="reviewSuccessMessage">
-            <div class="d-flex align-items-center justify-content-center">
-                <i class="fas fa-check-circle fa-2x me-3"></i>
-                <div>
-                    <h5 class="mb-1">Review Submitted Successfully!</h5>
-                    <p class="mb-0" id="successMessageText">Your review has been submitted for moderation.</p>
-                </div>
-            </div>
-        </div>
-
-        <!-- View All Reviews Link -->
-        <div class="text-center mt-5">
-            <a href="https://github.com/YOUR_USERNAME/YOUR_REPO/issues?q=label%3Areview" 
-               class="btn btn-outline-dark" 
-               target="_blank">
-                <i class="fab fa-github me-2"></i> View All Reviews on GitHub
-            </a>
-            <p class="text-muted mt-2 small">See all submitted reviews and moderation status</p>
-        </div>
-    </div>
-</section>
-
-    <!-- About Section -->
-    <section class="page-section bg-light" id="about" data-aos="fade-up">
-        <div class="container">
+    <!-- SIMPLE WhatsApp Reviews Section -->
+    <section class="py-5" id="reviews">
+        <div class="container py-5">
             <div class="text-center mb-5">
-                <h2 class="section-heading text-uppercase">About Golden Sky Tourism</h2>
-                <h3 class="section-subheading text-muted">Creating unforgettable desert experiences since 2010</h3>
+                <h2 class="fw-bold display-5 mb-3">Customer Reviews</h2>
+                <p class="text-muted lead">What our customers say about their experience</p>
             </div>
-            <div class="row align-items-center">
-                <div class="col-lg-6">
-                    <div class="p-4">
-                        <h4 class="mb-4">Why Choose Golden Sky?</h4>
-                        <div class="row">
-                            <div class="col-md-6 mb-3">
-                                <div class="d-flex align-items-start">
-                                    <i class="fas fa-shield-alt text-gold fa-lg me-3 mt-1"></i>
-                                    <div>
-                                        <h6>Licensed & Insured</h6>
-                                        <p class="text-muted small">Fully licensed by Qatar Tourism Authority with comprehensive insurance.</p>
+            
+            <div class="row g-4 mb-5">
+                <!-- Static reviews - no API calls -->
+                <div class="col-md-4">
+                    <div class="card h-100 border-0 shadow-sm">
+                        <div class="card-body p-4">
+                            <div class="d-flex align-items-center mb-3">
+                                <div class="me-3">
+                                    <div class="bg-warning rounded-circle d-flex align-items-center justify-content-center" style="width: 50px; height: 50px;">
+                                        <span class="fw-bold text-dark">S</span>
+                                    </div>
+                                </div>
+                                <div>
+                                    <h5 class="mb-1">Sarah M.</h5>
+                                    <div class="text-warning">
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-md-6 mb-3">
-                                <div class="d-flex align-items-start">
-                                    <i class="fas fa-car text-gold fa-lg me-3 mt-1"></i>
-                                    <div>
-                                        <h6>Modern Fleet</h6>
-                                        <p class="text-muted small">Air-conditioned 4x4 Land Cruisers maintained to the highest standards.</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-6 mb-3">
-                                <div class="d-flex align-items-start">
-                                    <i class="fas fa-user-tie text-gold fa-lg me-3 mt-1"></i>
-                                    <div>
-                                        <h6>Expert Drivers</h6>
-                                        <p class="text-muted small">Professional drivers with extensive knowledge of Qatar's desert terrain.</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-6 mb-3">
-                                <div class="d-flex align-items-start">
-                                    <i class="fas fa-heart text-gold fa-lg me-3 mt-1"></i>
-                                    <div>
-                                        <h6>Safety First</h6>
-                                        <p class="text-muted small">Safety equipment and protocols for all desert activities.</p>
-                                    </div>
-                                </div>
-                            </div>
+                            <p class="card-text">"Amazing desert safari! The sunset was breathtaking and our guide was very professional."</p>
+                            <small class="text-muted">February 2024</small>
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-6">
-                    <div class="p-4">
-                        <div class="card border-gold">
-                            <div class="card-body p-4">
-                                <h4 class="card-title mb-4">Our Mission</h4>
-                                <p class="card-text">At Golden Sky For Tourism Services, we're dedicated to providing authentic desert experiences that showcase the beauty and culture of Qatar. Our team of experienced professionals ensures every tour is safe, memorable, and truly special.</p>
-                                <p class="card-text">We believe in sustainable tourism practices that respect the environment and support local communities.</p>
-                                <div class="row mt-4">
-                                    <div class="col-4 text-center">
-                                        <h3 class="text-gold">5,000+</h3>
-                                        <p class="small mb-0">Happy Customers</p>
+                
+                <div class="col-md-4">
+                    <div class="card h-100 border-0 shadow-sm">
+                        <div class="card-body p-4">
+                            <div class="d-flex align-items-center mb-3">
+                                <div class="me-3">
+                                    <div class="bg-warning rounded-circle d-flex align-items-center justify-content-center" style="width: 50px; height: 50px;">
+                                        <span class="fw-bold text-dark">J</span>
                                     </div>
-                                    <div class="col-4 text-center">
-                                        <h3 class="text-gold">1,500+</h3>
-                                        <p class="small mb-0">Tours Completed</p>
-                                    </div>
-                                    <div class="col-4 text-center">
-                                        <h3 class="text-gold">14</h3>
-                                        <p class="small mb-0">Years Experience</p>
+                                </div>
+                                <div>
+                                    <h5 class="mb-1">James R.</h5>
+                                    <div class="text-warning">
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
                                     </div>
                                 </div>
                             </div>
+                            <p class="card-text">"Perfect family adventure! Kids loved the camel ride and sand boarding."</p>
+                            <small class="text-muted">January 2024</small>
                         </div>
                     </div>
                 </div>
+                
+                <div class="col-md-4">
+                    <div class="card h-100 border-0 shadow-sm">
+                        <div class="card-body p-4">
+                            <div class="d-flex align-items-center mb-3">
+                                <div class="me-3">
+                                    <div class="bg-warning rounded-circle d-flex align-items-center justify-content-center" style="width: 50px; height: 50px;">
+                                        <span class="fw-bold text-dark">F</span>
+                                    </div>
+                                </div>
+                                <div>
+                                    <h5 class="mb-1">Fatima A.</h5>
+                                    <div class="text-warning">
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star-half-alt"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            <p class="card-text">"Great value for money! Inland Sea visit was magical and photos turned out amazing."</p>
+                            <small class="text-muted">December 2023</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Simple WhatsApp Review Button -->
+            <div class="text-center">
+                <a href="https://wa.me/97466955259?text=Hi%20Golden%20Sky%20Tourism!%20I'd%20like%20to%20share%20my%20review%20about%20my%20desert%20safari%20experience." 
+                   class="btn btn-success btn-lg px-5 py-3 fw-bold" 
+                   target="_blank">
+                    <i class="fab fa-whatsapp me-2"></i>Share Your Review via WhatsApp
+                </a>
+                <p class="text-muted mt-3">Click to share your experience directly on WhatsApp</p>
             </div>
         </div>
     </section>
 
     <!-- Contact Section -->
-    <section class="page-section" id="contact" data-aos="fade-up">
-        <div class="container">
+    <section class="py-5 bg-light" id="contact">
+        <div class="container py-5">
             <div class="text-center mb-5">
-                <h2 class="section-heading text-uppercase">Contact Us</h2>
-                <h3 class="section-subheading text-muted">Get in touch for any questions or special requests</h3>
+                <h2 class="fw-bold display-5 mb-3">Contact Us</h2>
+                <p class="text-muted lead">Get in touch for any questions</p>
             </div>
-            <div class="row">
-                <div class="col-md-4 mb-4">
-                    <div class="card text-center h-100 border-0 shadow-sm">
+            
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="card h-100 border-0 shadow-sm text-center">
                         <div class="card-body p-4">
-                            <i class="fas fa-map-marker-alt fa-3x text-gold mb-3"></i>
-                            <h4>Find Us</h4>
+                            <i class="fas fa-map-marker-alt fa-3x text-warning mb-3"></i>
+                            <h4>Location</h4>
                             <p>West Bay, Doha, Qatar</p>
-                            <a href="https://maps.google.com/?q=25.286865,51.541622" 
-                               class="btn btn-sm btn-gold mt-2" 
-                               target="_blank">
-                                <i class="fas fa-map-marked-alt me-2"></i>View on Google Maps
+                            <a href="https://maps.google.com/?q=25.286865,51.541622" class="btn btn-warning btn-sm mt-2" target="_blank">
+                                <i class="fas fa-map-marker-alt me-2"></i>View on Maps
                             </a>
                         </div>
                     </div>
                 </div>
-                <div class="col-md-4 mb-4">
-                    <div class="card text-center h-100 border-0 shadow-sm">
+                
+                <div class="col-md-4">
+                    <div class="card h-100 border-0 shadow-sm text-center">
                         <div class="card-body p-4">
-                            <i class="fas fa-phone fa-3x text-gold mb-3"></i>
-                            <h4>Phone</h4>
-                            <p>+974 66955259<br>+974 66955259 (WhatsApp)</p>
+                            <i class="fas fa-phone fa-3x text-warning mb-3"></i>
+                            <h4>Phone & WhatsApp</h4>
+                            <p class="fw-bold">+974 66955259</p>
+                            <p class="text-muted small">Available 8 AM - 10 PM</p>
                         </div>
                     </div>
                 </div>
-                <div class="col-md-4 mb-4">
-                    <div class="card text-center h-100 border-0 shadow-sm">
+                
+                <div class="col-md-4">
+                    <div class="card h-100 border-0 shadow-sm text-center">
                         <div class="card-body p-4">
-                            <i class="fas fa-clock fa-3x text-gold mb-3"></i>
+                            <i class="fas fa-clock fa-3x text-warning mb-3"></i>
                             <h4>Working Hours</h4>
-                            <p>Sunday - Thursday<br>8:00 AM - 10:00 PM</p>
+                            <p>Sunday - Thursday</p>
+                            <p class="fw-bold">8:00 AM - 10:00 PM</p>
                         </div>
                     </div>
                 </div>
             </div>
+            
             <div class="text-center mt-5">
-                <a href="https://wa.me/97466955259" class="whatsapp-btn me-3" target="_blank">
-                    <i class="fab fa-whatsapp fa-lg"></i> WhatsApp for Pricing
+                <a href="https://wa.me/97466955259" class="btn btn-success btn-lg px-5 py-3 me-3" target="_blank">
+                    <i class="fab fa-whatsapp me-2"></i> WhatsApp Now
                 </a>
-                <a href="mailto:info@goldensky.com" class="btn btn-outline-gold px-4 py-3">
-                    <i class="fas fa-envelope me-2"></i> Email for Quote
+                <a href="mailto:info@goldensky.com" class="btn btn-warning btn-lg px-5 py-3">
+                    <i class="fas fa-envelope me-2"></i> Email Us
                 </a>
             </div>
         </div>
     </section>
 
     <!-- Footer -->
-    <footer class="footer py-5 bg-dark text-white">
+    <footer class="bg-dark text-white py-5">
         <div class="container">
             <div class="row align-items-center">
-                <div class="col-lg-4 text-lg-start">
+                <div class="col-lg-4">
                     <div class="mb-3">
-                        <i class="fas fa-sun fa-2x text-gold me-2"></i>
-                        <span style="font-size: 24px; font-weight: bold; color: var(--gold-primary);">Golden Sky</span>
-                        <span class="text-gold">Tourism</span>
+                        <i class="fas fa-sun fa-2x text-warning me-2"></i>
+                        <span class="fw-bold fs-4 text-warning">Golden Sky</span>
+                        <span class="text-warning">Tourism</span>
                     </div>
                     <p>Golden Sky For Tourism Services<br>Licensed by Qatar Tourism Authority</p>
-                    <p class="small">License No: QTA-2024-789</p>
                 </div>
-                <div class="col-lg-4 my-4 my-lg-0 text-center">
-                    <h6 class="mb-3">Follow Us</h6>
-                    <a class="btn btn-light btn-social mx-2" href="#!" aria-label="Instagram">
-                        <i class="fab fa-instagram"></i>
-                    </a>
-                    <a class="btn btn-light btn-social mx-2" href="#!" aria-label="Facebook">
-                        <i class="fab fa-facebook-f"></i>
-                    </a>
-                    <a class="btn btn-light btn-social mx-2" href="#!" aria-label="TripAdvisor">
-                        <i class="fab fa-tripadvisor"></i>
-                    </a>
-                    <a class="btn btn-light btn-social mx-2" href="#!" aria-label="YouTube">
-                        <i class="fab fa-youtube"></i>
-                    </a>
+                
+                <div class="col-lg-4 text-center my-4">
+                    <h6 class="mb-3 text-warning">Follow Us</h6>
+                    <div class="d-flex justify-content-center gap-3">
+                        <a href="#" class="btn btn-light btn-sm rounded-circle"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="btn btn-light btn-sm rounded-circle"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="btn btn-light btn-sm rounded-circle"><i class="fab fa-tripadvisor"></i></a>
+                    </div>
                 </div>
-                <div class="col-lg-4 text-lg-end">
-                    <h6 class="mb-3">Contact Info</h6>
-                    <p class="mb-1"><i class="fas fa-phone text-gold me-2"></i> +974 66955259</p>
-                    <p class="mb-1"><i class="fab fa-whatsapp text-gold me-2"></i> +974 66955259</p>
-                    <p class="mb-1"><i class="fas fa-envelope text-gold me-2"></i> info@goldensky.com</p>
-                    <p class="mb-0"><i class="fas fa-map-marker-alt text-gold me-2"></i> Doha, Qatar</p>
+                
+                <div class="col-lg-4">
+                    <h6 class="text-warning mb-3">Contact Info</h6>
+                    <p><i class="fas fa-phone text-warning me-2"></i> +974 66955259</p>
+                    <p><i class="fab fa-whatsapp text-warning me-2"></i> +974 66955259</p>
+                    <p><i class="fas fa-envelope text-warning me-2"></i> info@goldensky.com</p>
                 </div>
             </div>
-            <hr class="my-4" style="border-color: rgba(255,255,255,0.2);">
+            
+            <hr class="my-4 bg-secondary">
+            
             <div class="text-center">
-                <p class="mb-0">© 2024 Golden Sky For Tourism Services. All rights reserved. | <a href="#" class="text-white text-decoration-none">Privacy Policy</a> | <a href="#" class="text-white text-decoration-none">Terms & Conditions</a></p>
+                <p class="mb-0">© 2024 Golden Sky For Tourism Services. All rights reserved.</p>
             </div>
         </div>
     </footer>
 
-    <!-- Modals -->
-    <div class="modal fade" id="successModal" tabindex="-1" aria-hidden="true">
+    <!-- Simple Success Modal -->
+    <div class="modal fade" id="successModal">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title">
-                        <i class="fas fa-check-circle me-2"></i>Booking Request Sent!
-                    </h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-                </div>
-                <div class="modal-body text-center">
+                <div class="modal-body text-center p-5">
                     <i class="fas fa-check-circle fa-5x text-success mb-4"></i>
-                    <h4 class="mb-3">Thank You!</h4>
-                    <p class="mb-4">Your booking request has been submitted successfully.</p>
-                    <div class="alert alert-info">
-                        <strong>Booking ID:</strong> <span id="bookingId"></span><br>
-                        We'll contact you within 2 hours to confirm your booking and provide pricing.
-                    </div>
-                    <button class="btn btn-gold mt-3" data-bs-dismiss="modal">Close</button>
+                    <h3 class="mb-3">Booking Request Sent!</h3>
+                    <p class="mb-4">We'll contact you on WhatsApp shortly to confirm your booking.</p>
+                    <button class="btn btn-warning w-100 py-3" data-bs-dismiss="modal">OK</button>
                 </div>
             </div>
         </div>
     </div>
 
-    <div class="modal fade" id="photoModal" tabindex="-1" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered modal-lg">
-            <div class="modal-content">
-                <button type="button" class="modal-close-btn" data-bs-dismiss="modal" aria-label="Close">
-                    <i class="fas fa-times"></i>
-                </button>
-                <div class="modal-body text-center">
-                    <img id="modalPhoto" src="" alt="" style="width: 100%;">
-                    <h5 id="modalTitle" class="mt-3 text-white"></h5>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- External JavaScript -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <!-- Deferred JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" defer></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js" defer></script>
     
-    <!-- Custom JavaScript -->
-    <script src="js/main.js"></script>
-    <script src="js/slider.js"></script>
-    <script src="js/booking.js"></script>
-    <script src="js/reviews.js"></script>
-    <!-- GitHub Issues Review System -->
-<script src="js/github-issues.js"></script>
+    <!-- Single Combined JavaScript File -->
+    <script src="js/main.min.js" defer></script>
+    
+    <!-- Inline Critical JavaScript -->
+    <script>
+        // Critical JavaScript that loads immediately
+        function scrollToBooking() {
+            document.getElementById('booking').scrollIntoView({behavior: 'smooth'});
+        }
+        
+        function adjustCount(type, change) {
+            const input = document.getElementById(type + 'Count');
+            let value = parseInt(input.value) + change;
+            if (type === 'adults') value = Math.max(1, value);
+            else value = Math.max(0, value);
+            input.value = value;
+        }
+        
+        // Set default date to tomorrow
+        document.addEventListener('DOMContentLoaded', function() {
+            const tomorrow = new Date();
+            tomorrow.setDate(tomorrow.getDate() + 1);
+            document.querySelector('input[type="date"]').value = tomorrow.toISOString().split('T')[0];
+            
+            // Update summary date
+            document.getElementById('summaryDate').textContent = tomorrow.toLocaleDateString('en-US', {
+                weekday: 'short',
+                month: 'short',
+                day: 'numeric'
+            });
+        });
+    </script>
 </body>
 </html>
