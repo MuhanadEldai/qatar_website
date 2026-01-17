@@ -548,106 +548,95 @@
         </div>
     </section>
 
-    <!-- SIMPLE WhatsApp Reviews Section -->
-    <section class="py-5" id="reviews">
-        <div class="container py-5">
-            <div class="text-center mb-5">
-                <h2 class="fw-bold display-5 mb-3">Customer Reviews</h2>
-                <p class="text-muted lead">What our customers say about their experience</p>
-            </div>
-            
-            <div class="row g-4 mb-5">
-                <!-- Static reviews - no API calls -->
-                <div class="col-md-4">
-                    <div class="card h-100 border-0 shadow-sm">
-                        <div class="card-body p-4">
-                            <div class="d-flex align-items-center mb-3">
-                                <div class="me-3">
-                                    <div class="bg-warning rounded-circle d-flex align-items-center justify-content-center" style="width: 50px; height: 50px;">
-                                        <span class="fw-bold text-dark">S</span>
-                                    </div>
-                                </div>
-                                <div>
-                                    <h5 class="mb-1">Sarah M.</h5>
-                                    <div class="text-warning">
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                    </div>
-                                </div>
-                            </div>
-                            <p class="card-text">"Amazing desert safari! The sunset was breathtaking and our guide was very professional."</p>
-                            <small class="text-muted">February 2024</small>
-                        </div>
-                    </div>
+   <!-- Updated Reviews Section -->
+<section class="py-5" id="reviews">
+    <div class="container py-5">
+        <div class="text-center mb-5">
+            <h2 class="fw-bold display-5 mb-3">Customer Reviews</h2>
+            <p class="text-muted lead">What our customers say about their experience</p>
+        </div>
+        
+        <!-- Reviews will load here -->
+        <div class="row g-4 mb-5" id="reviewsContainer">
+            <!-- Loading message -->
+            <div class="col-12 text-center">
+                <div class="spinner-border text-warning" role="status">
+                    <span class="visually-hidden">Loading reviews...</span>
                 </div>
-                
-                <div class="col-md-4">
-                    <div class="card h-100 border-0 shadow-sm">
-                        <div class="card-body p-4">
-                            <div class="d-flex align-items-center mb-3">
-                                <div class="me-3">
-                                    <div class="bg-warning rounded-circle d-flex align-items-center justify-content-center" style="width: 50px; height: 50px;">
-                                        <span class="fw-bold text-dark">J</span>
-                                    </div>
-                                </div>
-                                <div>
-                                    <h5 class="mb-1">James R.</h5>
-                                    <div class="text-warning">
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                    </div>
-                                </div>
-                            </div>
-                            <p class="card-text">"Perfect family adventure! Kids loved the camel ride and sand boarding."</p>
-                            <small class="text-muted">January 2024</small>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="col-md-4">
-                    <div class="card h-100 border-0 shadow-sm">
-                        <div class="card-body p-4">
-                            <div class="d-flex align-items-center mb-3">
-                                <div class="me-3">
-                                    <div class="bg-warning rounded-circle d-flex align-items-center justify-content-center" style="width: 50px; height: 50px;">
-                                        <span class="fw-bold text-dark">F</span>
-                                    </div>
-                                </div>
-                                <div>
-                                    <h5 class="mb-1">Fatima A.</h5>
-                                    <div class="text-warning">
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star-half-alt"></i>
-                                    </div>
-                                </div>
-                            </div>
-                            <p class="card-text">"Great value for money! Inland Sea visit was magical and photos turned out amazing."</p>
-                            <small class="text-muted">December 2023</small>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Simple WhatsApp Review Button -->
-            <div class="text-center">
-                <a href="https://wa.me/97466955259?text=Hi%20Golden%20Sky%20Tourism!%20I'd%20like%20to%20share%20my%20review%20about%20my%20desert%20safari%20experience." 
-                   class="btn btn-success btn-lg px-5 py-3 fw-bold" 
-                   target="_blank">
-                    <i class="fab fa-whatsapp me-2"></i>Share Your Review via WhatsApp
-                </a>
-                <p class="text-muted mt-3">Click to share your experience directly on WhatsApp</p>
             </div>
         </div>
-    </section>
+        
+        <!-- Submit Review Form -->
+        <div class="row justify-content-center mt-5">
+            <div class="col-lg-8">
+                <div class="card border-0 shadow-lg" id="submitReviewForm">
+                    <div class="card-body p-4 p-md-5">
+                        <h3 class="text-center mb-4">Share Your Experience</h3>
+                        
+                        <form id="reviewForm">
+                            <div class="row g-3">
+                                <div class="col-md-6">
+                                    <label class="form-label fw-bold">Your Name *</label>
+                                    <input type="text" class="form-control" id="reviewName" required 
+                                           placeholder="Enter your name">
+                                </div>
+                                
+                                <div class="col-md-6">
+                                    <label class="form-label fw-bold">Your Rating *</label>
+                                    <div class="rating-input mb-3">
+                                        <div class="stars">
+                                            <i class="far fa-star" data-value="1"></i>
+                                            <i class="far fa-star" data-value="2"></i>
+                                            <i class="far fa-star" data-value="3"></i>
+                                            <i class="far fa-star" data-value="4"></i>
+                                            <i class="far fa-star" data-value="5"></i>
+                                        </div>
+                                        <input type="hidden" id="reviewRating" value="5" required>
+                                        <small class="text-muted d-block mt-1">Click stars to rate</small>
+                                    </div>
+                                </div>
+                                
+                                <div class="col-12">
+                                    <label class="form-label fw-bold">Your Review *</label>
+                                    <textarea class="form-control" rows="4" id="reviewText" required 
+                                              placeholder="Tell us about your desert safari experience..."></textarea>
+                                </div>
+                                
+                                <div class="col-md-6">
+                                    <label class="form-label">Email (optional)</label>
+                                    <input type="email" class="form-control" id="reviewEmail" 
+                                           placeholder="For follow-up only">
+                                </div>
+                                
+                                <div class="col-12 mt-3">
+                                    <button type="submit" class="btn btn-warning w-100 py-3 fw-bold">
+                                        <i class="fas fa-paper-plane me-2"></i>Submit Review
+                                    </button>
+                                </div>
+                                
+                                <div class="col-12">
+                                    <p class="text-muted text-center small mt-2">
+                                        Your review will appear after moderation
+                                    </p>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- WhatsApp alternative -->
+        <div class="text-center mt-5">
+            <p class="text-muted mb-3">Or share your review via WhatsApp</p>
+            <a href="https://wa.me/97466955259?text=Hi%20Golden%20Sky%20Tourism!%20Here's%20my%20review%3A%0A%0A" 
+               class="btn btn-success px-5 py-3 fw-bold" 
+               target="_blank">
+                <i class="fab fa-whatsapp me-2"></i>Review via WhatsApp
+            </a>
+        </div>
+    </div>
+</section>
 
     <!-- Contact Section -->
     <section class="py-5 bg-light" id="contact">
