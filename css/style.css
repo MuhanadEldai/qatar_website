@@ -385,3 +385,55 @@ footer a:hover {
     -webkit-box-orient: vertical;
     overflow: hidden;
 }
+/* Reviews System Styles */
+.rating-input {
+    margin: 10px 0;
+}
+
+.rating-input .stars {
+    font-size: 1.8rem;
+    cursor: pointer;
+    display: flex;
+    gap: 5px;
+}
+
+.rating-input .stars i {
+    color: #ddd;
+    transition: all 0.2s ease;
+}
+
+.rating-input .stars i.hover,
+.rating-input .stars i.active {
+    color: #FFD700;
+}
+
+.rating-input .stars i.active {
+    transform: scale(1.1);
+}
+
+/* Review Cards Animation */
+.review-card {
+    opacity: 0;
+    transform: translateY(30px);
+    animation: slideUpFade 0.6s ease forwards;
+}
+
+@keyframes slideUpFade {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Success Message */
+.alert-success {
+    background: linear-gradient(135deg, #d4edda, #c3e6cb);
+    border: none;
+    border-radius: 10px;
+}
+
+/* Loading Spinner */
+.spinner-border.text-warning {
+    width: 3rem;
+    height: 3rem;
+}
