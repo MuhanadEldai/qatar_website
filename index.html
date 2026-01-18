@@ -27,6 +27,7 @@
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
             overflow-x: hidden;
             color: #333;
+            padding-top: 76px;
         }
         
         .navbar {
@@ -38,48 +39,39 @@
             z-index: 1000;
         }
         
-        /* Hero Slider Critical */
-        .hero-slider {
-            height: 100vh;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .slide {
-            position: absolute;
-            width: 100%;
-            height: 100%;
+        /* Hero Section */
+        .hero-section {
+            height: 80vh;
+            min-height: 500px;
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), 
+                        url('assets/images/tour-photos/group-photo.jpg');
             background-size: cover;
             background-position: center;
-            opacity: 0;
-            transition: opacity 1s ease;
-        }
-        
-        .slide.active {
-            opacity: 1;
-        }
-        
-        .slide-overlay {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            background: rgba(0,0,0,0.5);
+            background-repeat: no-repeat;
             display: flex;
             align-items: center;
             justify-content: center;
-            padding: 20px;
-        }
-        
-        .slide-content {
-            color: white;
             text-align: center;
+            color: white;
+            margin-top: -76px;
             padding: 20px;
-            max-width: 800px;
         }
         
-        .slide-content h1 {
+        .hero-content {
+            max-width: 800px;
+            padding: 2rem;
+        }
+        
+        .hero-content h1 {
             font-size: clamp(2rem, 5vw, 3.5rem);
-            margin-bottom: 20px;
+            text-shadow: 2px 2px 8px rgba(0,0,0,0.5);
+            margin-bottom: 1.5rem;
+        }
+        
+        .hero-content p {
+            font-size: clamp(1rem, 2vw, 1.2rem);
+            margin-bottom: 2rem;
+            line-height: 1.6;
         }
         
         /* Loading Optimization */
@@ -97,6 +89,50 @@
         
         img.loaded {
             opacity: 1;
+        }
+        
+        /* Time slots */
+        .time-slots-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin: 1rem 0;
+        }
+        
+        .time-slot {
+            flex: 1;
+            min-width: 100px;
+            max-width: 150px;
+            padding: 0.75rem 0.5rem;
+            text-align: center;
+            cursor: pointer;
+            border: 2px solid #dee2e6;
+            border-radius: 8px;
+            background: white;
+            transition: all 0.3s ease;
+        }
+        
+        .time-slot.active {
+            background-color: #FFD700 !important;
+            border-color: #FFD700 !important;
+            color: #333;
+        }
+        
+        /* Review Stars */
+        .rating-input .stars {
+            font-size: 1.8rem;
+            cursor: pointer;
+            display: flex;
+            gap: 5px;
+        }
+        
+        .rating-input .stars i {
+            color: #ddd;
+            transition: all 0.2s ease;
+        }
+        
+        .rating-input .stars i.active {
+            color: #FFD700;
         }
     </style>
     
@@ -548,7 +584,7 @@
         </div>
     </section>
 
-   <!-- Updated Reviews Section -->
+   <!-- Reviews Section -->
 <section class="py-5" id="reviews">
     <div class="container py-5">
         <div class="text-center mb-5">
@@ -556,7 +592,7 @@
             <p class="text-muted lead">What our customers say about their experience</p>
         </div>
         
-        <!-- Reviews will load here -->
+        <!-- Reviews Container -->
         <div class="row g-4 mb-5" id="reviewsContainer">
             <!-- Loading message -->
             <div class="col-12 text-center">
@@ -616,7 +652,7 @@
                                 
                                 <div class="col-12">
                                     <p class="text-muted text-center small mt-2">
-                                        Your review will appear after moderation
+                                        Your review will appear immediately
                                     </p>
                                 </div>
                             </div>
@@ -732,7 +768,7 @@
         </div>
     </footer>
 
-    <!-- Simple Success Modal -->
+    <!-- Success Modal -->
     <div class="modal fade" id="successModal">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
@@ -746,11 +782,14 @@
         </div>
     </div>
 
+    <!-- Alert Container -->
+    <div id="alertContainer" style="position: fixed; top: 100px; right: 20px; z-index: 9999;"></div>
+
     <!-- Deferred JavaScript -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" defer></script>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js" defer></script>
     
-    <!-- Single Combined JavaScript File -->
+    <!-- Main JavaScript -->
     <script src="js/main.min.js" defer></script>
     
     <!-- Inline Critical JavaScript -->
@@ -772,14 +811,17 @@
         document.addEventListener('DOMContentLoaded', function() {
             const tomorrow = new Date();
             tomorrow.setDate(tomorrow.getDate() + 1);
-            document.querySelector('input[type="date"]').value = tomorrow.toISOString().split('T')[0];
-            
-            // Update summary date
-            document.getElementById('summaryDate').textContent = tomorrow.toLocaleDateString('en-US', {
-                weekday: 'short',
-                month: 'short',
-                day: 'numeric'
-            });
+            const dateInput = document.querySelector('input[type="date"]');
+            if (dateInput) {
+                dateInput.value = tomorrow.toISOString().split('T')[0];
+                
+                // Update summary date
+                document.getElementById('summaryDate').textContent = tomorrow.toLocaleDateString('en-US', {
+                    weekday: 'short',
+                    month: 'short',
+                    day: 'numeric'
+                });
+            }
         });
     </script>
 </body>
