@@ -9,7 +9,6 @@
 body {
     font-family: 'Montserrat', sans-serif;
     color: #333;
-    padding-top: 76px; /* For fixed navbar */
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -34,12 +33,10 @@ h1, h2, h3, h4, h5, h6 {
     color: #333;
 }
 
-/* Simple Hero Section - No Slider */
+/* Hero Section */
 .hero-section {
     height: 80vh;
     min-height: 500px;
-    background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), 
-                url('../assets/images/tour-photos/group-photo.jpg');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -69,7 +66,7 @@ h1, h2, h3, h4, h5, h6 {
     line-height: 1.6;
 }
 
-/* Time Slots Buttons - Responsive Fix */
+/* Time Slots */
 .time-slots-container {
     display: flex;
     flex-wrap: wrap;
@@ -88,9 +85,6 @@ h1, h2, h3, h4, h5, h6 {
     border-radius: 8px;
     background: white;
     transition: all 0.3s ease;
-    word-break: break-word;
-    overflow-wrap: break-word;
-    hyphens: auto;
 }
 
 .time-slot .time-label {
@@ -126,9 +120,6 @@ h1, h2, h3, h4, h5, h6 {
     border: none;
     font-weight: 600;
     transition: all 0.3s ease;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
 }
 
 .btn-warning:hover {
@@ -141,9 +132,6 @@ h1, h2, h3, h4, h5, h6 {
     border: none;
     font-weight: 600;
     transition: all 0.3s ease;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
 }
 
 .btn-success:hover {
@@ -210,17 +198,6 @@ h1, h2, h3, h4, h5, h6 {
     color: white;
 }
 
-.gallery-caption h6 {
-    margin: 0;
-    font-size: 1rem;
-}
-
-.gallery-caption p {
-    margin: 0;
-    font-size: 0.8rem;
-    opacity: 0.9;
-}
-
 /* Reviews */
 .rating-stars {
     color: var(--gold);
@@ -230,6 +207,33 @@ h1, h2, h3, h4, h5, h6 {
     border: 1px solid rgba(0,0,0,0.1);
     border-radius: 10px;
     height: 100%;
+}
+
+.review-card .card-body {
+    padding: 1.5rem;
+}
+
+/* Alert Messages */
+.custom-alert {
+    position: fixed;
+    top: 100px;
+    right: 20px;
+    z-index: 9999;
+    min-width: 300px;
+    max-width: 500px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    animation: slideIn 0.3s ease;
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
 }
 
 /* Footer */
@@ -251,11 +255,6 @@ footer a:hover {
     .hero-section {
         height: 60vh;
         min-height: 400px;
-        margin-top: -76px;
-    }
-    
-    .hero-content {
-        padding: 1rem;
     }
     
     .hero-content h1 {
@@ -268,33 +267,15 @@ footer a:hover {
         margin-bottom: 1.5rem;
     }
     
-    .btn-lg {
-        padding: 0.75rem 1.5rem;
-        font-size: 0.9rem;
-    }
-    
-    /* Time slots for mobile */
     .time-slot {
         min-width: 80px;
         max-width: 120px;
         padding: 0.5rem;
     }
     
-    .time-slot .time-label {
-        font-size: 0.8rem;
-    }
-    
-    .time-slot .time-range {
-        font-size: 0.7rem;
-    }
-    
     .gallery-container {
         grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
         gap: 0.5rem;
-    }
-    
-    .gallery-item {
-        aspect-ratio: 1/1;
     }
 }
 
@@ -308,17 +289,6 @@ footer a:hover {
         font-size: 1.8rem;
     }
     
-    .navbar-brand {
-        font-size: 1.25rem;
-    }
-    
-    .btn-lg {
-        padding: 0.6rem 1rem;
-        font-size: 0.85rem;
-        white-space: normal;
-    }
-    
-    /* Single column time slots on very small screens */
     .time-slots-container {
         flex-direction: column;
     }
@@ -330,18 +300,6 @@ footer a:hover {
     
     .gallery-container {
         grid-template-columns: repeat(2, 1fr);
-    }
-}
-
-/* Extra small devices */
-@media (max-width: 360px) {
-    .hero-content h1 {
-        font-size: 1.5rem;
-    }
-    
-    .btn-lg {
-        font-size: 0.8rem;
-        padding: 0.5rem 0.75rem;
     }
 }
 
@@ -370,70 +328,4 @@ footer a:hover {
     .no-print {
         display: none !important;
     }
-}
-
-/* Fix for text overflow */
-.text-ellipsis {
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-}
-
-.multi-line-ellipsis {
-    display: -webkit-box;
-    -webkit-line-clamp: 2;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
-}
-/* Reviews System Styles */
-.rating-input {
-    margin: 10px 0;
-}
-
-.rating-input .stars {
-    font-size: 1.8rem;
-    cursor: pointer;
-    display: flex;
-    gap: 5px;
-}
-
-.rating-input .stars i {
-    color: #ddd;
-    transition: all 0.2s ease;
-}
-
-.rating-input .stars i.hover,
-.rating-input .stars i.active {
-    color: #FFD700;
-}
-
-.rating-input .stars i.active {
-    transform: scale(1.1);
-}
-
-/* Review Cards Animation */
-.review-card {
-    opacity: 0;
-    transform: translateY(30px);
-    animation: slideUpFade 0.6s ease forwards;
-}
-
-@keyframes slideUpFade {
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-/* Success Message */
-.alert-success {
-    background: linear-gradient(135deg, #d4edda, #c3e6cb);
-    border: none;
-    border-radius: 10px;
-}
-
-/* Loading Spinner */
-.spinner-border.text-warning {
-    width: 3rem;
-    height: 3rem;
 }
