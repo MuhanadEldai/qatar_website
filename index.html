@@ -584,7 +584,7 @@
         </div>
     </section>
 
-   <!-- Reviews Section -->
+   <!-- Updated Reviews Section -->
 <section class="py-5" id="reviews">
     <div class="container py-5">
         <div class="text-center mb-5">
@@ -592,7 +592,7 @@
             <p class="text-muted lead">What our customers say about their experience</p>
         </div>
         
-        <!-- Reviews Container -->
+        <!-- Reviews will load here -->
         <div class="row g-4 mb-5" id="reviewsContainer">
             <!-- Loading message -->
             <div class="col-12 text-center">
@@ -614,7 +614,7 @@
                                 <div class="col-md-6">
                                     <label class="form-label fw-bold">Your Name *</label>
                                     <input type="text" class="form-control" id="reviewName" required 
-                                           placeholder="Enter your name">
+                                           placeholder="Enter your name" maxlength="100">
                                 </div>
                                 
                                 <div class="col-md-6">
@@ -635,13 +635,19 @@
                                 <div class="col-12">
                                     <label class="form-label fw-bold">Your Review *</label>
                                     <textarea class="form-control" rows="4" id="reviewText" required 
-                                              placeholder="Tell us about your desert safari experience..."></textarea>
+                                              placeholder="Tell us about your desert safari experience..."
+                                              maxlength="1000"></textarea>
                                 </div>
                                 
                                 <div class="col-md-6">
                                     <label class="form-label">Email (optional)</label>
                                     <input type="email" class="form-control" id="reviewEmail" 
                                            placeholder="For follow-up only">
+                                </div>
+                                
+                                <!-- Honeypot field for spam prevention -->
+                                <div class="d-none">
+                                    <input type="text" id="website" name="website" autocomplete="off">
                                 </div>
                                 
                                 <div class="col-12 mt-3">
