@@ -585,6 +585,7 @@
     </section>
 
    <!-- Updated Reviews Section -->
+<!-- Updated Reviews Section -->
 <section class="py-5" id="reviews">
     <div class="container py-5">
         <div class="text-center mb-5">
@@ -608,13 +609,15 @@
                 <div class="card border-0 shadow-lg" id="submitReviewForm">
                     <div class="card-body p-4 p-md-5">
                         <h3 class="text-center mb-4">Share Your Experience</h3>
+                        <p class="text-center text-muted mb-4">Tell us about your desert safari adventure</p>
                         
                         <form id="reviewForm">
                             <div class="row g-3">
                                 <div class="col-md-6">
                                     <label class="form-label fw-bold">Your Name *</label>
                                     <input type="text" class="form-control" id="reviewName" required 
-                                           placeholder="Enter your name" maxlength="100">
+                                           placeholder="Enter your full name" maxlength="100">
+                                    <div class="invalid-feedback">Please enter your name.</div>
                                 </div>
                                 
                                 <div class="col-md-6">
@@ -628,41 +631,67 @@
                                             <i class="far fa-star" data-value="5"></i>
                                         </div>
                                         <input type="hidden" id="reviewRating" value="5" required>
-                                        <small class="text-muted d-block mt-1">Click stars to rate</small>
+                                        <small class="text-muted d-block mt-1">Click stars to rate (5 is highest)</small>
                                     </div>
                                 </div>
                                 
                                 <div class="col-12">
                                     <label class="form-label fw-bold">Your Review *</label>
                                     <textarea class="form-control" rows="4" id="reviewText" required 
-                                              placeholder="Tell us about your desert safari experience..."
+                                              placeholder="Tell us about your desert safari experience... What did you enjoy most? How was the service?"
                                               maxlength="1000"></textarea>
+                                    <div class="invalid-feedback">Please write your review.</div>
+                                    <small class="text-muted">Maximum 1000 characters</small>
                                 </div>
                                 
                                 <div class="col-md-6">
                                     <label class="form-label">Email (optional)</label>
                                     <input type="email" class="form-control" id="reviewEmail" 
-                                           placeholder="For follow-up only">
+                                           placeholder="your.email@example.com">
+                                    <small class="text-muted">For follow-up only, not published</small>
                                 </div>
                                 
-                                <!-- Honeypot field for spam prevention -->
+                                <!-- Hidden honeypot field for spam prevention -->
                                 <div class="d-none">
-                                    <input type="text" id="website" name="website" autocomplete="off">
+                                    <label>Leave this field empty</label>
+                                    <input type="text" id="website" name="website" autocomplete="off" tabindex="-1">
+                                </div>
+                                
+                                <div class="col-12 mt-4">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" id="consentCheck" required>
+                                        <label class="form-check-label" for="consentCheck">
+                                            I agree that my review can be published on this website
+                                        </label>
+                                        <div class="invalid-feedback">You must agree to submit your review.</div>
+                                    </div>
                                 </div>
                                 
                                 <div class="col-12 mt-3">
-                                    <button type="submit" class="btn btn-warning w-100 py-3 fw-bold">
+                                    <button type="submit" class="btn btn-warning w-100 py-3 fw-bold" id="submitReviewBtn">
                                         <i class="fas fa-paper-plane me-2"></i>Submit Review
                                     </button>
                                 </div>
                                 
                                 <div class="col-12">
-                                    <p class="text-muted text-center small mt-2">
-                                        Your review will appear immediately
+                                    <p class="text-muted text-center small mt-3">
+                                        <i class="fas fa-info-circle me-1"></i>
+                                        Your review will appear on the website immediately after submission
                                     </p>
                                 </div>
                             </div>
                         </form>
+                        
+                        <!-- Success Message (hidden by default) -->
+                        <div class="alert alert-success d-none mt-4" id="successMessage">
+                            <div class="d-flex align-items-center">
+                                <i class="fas fa-check-circle fa-2x me-3"></i>
+                                <div>
+                                    <h5 class="mb-1">Thank you for your review!</h5>
+                                    <p class="mb-0">Your review has been submitted successfully and will appear below shortly.</p>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -670,11 +699,11 @@
         
         <!-- WhatsApp alternative -->
         <div class="text-center mt-5">
-            <p class="text-muted mb-3">Or share your review via WhatsApp</p>
+            <p class="text-muted mb-3">Prefer to send your review via WhatsApp?</p>
             <a href="https://wa.me/97466955259?text=Hi%20Golden%20Sky%20Tourism!%20Here's%20my%20review%3A%0A%0A" 
                class="btn btn-success px-5 py-3 fw-bold" 
                target="_blank">
-                <i class="fab fa-whatsapp me-2"></i>Review via WhatsApp
+                <i class="fab fa-whatsapp me-2"></i>Send Review via WhatsApp
             </a>
         </div>
     </div>
