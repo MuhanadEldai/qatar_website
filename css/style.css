@@ -521,6 +521,109 @@ footer a:hover {
     border-left: 4px solid #17a2b8;
 }
 
+/* ViewPager Styles */
+.viewpager-container {
+    position: relative;
+    overflow: hidden;
+    min-height: 400px;
+}
+
+.viewpager-slides {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+    min-height: 400px;
+}
+
+.viewpager-slide {
+    min-width: 100%;
+    padding: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    justify-content: center;
+}
+
+.viewpager-slide .col-md-4 {
+    flex: 1 1 calc(33.333% - 10px);
+    min-width: 250px;
+    max-width: 350px;
+}
+
+.viewpager-dots {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 30px;
+    padding: 10px 0;
+}
+
+.viewpager-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    border: none;
+    background: #ddd;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.viewpager-dot.active {
+    background: #FFD700;
+    transform: scale(1.2);
+}
+
+.viewpager-nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(255, 215, 0, 0.8);
+    border: none;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    color: #333;
+    font-size: 1.2rem;
+    cursor: pointer;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+}
+
+.viewpager-nav:hover {
+    background: #FFD700;
+    transform: translateY(-50%) scale(1.1);
+}
+
+.viewpager-nav.prev {
+    left: 10px;
+}
+
+.viewpager-nav.next {
+    right: 10px;
+}
+
+/* Responsive viewpager */
+@media (max-width: 768px) {
+    .viewpager-slide .col-md-4 {
+        flex: 1 1 100%;
+        max-width: 100%;
+    }
+    
+    .viewpager-nav {
+        width: 35px;
+        height: 35px;
+        font-size: 1rem;
+    }
+}
+
+/* Hide viewpager if only one slide */
+.viewpager-container:has(.viewpager-slide:only-child) .viewpager-nav,
+.viewpager-container:has(.viewpager-slide:only-child) .viewpager-dots {
+    display: none !important;
+}
+
 /* Print styles */
 @media print {
     .no-print {
