@@ -350,6 +350,64 @@ footer a:hover {
     transform: scale(1.1);
 }
 
+
+/* Load More Button Styles */
+#loadMoreBtn {
+    transition: all 0.3s ease;
+    border-width: 2px;
+    font-weight: 600;
+}
+
+#loadMoreBtn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(255, 193, 7, 0.3);
+    background-color: #FFD700;
+    color: #333;
+    border-color: #FFD700;
+}
+
+#loadMoreBtn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
+}
+
+/* Review Form when disabled */
+#reviewForm:disabled {
+    opacity: 0.7;
+}
+
+#reviewForm:disabled input,
+#reviewForm:disabled textarea,
+#reviewForm:disabled button {
+    background-color: #f8f9fa;
+    cursor: not-allowed;
+}
+
+/* Review Cards Animation */
+.review-card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    animation: fadeInUp 0.6s ease forwards;
+}
+
+.review-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1) !important;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
 /* Review Cards Animation */
 .review-card {
     border: 1px solid rgba(0,0,0,0.1);
