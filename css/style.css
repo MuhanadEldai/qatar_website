@@ -29,12 +29,11 @@ h1, h2, h3, h4, h5, h6 {
 .navbar-dark .navbar-nav .nav-link {
     color: #333 !important;
     font-weight: 500;
-    padding: 0.5rem 1rem;
 }
 
 .hero-section {
-    height: 80vh;
-    min-height: 500px;
+    height: 70vh;
+    min-height: 450px;
     background-size: cover;
     background-position: center;
     display: flex;
@@ -46,38 +45,28 @@ h1, h2, h3, h4, h5, h6 {
     padding: 20px;
 }
 
-.hero-content {
-    max-width: 800px;
-    padding: 2rem;
-}
-
 .hero-content h1 {
     font-size: clamp(2rem, 5vw, 3.5rem);
     text-shadow: 2px 2px 8px rgba(0,0,0,0.5);
-    margin-bottom: 1.5rem;
 }
 
 /* ============================================
-    COMPONENTS (Buttons, Slots, Gallery)
+    COMPONENTS (Buttons, Slots)
    ============================================ */
 .time-slots-container {
     display: flex;
     flex-wrap: wrap;
     gap: 0.5rem;
-    margin: 1rem 0;
 }
 
 .time-slot {
     flex: 1;
     min-width: 100px;
-    max-width: 150px;
     padding: 0.75rem 0.5rem;
-    text-align: center;
-    cursor: pointer;
     border: 2px solid #dee2e6;
     border-radius: 8px;
     background: white;
-    transition: all 0.3s ease;
+    cursor: pointer;
 }
 
 .time-slot.active {
@@ -85,72 +74,63 @@ h1, h2, h3, h4, h5, h6 {
     border-color: var(--gold) !important;
 }
 
-.btn-warning {
-    background: linear-gradient(135deg, var(--gold), var(--gold-dark));
-    border: none;
-    font-weight: 600;
-    transition: all 0.3s ease;
-}
-
-.gallery-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-    gap: 1rem;
-}
-
-.gallery-item {
-    position: relative;
-    overflow: hidden;
-    border-radius: 10px;
-    aspect-ratio: 4/3;
-}
-
 /* ============================================
-    REVIEW CARDS (RESPONSIVE FIX)
+    COMPACT REVIEW CARDS (FIXED SPACING)
    ============================================ */
 .review-card-small {
     background: #fff;
     border: 1px solid rgba(0,0,0,0.1);
     border-radius: 12px;
-    height: 100%; 
+    height: auto; /* Allow card to be as small as its content */
     display: flex;
     flex-direction: column;
     transition: all 0.3s ease;
-    min-height: 220px; /* Base height for desktop */
+    min-height: 0; /* Removed large min-height */
 }
 
 .review-card-small:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 20px rgba(0,0,0,0.08) !important;
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.08) !important;
 }
 
 .review-card-small .card-body {
-    padding: 1.25rem !important;
+    padding: 1rem !important; /* Reduced padding */
     display: flex;
     flex-direction: column;
-    flex: 1;
 }
 
 .review-card-small .card-text {
-    font-size: 0.9rem !important;
-    line-height: 1.5;
-    flex: 1; /* Pushes the date/footer down */
-    margin-bottom: 1rem !important;
+    font-size: 0.85rem !important;
+    line-height: 1.4;
+    /* flex: 1; REMOVED this to stop the "big space" */
+    margin-bottom: 0.5rem !important; /* Tight spacing between text and date */
     display: -webkit-box;
-    -webkit-line-clamp: 4;
+    -webkit-line-clamp: 3;
     -webkit-box-orient: vertical;
     overflow: hidden;
 }
 
 .review-avatar {
-    width: 45px;
-    height: 45px;
+    width: 40px;
+    height: 40px;
     border-radius: 50%;
     object-fit: cover;
 }
 
+.review-name {
+    font-size: 0.9rem;
+    font-weight: bold;
+    margin-bottom: 0;
+}
+
+.review-date {
+    font-size: 0.75rem;
+    color: #888;
+    margin-top: 0; /* Keeps it right under the text */
+}
+
 /* ============================================
-    VIEW_PAGER (PADDING FIX)
+    VIEW_PAGER (TIGHT CONTROLS)
    ============================================ */
 .viewpager-container {
     position: relative;
@@ -161,20 +141,18 @@ h1, h2, h3, h4, h5, h6 {
 .viewpager-slides {
     display: flex;
     transition: transform 0.5s ease-in-out;
-    /* Removed large min-height to close the gap */
-    min-height: auto; 
 }
 
 .viewpager-slide {
     min-width: 100%;
     display: flex;
     justify-content: center;
-    gap: 20px;
-    padding: 10px 15px; /* Side padding for mobile safety */
+    gap: 15px;
+    padding: 5px 15px; /* Minimal top/bottom padding */
 }
 
 .viewpager-slide .col-md-4 {
-    flex: 0 1 350px; /* Allow cards to have a base size */
+    flex: 0 1 320px;
     max-width: 100%;
 }
 
@@ -182,93 +160,56 @@ h1, h2, h3, h4, h5, h6 {
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 15px;
-    margin-top: 10px; /* Reduced from 20px to fix the gap */
-    padding-bottom: 15px;
+    gap: 12px;
+    margin-top: 0px; /* Controls sit right under the cards */
+    padding: 10px 0;
 }
 
 .viewpager-nav {
     background: var(--gold);
     border: none;
-    width: 40px;
-    height: 40px;
+    width: 34px;
+    height: 34px;
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
     cursor: pointer;
-    transition: all 0.2s;
-}
-
-.viewpager-nav:hover { background: var(--gold-dark); }
-
-.viewpager-dots {
-    display: flex;
-    gap: 8px;
 }
 
 .viewpager-dot {
-    width: 10px;
-    height: 10px;
+    width: 8px;
+    height: 8px;
     border-radius: 50%;
     background: #ccc;
     border: none;
     padding: 0;
-    transition: 0.3s;
 }
 
 .viewpager-dot.active {
     background: var(--gold);
-    transform: scale(1.2);
 }
 
 /* ============================================
-    MOBILE RESPONSIVE OVERRIDES
+    MOBILE RESPONSIVE
    ============================================ */
-
-/* Tablet and Mobile Stacking */
 @media (max-width: 768px) {
     .viewpager-slide {
         flex-direction: column;
         align-items: center;
-        gap: 15px;
+        gap: 10px;
     }
 
     .viewpager-slide .col-md-4 {
         width: 100%;
-        max-width: 100%;
-    }
-
-    .review-card-small {
-        min-height: auto; /* Let card adjust to text height on mobile */
-    }
-
-    .review-card-small .card-text {
-        -webkit-line-clamp: 3; /* Shorter text for smaller screens */
-    }
-
-    .hero-section {
-        height: 60vh;
-        min-height: 400px;
     }
 
     .viewpager-controls {
-        margin-top: 5px; /* Even tighter for mobile */
+        margin-top: -5px; /* Pulls controls even closer on mobile */
     }
-}
 
-/* Small Mobile Portrait */
-@media (max-width: 480px) {
     .review-card-small .card-body {
-        padding: 1rem !important;
-    }
-
-    .review-name {
-        font-size: 0.9rem;
-    }
-
-    .time-slot {
-        min-width: 100%; /* Full width buttons for thumbs */
+        padding: 0.75rem !important;
     }
 }
 
@@ -276,10 +217,5 @@ h1, h2, h3, h4, h5, h6 {
 footer {
     background-color: var(--dark);
     color: white;
-    padding: 3rem 0;
-}
-
-footer a {
-    color: var(--gold);
-    text-decoration: none;
+    padding: 2rem 0;
 }
