@@ -133,22 +133,24 @@ h1, h2, h3, h4, h5, h6 {
     VIEW_PAGER (TIGHT CONTROLS)
    ============================================ */
 .viewpager-container {
-    position: relative;
-    overflow: hidden;
-    width: 100%;
+    margin-bottom: 0 !important;
+    padding-bottom: 0 !important;
 }
 
 .viewpager-slides {
     display: flex;
-    transition: transform 0.5s ease-in-out;
+    transition: transform 0.5s ease;
+    height: auto !important; /* Allow cards to dictate height */
+    min-height: 0 !important; 
 }
 
 .viewpager-slide {
     min-width: 100%;
     display: flex;
+    flex-wrap: wrap;
     justify-content: center;
     gap: 15px;
-    padding: 5px 15px; /* Minimal top/bottom padding */
+    padding: 0 10px !important; /* Remove vertical padding */
 }
 
 .viewpager-slide .col-md-4 {
@@ -156,13 +158,21 @@ h1, h2, h3, h4, h5, h6 {
     max-width: 100%;
 }
 
+/* Tucked Controls */
 .viewpager-controls {
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 12px;
-    margin-top: 0px; /* Controls sit right under the cards */
-    padding: 10px 0;
+    gap: 15px;
+    margin-top: 5px !important; /* Pulls controls up */
+    padding: 5px 0;
+}
+
+/* Scalable Pagination Text */
+.page-indicator {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: #666;
 }
 
 .viewpager-nav {
@@ -180,14 +190,17 @@ h1, h2, h3, h4, h5, h6 {
 .viewpager-dot {
     width: 8px;
     height: 8px;
+    margin: 0 3px;
+    padding: 0;
+    border: none;
     border-radius: 50%;
     background: #ccc;
-    border: none;
-    padding: 0;
+    transition: 0.3s;
 }
 
 .viewpager-dot.active {
     background: var(--gold);
+    transform: scale(1.2);
 }
 
 /* Compact Card Tweaks */
@@ -207,9 +220,13 @@ h1, h2, h3, h4, h5, h6 {
     color: #444;
 }
 
-/* Show More / Show Less Styling */
+/* --- Review Card Expansion Fix --- */
 .more-text {
-    display: none; /* Hidden by default */
+    display: none; /* Chrome/Safari safe */
+}
+
+.more-text.show {
+    display: inline !important;
 }
 
 .show-more-link {
