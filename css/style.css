@@ -190,6 +190,53 @@ h1, h2, h3, h4, h5, h6 {
     background: var(--gold);
 }
 
+/* Compact Card Tweaks */
+.review-card-small {
+    height: auto !important; /* Allow it to hug the content */
+    margin-bottom: 5px;
+}
+
+.review-card-small .card-body {
+    padding: 0.8rem !important; /* Tight padding */
+}
+
+.review-text {
+    font-size: 0.85rem;
+    line-height: 1.4;
+    margin-bottom: 0.4rem !important;
+    color: #444;
+}
+
+/* Show More / Show Less Styling */
+.more-text {
+    display: none; /* Hidden by default */
+}
+
+.show-more-link {
+    color: #ffc107;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 0.8rem;
+    display: inline-block;
+    margin-left: 5px;
+    text-decoration: none;
+}
+
+.show-more-link:hover {
+    text-decoration: underline;
+    color: #cc9a06;
+}
+
+/* Tighten Avatar and Name */
+.review-avatar {
+    width: 35px !important;
+    height: 35px !important;
+}
+
+.review-name {
+    font-size: 0.85rem !important;
+}
+
 /* ============================================
     MOBILE RESPONSIVE
    ============================================ */
