@@ -466,6 +466,61 @@ footer a:hover {
     color: #FFD700;
 }
 
+/* Reviews Layout - 3 Columns */
+@media (min-width: 768px) {
+    #reviewsContainer .col-md-4 {
+        flex: 0 0 33.333333%;
+        max-width: 33.333333%;
+    }
+}
+
+/* Load More Button Enhancements */
+#loadMoreContainer {
+    padding: 20px 0;
+}
+
+#reviewsCount {
+    font-size: 0.9rem;
+    opacity: 0.8;
+}
+
+/* Review Cards - Better spacing for 3 columns */
+.review-card {
+    margin-bottom: 25px;
+    transition: all 0.3s ease;
+}
+
+.review-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(255, 193, 7, 0.15) !important;
+}
+
+/* Responsive adjustments */
+@media (max-width: 767.98px) {
+    #reviewsContainer .col-md-4 {
+        flex: 0 0 100%;
+        max-width: 100%;
+    }
+    
+    #loadMoreBtn {
+        width: 100%;
+        padding: 12px 20px;
+    }
+}
+
+/* Success message for review submission */
+.alert-success {
+    background: linear-gradient(135deg, #d4edda, #c3e6cb);
+    border: none;
+    border-left: 4px solid #28a745;
+}
+
+.alert-info {
+    background: linear-gradient(135deg, #d1ecf1, #bee5eb);
+    border: none;
+    border-left: 4px solid #17a2b8;
+}
+
 /* Print styles */
 @media print {
     .no-print {
