@@ -1,5 +1,5 @@
 /* ============================================
-    GLOBAL FIXES & VARIABLES
+   GLOBAL FIXES & VARIABLES
    ============================================ */
 :root {
     --gold: #FFD700;
@@ -11,7 +11,7 @@
 html, body {
     font-family: 'Montserrat', sans-serif;
     color: #333;
-    overflow-x: hidden; /* Prevents side-to-side shaking/zooming */
+    overflow-x: hidden;
     width: 100%;
     position: relative;
 }
@@ -22,54 +22,66 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 /* ============================================
-    VIEW_PAGER (PADDING & ZOOM FIX)
+   REVIEW CARDS - FIXED FOR MOBILE & DESKTOP
    ============================================ */
-.viewpager-container {
-    overflow: hidden; /* CRITICAL: Clips the slides so they don't cause zoom */
-    position: relative;
-    width: 100%;
-    margin-bottom: 0 !important;
-    padding-bottom: 0 !important;
+.review-card-wrapper {
+    flex: 1;
+    min-width: 300px;
+    max-width: 100%;
+    padding: 0 10px;
+    margin-bottom: 20px;
 }
 
-.viewpager-slides {
-    display: flex;
-    transition: transform 0.5s ease-in-out;
-    height: auto !important;
-    min-height: 0 !important; 
-}
-
-.viewpager-slide {
-    min-width: 100%;
-    display: flex;
-    flex-wrap: nowrap; /* Keep cards in a row on desktop */
-    justify-content: center;
-    gap: 15px;
-    padding: 10px 5px !important; /* Minimal vertical padding */
-}
-
-/* Review Card - Compact and Hugging Content */
-.review-card-small {
+.review-card {
     background: #fff;
     border: 1px solid rgba(0,0,0,0.1);
     border-radius: 12px;
-    height: auto !important; 
+    height: 100%;
     transition: all 0.3s ease;
-    margin-bottom: 0 !important; 
+    width: 100%;
+    margin: 0;
 }
 
-.review-card-small .card-body {
-    padding: 0.8rem !important;
+.review-card .card-body {
+    padding: 20px !important;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.review-initials {
+    background: var(--gold);
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 14px;
+    color: #333;
+}
+
+.review-name {
+    font-size: 16px;
+    font-weight: 600;
+    color: #333;
+}
+
+.review-stars {
+    color: var(--gold);
+    font-size: 14px;
 }
 
 .review-text {
-    font-size: 0.85rem;
-    line-height: 1.4;
-    margin-bottom: 5px !important;
-    color: #444;
+    font-size: 14px;
+    line-height: 1.6;
+    color: #555;
+    margin-top: 10px;
+    flex-grow: 1;
 }
 
-/* --- Chrome Expansion Fix --- */
+/* --- Show More/Less Text --- */
 .more-text {
     display: none;
 }
@@ -79,18 +91,47 @@ h1, h2, h3, h4, h5, h6 {
 
 .show-more-link {
     color: var(--gold-dark);
-    font-size: 0.8rem;
+    font-size: 13px;
     font-weight: 600;
     text-decoration: none;
+    cursor: pointer;
+    display: inline-block;
+    margin-left: 5px;
 }
 
-/* Pagination Controls - Tucked under cards */
+/* ============================================
+   VIEW_PAGER (PADDING & ZOOM FIX)
+   ============================================ */
+.viewpager-container {
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.viewpager-slides {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+    height: auto;
+}
+
+.viewpager-slide {
+    min-width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    padding: 10px 0;
+    box-sizing: border-box;
+}
+
+/* Pagination Controls */
 .viewpager-controls {
     display: flex;
     align-items: center;
     justify-content: center;
     gap: 12px;
-    margin-top: 0px !important; /* Removes the gap between cards and dots */
+    margin-top: 20px;
     padding: 10px 0;
 }
 
@@ -101,6 +142,7 @@ h1, h2, h3, h4, h5, h6 {
     background: #ccc;
     border: none;
     transition: 0.3s;
+    cursor: pointer;
 }
 
 .viewpager-dot.active {
@@ -111,18 +153,77 @@ h1, h2, h3, h4, h5, h6 {
 .viewpager-nav {
     background: var(--gold);
     border: none;
-    width: 30px;
-    height: 30px;
+    width: 36px;
+    height: 36px;
     border-radius: 50%;
     cursor: pointer;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 12px;
+    font-size: 14px;
+    color: #333;
+}
+
+.viewpager-counter {
+    font-size: 14px;
+    font-weight: bold;
+    color: #333;
 }
 
 /* ============================================
-    GALLERY SECTION (VISIBILITY FIX)
+   TIME SLOTS - FIXED FOR MOBILE CLICKS
+   ============================================ */
+.time-slots-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin: 1rem 0;
+}
+
+.time-slot {
+    flex: 1;
+    min-width: 120px;
+    padding: 12px 8px;
+    text-align: center;
+    cursor: pointer;
+    border: 2px solid #dee2e6;
+    border-radius: 8px;
+    background: white;
+    transition: all 0.3s ease;
+    user-select: none;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.time-slot:hover {
+    border-color: var(--gold);
+}
+
+.time-slot.active {
+    background-color: var(--gold) !important;
+    border-color: var(--gold) !important;
+    color: #333;
+    font-weight: 600;
+}
+
+.time-slot .time-label {
+    display: block;
+    font-weight: 600;
+    font-size: 15px;
+}
+
+.time-slot .time-range {
+    display: block;
+    font-size: 12px;
+    color: #666;
+    margin-top: 4px;
+}
+
+.time-slot.active .time-range {
+    color: #333;
+}
+
+/* ============================================
+   GALLERY SECTION
    ============================================ */
 #galleryGrid {
     display: grid;
@@ -161,19 +262,93 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 /* ============================================
-    MOBILE ADJUSTMENTS
+   MOBILE ADJUSTMENTS
    ============================================ */
 @media (max-width: 768px) {
+    /* Review cards stack on mobile */
     .viewpager-slide {
-        flex-direction: column; /* Stack cards on mobile */
+        flex-direction: column;
         align-items: center;
     }
-
-    .review-card-small {
-        width: 95%; /* Take full width on mobile */
+    
+    .review-card-wrapper {
+        min-width: 100%;
+        max-width: 100%;
+        padding: 0 15px;
     }
+    
+    .review-card {
+        width: 100%;
+    }
+    
+    /* Time slots full width on mobile */
+    .time-slots-container {
+        flex-direction: column;
+    }
+    
+    .time-slot {
+        min-width: 100%;
+        padding: 15px 10px;
+    }
+    
+    /* Reduce padding on mobile */
+    .review-card .card-body {
+        padding: 15px !important;
+    }
+    
+    .review-text {
+        font-size: 13px;
+    }
+}
 
-    .viewpager-controls {
-        margin-top: 5px !important;
+@media (max-width: 576px) {
+    /* Further mobile optimizations */
+    .viewpager-nav {
+        width: 32px;
+        height: 32px;
+        font-size: 12px;
+    }
+    
+    .review-initials {
+        width: 36px;
+        height: 36px;
+        font-size: 13px;
+    }
+    
+    .review-name {
+        font-size: 15px;
+    }
+}
+
+/* ============================================
+   STAR RATING FIX FOR MOBILE
+   ============================================ */
+.rating-input .stars {
+    font-size: 1.8rem;
+    cursor: pointer;
+    display: flex;
+    gap: 5px;
+}
+
+.rating-input .stars i {
+    color: #ddd;
+    transition: all 0.2s ease;
+    cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.rating-input .stars i.active {
+    color: #FFD700;
+}
+
+/* Make stars more touch-friendly on mobile */
+@media (max-width: 768px) {
+    .rating-input .stars {
+        font-size: 1.5rem;
+        gap: 8px; /* More space between stars for mobile */
+    }
+    
+    .rating-input .stars i {
+        padding: 5px;
     }
 }
