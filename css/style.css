@@ -127,22 +127,15 @@ h1, h2, h3, h4, h5, h6 {
 
 /* Pagination Controls */
 .viewpager-controls {
+    margin-top: 5px !important;
+    padding-bottom: 10px;
+}
+
+.viewpager-dots {
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 12px;
-    margin-top: 20px;
-    padding: 10px 0;
-}
-
-.viewpager-dot {
-    width: 8px;
-    height: 8px;
-    border-radius: 50%;
-    background: #ccc;
-    border: none;
-    transition: 0.3s;
-    cursor: pointer;
+    min-width: 100px; /* Ensures arrows don't jump when numbers change */
 }
 
 .viewpager-dot.active {
@@ -299,6 +292,23 @@ h1, h2, h3, h4, h5, h6 {
     .review-text {
         font-size: 13px;
     }
+}
+
+.page-counter {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #555;
+    letter-spacing: 0.5px;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.page-counter .current {
+    color: var(--gold-dark); /* Highlight the current page in gold */
+    font-size: 1rem;
+}
+
+.page-counter .total {
+    color: #888;
 }
 
 @media (max-width: 576px) {
