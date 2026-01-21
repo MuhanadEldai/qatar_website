@@ -127,15 +127,18 @@ h1, h2, h3, h4, h5, h6 {
 
 /* Pagination Controls */
 .viewpager-controls {
+    display: flex;
+    justify-content: center; /* Horizontal center */
+    align-items: center;     /* Vertical center */
+    gap: 15px;
+    width: 100%;
     margin-top: 5px !important;
-    padding-bottom: 10px;
 }
 
 .viewpager-dots {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    min-width: 100px; /* Ensures arrows don't jump when numbers change */
+    min-width: 110px;        /* Fixes width so arrows stay symmetrical */
+    text-align: center;
+    display: inline-block;
 }
 
 .viewpager-dot.active {
@@ -144,17 +147,10 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .viewpager-nav {
-    background: var(--gold);
-    border: none;
-    width: 36px;
-    height: 36px;
-    border-radius: 50%;
-    cursor: pointer;
+    margin: 0 !important;    /* Removes any default browser margins */
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 14px;
-    color: #333;
 }
 
 .viewpager-counter {
